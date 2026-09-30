@@ -1,8 +1,8 @@
 {
-  "version": "0.7",
+  "version": "0.8-rc1",
   "date": "2026-09-30",
-  "scope": "P7_INTERACTION_INTEGRITY_ARCHIVE_UX",
-  "task_id": "SPFC_P7_INTERACTION_INTEGRITY_ARCHIVE_UX",
+  "scope": "P8_PUBLICATION_RELEASE_CANDIDATE",
+  "task_id": "SPFC_P8_PUBLICATION_RELEASE_CANDIDATE",
   "work_count": 18,
   "real_scan_works": 18,
   "agent_reviewed": 18,
@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "P7 archive interaction integrity is closed and deployed. Human Verification P2 remains paused. When explicitly started, 14 Agent-level works remain pending human confirmation against the printed book: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100.",
+  "next_action": "Pull current main, run validator, audit public copy/meta/accessibility/performance, deploy existing Vercel project, and production-QA v0.8-rc1. Preserve 18 works / 96 catalog / Human verified exact set {3,40,52,90}.",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "DEPLOYED",
+  "production_sync": "PENDING_P8_DEPLOY",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -248,7 +248,7 @@
   "catalog_text_only": 78,
   "colour_marked": 68,
   "colour_unmarked": 28,
-  "status_text_template": "v0.7 · 18件展览作品 · 96项全书目录 · 4/18 Human verified",
+  "status_text_template": "v0.8-rc1 · 18件展览作品 · 96项全书目录 · 4/18 Human verified",
   "v0_6_compatibility": {
     "work_count_18": true,
     "human_verified_4": true,
@@ -411,5 +411,20 @@
       100
     ],
     "pending_human_verification_count": 14
+  },
+  "p8": {
+    "publication_rc": true,
+    "content_model_unchanged": true,
+    "evidence_states_unchanged": true,
+    "human_verification_p2_started": false,
+    "fourth_image_batch_started": false,
+    "planned_checks": [
+      "editorial copy",
+      "SEO/social metadata",
+      "skip link",
+      "scan image alt/loading",
+      "rights/provenance note",
+      "desktop/mobile production QA"
+    ]
   }
 }
