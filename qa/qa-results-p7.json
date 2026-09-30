@@ -1,0 +1,279 @@
+{
+  "checks": [
+    {
+      "name": "desktop_archive_filter_all",
+      "status": "PASS",
+      "count": 96,
+      "expected": 96
+    },
+    {
+      "name": "desktop_archive_filter_selected",
+      "status": "PASS",
+      "count": 18,
+      "expected": 18
+    },
+    {
+      "name": "desktop_archive_filter_scanned",
+      "status": "PASS",
+      "count": 18,
+      "expected": 18
+    },
+    {
+      "name": "desktop_archive_filter_colour",
+      "status": "PASS",
+      "count": 68,
+      "expected": 68
+    },
+    {
+      "name": "desktop_selected_archive_buttons_count",
+      "status": "PASS",
+      "count": 18,
+      "expected": 18
+    },
+    {
+      "name": "desktop_total_archive_rows",
+      "status": "PASS",
+      "count": 96,
+      "expected": 96
+    },
+    {
+      "name": "desktop_text_only_divs_count",
+      "status": "PASS",
+      "divs": 78,
+      "buttons": 18
+    },
+    {
+      "name": "desktop_text_only_no_image_thumbnail",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_aria_label_p3",
+      "status": "PASS",
+      "aria_label": "打开展览作品：Pupils of a Rural Night School"
+    },
+    {
+      "name": "desktop_aria_label_p90",
+      "status": "PASS",
+      "aria_label": "打开展览作品：Mobile Medical Team"
+    },
+    {
+      "name": "desktop_aria_label_p100",
+      "status": "PASS",
+      "aria_label": "打开展览作品：Sunrise Lights the East"
+    },
+    {
+      "name": "desktop_archive_selected_open_p3",
+      "status": "PASS",
+      "page": 3
+    },
+    {
+      "name": "desktop_archive_selected_detail_title_p3",
+      "status": "PASS",
+      "title": "乡村夜校的学员"
+    },
+    {
+      "name": "desktop_focus_return_p3",
+      "status": "PASS",
+      "active": "<button type=\"button\" class=\"archive-row is-selected\" data-work=\"3\" aria-label=\""
+    },
+    {
+      "name": "desktop_archive_selected_open_p10",
+      "status": "PASS",
+      "page": 10
+    },
+    {
+      "name": "desktop_archive_selected_detail_title_p10",
+      "status": "PASS",
+      "title": "Welder"
+    },
+    {
+      "name": "desktop_focus_return_p10",
+      "status": "PASS",
+      "active": "<button type=\"button\" class=\"archive-row is-selected\" data-work=\"10\" aria-label="
+    },
+    {
+      "name": "desktop_archive_selected_open_p40",
+      "status": "PASS",
+      "page": 40
+    },
+    {
+      "name": "desktop_archive_selected_detail_title_p40",
+      "status": "PASS",
+      "title": "江都排灌站引水北送"
+    },
+    {
+      "name": "desktop_focus_return_p40",
+      "status": "PASS",
+      "active": "<button type=\"button\" class=\"archive-row is-selected\" data-work=\"40\" aria-label="
+    },
+    {
+      "name": "desktop_archive_selected_open_p90",
+      "status": "PASS",
+      "page": 90
+    },
+    {
+      "name": "desktop_archive_selected_detail_title_p90",
+      "status": "PASS",
+      "title": "巡回医疗队"
+    },
+    {
+      "name": "desktop_focus_return_p90",
+      "status": "PASS",
+      "active": "<button type=\"button\" class=\"archive-row is-selected\" data-work=\"90\" aria-label="
+    },
+    {
+      "name": "desktop_archive_selected_open_p100",
+      "status": "PASS",
+      "page": 100
+    },
+    {
+      "name": "desktop_archive_selected_detail_title_p100",
+      "status": "PASS",
+      "title": "朝晖染东方"
+    },
+    {
+      "name": "desktop_focus_return_p100",
+      "status": "PASS",
+      "active": "<button type=\"button\" class=\"archive-row is-selected\" data-work=\"100\" aria-label"
+    },
+    {
+      "name": "desktop_keyboard_enter_opens_detail",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_keyboard_space_opens_detail",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_esc_closes_detail",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_tabs_mouse_label",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_tabs_arrowright",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_tabs_arrowright_to_evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_tabs_arrowleft",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_tabs_home",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_tabs_end",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_wall_count_18",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_chapter_count_6",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_captions_toggle",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_sort_toggle",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_catalogue_present",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_p3_human_verified_evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_p40_human_verified_evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_p52_human_verified_evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_p90_human_verified_evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_p100_human_verification_pending",
+      "status": "PASS",
+      "hv_label": "Review statusAgent reviewedPage mappingAgent confirmedHuman verificationPendingPrinted creditChang Pao-an"
+    },
+    {
+      "name": "desktop_detail_dialog_present",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop_runtime_status_text_exact",
+      "status": "PASS",
+      "text": "v0.7 · 18件展览作品 · 96项全书目录 · 18/18 Agent reviewed · 4/18 Human verified"
+    },
+    {
+      "name": "desktop_no_horizontal_overflow",
+      "status": "PASS",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "name": "mobile_no_horizontal_overflow",
+      "status": "PASS",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "name": "mobile_archive_filter_all",
+      "status": "PASS",
+      "count": 96
+    },
+    {
+      "name": "mobile_archive_filter_selected",
+      "status": "PASS",
+      "count": 18
+    },
+    {
+      "name": "mobile_archive_filter_scanned",
+      "status": "PASS",
+      "count": 18
+    },
+    {
+      "name": "mobile_archive_filter_colour",
+      "status": "PASS",
+      "count": 68
+    },
+    {
+      "name": "mobile_selected_archive_click_p3",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile_detail_close_escape",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile_text_only_div_count_78_buttons_18",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile_runtime_status_text_exact",
+      "status": "PASS",
+      "text": "v0.7 · 18件展览作品 · 96项全书目录 · 18/18 Agent reviewed · 4/18 Human verified"
+    }
+  ],
+  "failed": [],
+  "console_errors": [],
+  "page_errors": [],
+  "asset_404s": []
+}
