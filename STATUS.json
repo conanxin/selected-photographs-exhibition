@@ -425,6 +425,10 @@
       "scan image alt/loading",
       "rights/provenance note",
       "desktop/mobile production QA"
-    ]
+    ],
+    "issue": 7,
+    "issue_url": "https://github.com/conanxin/selected-photographs-exhibition/issues/7",
+    "issue_status": "OPEN",
+    "source_head": "efe6bf6f2d8b8dc437be27f4d6afffa1bce8a1b2"
   }
 }
