@@ -382,6 +382,18 @@ def main():
         else:
             ok("archive/detail interaction uses shared showWork/data-work path (no stale openDetail)")
 
+    # 23b. P7 archive filter + button interaction invariants
+    if INDEX_FILE.exists():
+        html_text = INDEX_FILE.read_text(encoding="utf-8")
+        if "p.p.selected_for_exhibition" in html_text:
+            fail("archive selected filter still contains stale p.p.selected_for_exhibition typo")
+        else:
+            ok("archive selected filter uses p.selected_for_exhibition")
+        if 'type="button" class="archive-row ' in html_text and 'aria-label="打开展览作品：' in html_text:
+            ok("selected archive rows expose explicit button semantics and aria-label")
+        else:
+            fail("selected archive-row button semantics / aria-label missing")
+
     # 24. STATUS.json v0.7 catalog fields
     print("[24] Checking STATUS.json v0.7 catalog fields ...")
     if STATUS_FILE.exists():
