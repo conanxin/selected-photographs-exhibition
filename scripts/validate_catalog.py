@@ -397,6 +397,43 @@ def main():
         else:
             fail("selected archive-row button semantics / aria-label missing")
 
+    # 23c. P8 publication-release metadata / copy / image semantics
+    if INDEX_FILE.exists():
+        html_text = INDEX_FILE.read_text(encoding="utf-8")
+        required_meta = [
+            'meta name="description"',
+            'rel="canonical" href="https://selected-photographs-exhibition.vercel.app/"',
+            'property="og:title"',
+            'property="og:description"',
+            'property="og:url"',
+            'name="twitter:card"',
+        ]
+        missing_meta = [x for x in required_meta if x not in html_text]
+        if missing_meta:
+            fail(f"publication metadata missing: {missing_meta}")
+        else:
+            ok("publication metadata includes description/canonical/OpenGraph/Twitter summary")
+        if 'class="skip-link" href="#top"' in html_text and '<main id="top" tabindex="-1">' in html_text:
+            ok("skip link + focusable main target present")
+        else:
+            fail("skip link / focusable main target missing")
+        if 'loading="lazy" decoding="async"' in html_text:
+            ok("scan images use lazy loading + async decoding")
+        else:
+            fail("scan images missing lazy loading / async decoding")
+        if "当代策展草稿" in html_text or "完整候选书页" in html_text:
+            fail("stale prototype copy remains in public UI")
+        else:
+            ok("stale '策展草稿 / 完整候选书页' copy removed")
+        if "Internet Archive 提供扫描访问并不等于自动授予重用许可" in html_text and "MIT License 适用于代码与文档" in html_text:
+            ok("public rights/provenance note present")
+        else:
+            fail("public rights/provenance note missing")
+        if "v0.8-rc1" in html_text:
+            ok("public release candidate version v0.8-rc1 present")
+        else:
+            fail("public release candidate version v0.8-rc1 missing")
+
     # 24. STATUS.json v0.7 catalog fields
     print("[24] Checking STATUS.json v0.7 catalog fields ...")
     if STATUS_FILE.exists():
