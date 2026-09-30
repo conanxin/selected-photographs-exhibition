@@ -381,7 +381,7 @@
       "tabs_keyboard": "PASS (mouse, ArrowRight, ArrowLeft, Home, End)"
     },
     "issue_status": "CLOSED",
-    "issue_closed_at": null,
+    "issue_closed_at": "2026-09-30T10:07:18Z",
     "closeout_commit": "606a8efd7bb6e1dcc9ac6a02e2ca93117a3fabb2",
     "p6_invariants_preserved": {
       "work_count_18": true,
