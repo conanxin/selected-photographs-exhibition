@@ -1192,15 +1192,15 @@
   {
     "book_page": 90,
     "printed_title_en": "Mobile Medical Team",
-    "printed_credit": "Chou Chia-kue",
+    "printed_credit": "Chou Chia-kuo",
     "colour_marked_in_contents": true,
     "selected_for_exhibition": true,
     "work_page_ref": "works.json:Plate 90",
     "scan_asset_available": true,
     "review_status": "HUMAN_VERIFIED",
     "human_verified": true,
-    "catalog_credit_variant": "Chou Chia-kuo",
-    "notes": "Human verified (P1); credit variant: works='Chou Chia-kue', catalog='Chou Chia-kuo'",
+    "catalog_credit_variant": "Chou Chia-kue",
+    "notes": "Human verified (P1); printed credit='Chou Chia-kuo'; catalog/OCR variant='Chou Chia-kue'",
     "catalog_id": "SPFC-CAT-090"
   },
   {
