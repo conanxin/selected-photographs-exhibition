@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Pull P7 interaction fix, run validator, deploy existing Vercel project, and production-QA archive selected-row detail opening, focus return, keyboard activation, filters, mobile archive usability, and zero console/page errors. Human Verification P2 remains paused.",
+  "next_action": "Pull current main through the P7 source fixes, run validator, deploy existing Vercel project, and production-QA archive selected-row detail opening, selected/scanned/colour filters, focus return, keyboard activation, and mobile archive usability. Human Verification P2 remains paused.",
   "human_verified_pages": [
     3,
     40,
@@ -322,6 +322,12 @@
     "issue": "PENDING",
     "interaction_fix": "Removed redundant archive-record click listener that called undefined openDetail(); archive rows now rely on the existing delegated [data-work] -> showWork(page, trigger) path.",
     "human_verification_p2_started": false,
-    "fourth_image_batch_started": false
+    "fourth_image_batch_started": false,
+    "issue_url": "https://github.com/conanxin/selected-photographs-exhibition/issues/6",
+    "source_fixes": [
+      "Removed redundant archive click handler calling undefined openDetail(); shared delegated [data-work] -> showWork path is canonical.",
+      "Fixed archive selected filter typo p.p.selected_for_exhibition -> p.selected_for_exhibition.",
+      "Added type=button + aria-label to selected archive rows."
+    ]
   }
 }
