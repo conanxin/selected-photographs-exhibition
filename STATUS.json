@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Pull current main through the P7 source fixes, run validator, deploy existing Vercel project, and production-QA archive selected-row detail opening, selected/scanned/colour filters, focus return, keyboard activation, and mobile archive usability. Human Verification P2 remains paused.",
+  "next_action": "P7 archive interaction integrity closed and deployed. Production live at https://selected-photographs-exhibition.vercel.app (deployment dpl_6pZkySQfwpi1ePqVFN6FZn9z9r9i, build ejt6ki5d5). Human Verification P2 remains paused. Future: begin Human Verification P2 (separate task) — 13 Agent-level works pending human confirmation against a physical 1977 printing: p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100 (p.52 already Human verified from P1).",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "PENDING_P7_DEPLOY",
+  "production_sync": "DEPLOYED",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -320,16 +320,79 @@
   },
   "p7": {
     "issue": 6,
-    "interaction_fix": "Removed redundant archive-record click listener that called undefined openDetail(); archive rows now rely on the existing delegated [data-work] -> showWork(page, trigger) path.",
+    "issue_url": "https://github.com/conanxin/selected-photographs-exhibition/issues/6",
+    "interaction_fix": "Removed redundant archive-record click listener that called undefined openDetail(); archive rows now rely on the existing delegated [data-work] -> showWork(page, trigger) path. Archive selected filter fixed (p.p.selected_for_exhibition -> p.selected_for_exhibition). Selected archive rows now expose explicit <button type=\"button\"> semantics with aria-label=\"...\"; text-only rows remain <div> and are not clickable.",
     "human_verification_p2_started": false,
     "fourth_image_batch_started": false,
-    "issue_url": "https://github.com/conanxin/selected-photographs-exhibition/issues/6",
     "source_fixes": [
       "Removed redundant archive click handler calling undefined openDetail(); shared delegated [data-work] -> showWork path is canonical.",
       "Fixed archive selected filter typo p.p.selected_for_exhibition -> p.selected_for_exhibition.",
       "Added type=button + aria-label to selected archive rows."
     ],
-    "issue_status": "OPEN",
-    "source_head": "b1a399950cfd933474cd114f3718311117b3837b"
+    "source_head": "b1a399950cfd933474cd114f3718311117b3837b",
+    "production_sync": "DEPLOYED",
+    "production_url": "https://selected-photographs-exhibition.vercel.app",
+    "production_build_hash": "ejt6ki5d5",
+    "production_deployment_id": "dpl_6pZkySQfwpi1ePqVFN6FZn9z9r9i",
+    "production_deployed_at": "2026-09-30T10:02:31Z",
+    "production_aliased_at": "2026-09-30T10:02:43Z",
+    "validator": {
+      "checks_total": 140,
+      "checks_passed": 140,
+      "errors": 0,
+      "warnings": 0,
+      "scope_variants_accepted": [
+        "P7_INTERACTION_INTEGRITY_ARCHIVE_UX",
+        "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX"
+      ]
+    },
+    "production_qa": {
+      "desktop_1440x1000": {
+        "passed": 48,
+        "failed": 0
+      },
+      "mobile_390x844": {
+        "passed": 9,
+        "failed": 0
+      },
+      "total": {
+        "passed": 57,
+        "failed": 0
+      },
+      "console_errors": 0,
+      "page_errors": 0,
+      "asset_404s": 0,
+      "qa_script": "/tmp/spfc_p7_qa.py"
+    },
+    "archive_filter_counts": {
+      "all": 96,
+      "selected": 18,
+      "scanned": 18,
+      "colour": 68
+    },
+    "archive_interaction": {
+      "selected_rows_are_buttons": true,
+      "text_only_rows_are_divs": true,
+      "no_openDetail_references": true,
+      "shared_showWork_path": true,
+      "focus_return_on_close": "PASS (p.3, p.10, p.40, p.90, p.100)",
+      "keyboard_activation": "PASS (Enter, Space)",
+      "esc_close": "PASS",
+      "tabs_keyboard": "PASS (mouse, ArrowRight, ArrowLeft, Home, End)"
+    },
+    "issue_status": "CLOSED",
+    "issue_closed_at": null,
+    "closeout_commit": "606a8efd7bb6e1dcc9ac6a02e2ca93117a3fabb2",
+    "p6_invariants_preserved": {
+      "work_count_18": true,
+      "human_verified_4": true,
+      "agent_reviewed_18": true,
+      "chapter_count_6": true,
+      "catalog_count_96": true,
+      "catalog_selected_18": true,
+      "catalog_text_only_78": true,
+      "colour_marked_68": true,
+      "colour_unmarked_28": true
+    }
   }
 }
