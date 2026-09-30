@@ -276,9 +276,8 @@ def main():
             ok("STATUS.json chapter_count = 6")
         else:
             fail(f"STATUS.json chapter_count = {status.get('chapter_count')!r} (expected 6)")
-        # P7 spec §18: scope must reflect current task (P7_INTERACTION_INTEGRITY_ARCHIVE_UX);
-        # legacy P6 scope is also accepted for backwards compatibility with already-merged P6 history.
-        accepted_scopes = {"P7_INTERACTION_INTEGRITY_ARCHIVE_UX", "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX"}
+        # Current task is P8 publication RC; P7/P6 remain accepted for historical compatibility.
+        accepted_scopes = {"P8_PUBLICATION_RELEASE_CANDIDATE", "P7_INTERACTION_INTEGRITY_ARCHIVE_UX", "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX"}
         if status.get("scope") in accepted_scopes:
             ok(f"STATUS.json scope = {status.get('scope')!r}")
         else:
@@ -434,18 +433,18 @@ def main():
         else:
             fail("public release candidate version v0.8-rc1 missing")
 
-    # 24. STATUS.json v0.7 catalog fields
-    print("[24] Checking STATUS.json v0.7 catalog fields ...")
+    # 24. STATUS.json publication/catalog fields
+    print("[24] Checking STATUS.json publication/catalog fields ...")
     if STATUS_FILE.exists():
         try:
             status = json.loads(STATUS_FILE.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             status = {}
         v = status.get("version")
-        if v == "0.7":
-            ok("STATUS.json version = 0.7")
+        if v == "0.8-rc1":
+            ok("STATUS.json version = 0.8-rc1")
         else:
-            fail(f"STATUS.json version = {v!r} (expected '0.7')")
+            fail(f"STATUS.json version = {v!r} (expected '0.8-rc1')")
         if status.get("catalog_count") == 96:
             ok("STATUS.json catalog_count = 96")
         else:
