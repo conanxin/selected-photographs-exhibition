@@ -1,5 +1,9 @@
 # Human Verification Pack — 2026-09-30
 
+## P1 result
+
+**User decision received in ChatGPT on 2026-09-30: CONFIRM for all four priority works.** The canonical catalog may therefore upgrade p.3, p.40–41, p.52 and p.90 to `HUMAN_VERIFIED`. This records the user's explicit confirmation of the provided evidence pack; it does not add any claim about unknown capture dates or photographer Chinese-character names.
+
 This pack is the next-step evidence package for **your** human-eye verification of four priority works. The Agent (this OpenClaw session) has done its honest best: tesseract OCR has confirmed every printed credit in these scans, and the credit metadata has been migrated into `works.json` with full transparency. This pack is the bridge from Agent-reached review to Human verification.
 
 **Discipline:** the four crops below are **only** crop+resize+stitch operations on the original `assets/leaf-*.jpg` files. No AI upscaling, no generation, no redraw, no OCR replacement. They are non-generative evidence images. Each shows the caption strip of the leaf so a human can confirm printed page number, printed title, printed credit, and visual extent.
@@ -31,7 +35,7 @@ The Agent will **never** fill this in. Only you (the human with a physical 1977 
 | `current_review_status` | `AGENT_VISUALLY_REVIEWED` |
 | `current_credit_status` | `PRINT_VISIBLE_AGENT_READ` |
 | `current_human_verified` | `false` |
-| `USER_DECISION` | _— pending —_ |
+| `USER_DECISION` | **CONFIRM — user, 2026-09-30** |
 | _If REJECT or NEEDS_MORE_EVIDENCE, please note what specifically is wrong or missing (printed credit spelling? page number? caption text? photo subject?)_ | |
 
 ---
@@ -51,7 +55,7 @@ The Agent will **never** fill this in. Only you (the human with a physical 1977 
 | `current_review_status` | `AGENT_VISUALLY_REVIEWED` |
 | `current_credit_status` | `PRINT_VISIBLE_AGENT_READ` |
 | `current_human_verified` | `false` |
-| `USER_DECISION` | _— pending —_ |
+| `USER_DECISION` | **CONFIRM — user, 2026-09-30** |
 | _Please note: confirm that p.40-41 is correctly treated as a spread (not two separate works), and that the credit Jen Chen-pei matches printed credit. If a physical copy shows different, please give the printed text verbatim._ | |
 
 ---
@@ -71,7 +75,7 @@ The Agent will **never** fill this in. Only you (the human with a physical 1977 
 | `current_review_status` | `AGENT_VISUALLY_REVIEWED` |
 | `current_credit_status` | `PRINT_VISIBLE_AGENT_READ` |
 | `current_human_verified` | `false` |
-| `USER_DECISION` | _— pending —_ |
+| `USER_DECISION` | **CONFIRM — user, 2026-09-30** |
 | _If REJECT or NEEDS_MORE_EVIDENCE, please note what specifically (e.g. is the printed credit actually "Chiang Chen" with the older spelling in your printing? Is the page number visible on the leaf in your copy?)_ | |
 
 ---
@@ -91,15 +95,15 @@ The Agent will **never** fill this in. Only you (the human with a physical 1977 
 | `current_review_status` | `AGENT_VISUALLY_REVIEWED` |
 | `current_credit_status` | `PRINT_VISIBLE_AGENT_READ` |
 | `current_human_verified` | `false` |
-| `USER_DECISION` | _— pending —_ |
+| `USER_DECISION` | **CONFIRM — user, 2026-09-30** |
 | _If REJECT or NEEDS_MORE_EVIDENCE, please note what specifically (printed credit spelling? Chinese-character sign on table? page number?)_ | |
 
 ---
 
-## After you fill in USER_DECISION
+## Applied result
 
-Please update `works.json` for each confirmed work by setting `human_verified: true` AND `mapping_status: HUMAN_VERIFIED` AND `review_status: HUMAN_VERIFIED`. For rejected works, please leave `human_verified: false` and add a note about what was wrong so the next session can re-investigate. For NEEDS_MORE_EVIDENCE, please specify what additional evidence would help.
+The four CONFIRM decisions have been applied to `works.json`: `human_verified: true`, `mapping_status: HUMAN_VERIFIED`, `review_status: HUMAN_VERIFIED`, and `credit_status: HUMAN_VERIFIED` for p.3, p.40–41, p.52 and p.90. Other works remain at their prior evidence states.
 
 If you have a physical 1977 printing of the book and can confirm any of the other 8 works (p.2, p.6, p.38, p.39, p.83, p.87, p.98, p.100), those are also welcome — but the four above are the priority set for this verification round.
 
-The Agent is **not** authorized to fill in `USER_DECISION`. It will wait for you.
+The Agent did not originate these decisions; they were supplied explicitly by the user. Future works still require a new explicit human decision before any `HUMAN_VERIFIED` upgrade.
