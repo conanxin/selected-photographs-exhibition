@@ -1,0 +1,88 @@
+{
+  "task_id": "SPFC_P8_PUBLICATION_RELEASE_CANDIDATE",
+  "version": "0.8-rc1",
+  "result": "PASS",
+  "production_url": "https://selected-photographs-exhibition.vercel.app",
+  "production_verified_commit": "b570461d57abdfab119c833244f5bc7c5070038d",
+  "vercel_git_status": {
+    "context": "Vercel",
+    "state": "success",
+    "deployment_ref": "H8YaFKmAsFvbFtcnMCXckFrgLvB5",
+    "target_url": "https://vercel.com/conanxins-projects/selected-photographs-exhibition/H8YaFKmAsFvbFtcnMCXckFrgLvB5"
+  },
+  "runner": "Remote Desktop Commander DESKTOP-3A8N7VN + headless Chromium/Puppeteer",
+  "validator": {
+    "passed": 152,
+    "errors": 0,
+    "warnings": 0
+  },
+  "browser_qa": {
+    "passed": 42,
+    "failed": 0,
+    "desktop_viewport": "1440x1000",
+    "mobile_viewport": "390x844"
+  },
+  "publication": {
+    "runtime_status_exact": true,
+    "title": true,
+    "meta_description": true,
+    "canonical": true,
+    "open_graph": true,
+    "twitter_meta": true,
+    "skip_link_focus": true,
+    "skip_link_target_focus": true,
+    "rights_provenance": true
+  },
+  "images": {
+    "count": 18,
+    "alt": true,
+    "lazy": true,
+    "async_decoding": true
+  },
+  "structure": {
+    "walls": 18,
+    "exhibition_records": 18,
+    "chapters": 6,
+    "archive_rows": 96,
+    "selected_rows": 18,
+    "text_only_rows": 78
+  },
+  "filters": {
+    "all": 96,
+    "selected": 18,
+    "scanned": 18,
+    "colour": 68
+  },
+  "interaction": {
+    "selected_detail_open": true,
+    "focus_return": true,
+    "enter": true,
+    "space": true,
+    "esc_close": true,
+    "tabs_keyboard": true
+  },
+  "evidence": {
+    "human_verified_pages": [
+      3,
+      40,
+      52,
+      90
+    ],
+    "p90_human": true,
+    "p100_pending": true
+  },
+  "layout": {
+    "desktop_horizontal_overflow": false,
+    "mobile_horizontal_overflow": false
+  },
+  "errors": {
+    "console": 0,
+    "page": 0,
+    "asset_404": 0
+  },
+  "notes": [
+    "Initial Git deployment exposed a stale 12-work assets/assets.js; fixed by regenerating it from canonical ingest-receipt.json v0.4 (18/18).",
+    "A missing favicon caused the only initial 404/console error; fixed with a data-URI favicon.",
+    "Human Verification P2 was not started and no evidence-state was changed."
+  ]
+}
