@@ -244,8 +244,8 @@ Three rules:
 
 ## 12. Roadmap
 
-- **Continue Human Verification.** P1 confirmed p.3, p.40–41, p.52 and p.90. The next verification round should prioritize works that still have `AUTO_CANDIDATE` mapping (p.2, p.6, p.98) and then the remaining agent-confirmed works.
-- **Third batch (six more works).** Not started. The same agent-review → human-confirm discipline applies.
+- **Human Verification P2 remains paused.** P1 confirmed p.3, p.40–41, p.52 and p.90. Fourteen works remain Agent-level: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98 and p.100.
+- **Third batch completed in P5.** p.10, p.18, p.23, p.54, p.59 and p.79 are live as real scans and remain Agent-level; P8 does not promote any of them to Human verified.
 - **Photographer Chinese-character names.** Higher-resolution scans or human access to a physical copy of the 1977 printing are required. Will be added to a new `author_zh` field in `works.json`, leaving `author` (the printed romanization) unchanged.
 - **p.100.** Agent evidence resolves p.100 to leaf106 / `Sunrise Lights the East` / Chang Pao-an, but it is not yet human-verified. A future human-verification round may upgrade it.
 - **Notion sync.** A companion Notion tree at <https://app.notion.com/p/3e834a28189a812d9763d3e2855ac8b8> holds the research log; an "OpenClaw takeover" sub-page at <https://app.notion.com/p/3eb34a28189a81499c80d553688c6a29> tracks each release. Notion write happens by hand, not from this repo.
