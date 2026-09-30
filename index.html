@@ -143,14 +143,14 @@ function archiveRow(p){
   else{stateCls='ar-text';stateText='仅文本档案';}
   const titleHtml='<div class="ar-title">'+esc(p.printed_title_en)+'<span class="ar-en">'+esc(p.printed_title_en)+'</span></div>';
   const body='<div class="ar-page">'+pageStr+'</div>'+titleHtml+'<div class="ar-credit">'+creditHtml+'</div>'+colMark+'<div class="ar-state"><span class="'+stateCls+'">'+stateText+'</span></div>';
-  if(p.selected_for_exhibition){return '<button class="archive-row '+cls+'" data-work="'+p.book_page+'">'+body+'</button>';}
+  if(p.selected_for_exhibition){return '<button type="button" class="archive-row '+cls+'" data-work="'+p.book_page+'" aria-label="打开展览作品：'+esc(p.printed_title_en)+'">'+body+'</button>';}
   return '<div class="archive-row '+cls+'">'+body+'</div>';
 }
 let archiveFilter='all';
 function renderArchive(){
   const cat=JSON.parse(document.getElementById('catalog-data').textContent);
   let rows=cat;
-  if(archiveFilter==='selected')rows=rows.filter(p=>p.p.selected_for_exhibition);
+  if(archiveFilter==='selected')rows=rows.filter(p=>p.selected_for_exhibition);
   else if(archiveFilter==='scanned')rows=rows.filter(p=>p.scan_asset_available);
   else if(archiveFilter==='colour')rows=rows.filter(p=>p.colour_marked_in_contents);
   document.getElementById('archive-records').innerHTML=rows.map(archiveRow).join('');
