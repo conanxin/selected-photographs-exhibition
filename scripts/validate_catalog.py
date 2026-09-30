@@ -354,7 +354,7 @@ def main():
         var_specs = {
             3:  ('Chou Chun-yen', 'Chou Chun-jen'),
             52: ('Chang Chen',    'Chiang Chen'),
-            90: ('Chou Chia-kue', 'Chou Chia-kuo'),
+            90: ('Chou Chia-kuo', 'Chou Chia-kue'),
         }
         var_ok = True
         var_pages = sorted([c.get("book_page") for c in cat if c.get("catalog_credit_variant")])
