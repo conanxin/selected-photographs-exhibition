@@ -1,8 +1,8 @@
 {
   "version": "0.7",
   "date": "2026-09-30",
-  "scope": "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX",
-  "task_id": "SPFC_P6_CURATORIAL_ARCHIVE_INDEX",
+  "scope": "P7_INTERACTION_INTEGRITY_ARCHIVE_UX",
+  "task_id": "SPFC_P7_INTERACTION_INTEGRITY_ARCHIVE_UX",
   "work_count": 18,
   "real_scan_works": 18,
   "agent_reviewed": 18,
@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Human Verification P2 remains paused. When explicitly started, 14 Agent-level works remain pending human confirmation: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100. P6.1 p.90 correction is deployed and Issue #5 is closed.",
+  "next_action": "Pull P7 interaction fix, run validator, deploy existing Vercel project, and production-QA archive selected-row detail opening, focus return, keyboard activation, filters, mobile archive usability, and zero console/page errors. Human Verification P2 remains paused.",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "DEPLOYED",
+  "production_sync": "PENDING_P7_DEPLOY",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -317,5 +317,11 @@
     },
     "issue_5_status": "CLOSED",
     "latest_closeout_commit": "735b827953e0aabec2dcf6a730c30af161a4e5d8"
+  },
+  "p7": {
+    "issue": "PENDING",
+    "interaction_fix": "Removed redundant archive-record click listener that called undefined openDetail(); archive rows now rely on the existing delegated [data-work] -> showWork(page, trigger) path.",
+    "human_verification_p2_started": false,
+    "fourth_image_batch_started": false
   }
 }
