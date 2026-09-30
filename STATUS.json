@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "P7 archive interaction integrity closed and deployed. Production live at https://selected-photographs-exhibition.vercel.app (deployment dpl_6pZkySQfwpi1ePqVFN6FZn9z9r9i, build ejt6ki5d5). Human Verification P2 remains paused. Future: begin Human Verification P2 (separate task) — 13 Agent-level works pending human confirmation against a physical 1977 printing: p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100 (p.52 already Human verified from P1).",
+  "next_action": "P7 archive interaction integrity is closed and deployed. Human Verification P2 remains paused. When explicitly started, 14 Agent-level works remain pending human confirmation against the printed book: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100.",
   "human_verified_pages": [
     3,
     40,
@@ -393,6 +393,23 @@
       "catalog_text_only_78": true,
       "colour_marked_68": true,
       "colour_unmarked_28": true
-    }
+    },
+    "pending_human_verification_pages": [
+      2,
+      6,
+      10,
+      18,
+      23,
+      38,
+      39,
+      54,
+      59,
+      79,
+      83,
+      87,
+      98,
+      100
+    ],
+    "pending_human_verification_count": 14
   }
 }
