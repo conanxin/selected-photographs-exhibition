@@ -374,6 +374,14 @@ def main():
         if var_ok:
             ok("§7 credit variants preserved on p.3/p.52/p.90")
 
+    # 23a. Archive/detail interaction integrity: no stale openDetail() call
+    if INDEX_FILE.exists():
+        html_text = INDEX_FILE.read_text(encoding="utf-8")
+        if "openDetail(" in html_text:
+            fail("index.html still contains stale openDetail() call; archive rows must use shared showWork/data-work path")
+        else:
+            ok("archive/detail interaction uses shared showWork/data-work path (no stale openDetail)")
+
     # 24. STATUS.json v0.7 catalog fields
     print("[24] Checking STATUS.json v0.7 catalog fields ...")
     if STATUS_FILE.exists():
