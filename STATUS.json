@@ -124,7 +124,7 @@
       "note": "Initial ingest; 0 real scan images in release; placeholder UI; ingest-receipt mixed technical+research. SUPERSEDED by v0.3/v0.4."
     }
   },
-  "next_action": "Deploy current main to existing Vercel project, re-run production QA, then sync Notion. Remaining 8 works stay non-human-verified; third batch not started.",
+  "next_action": "Open https://github.com/conanxin/selected-photographs-exhibition/issues/2 for acceptance comment + close. Paste NOTION-09-UPDATE.md into Notion P4 page when API access available. Human Verification Pack is ready in verification/; awaiting your eye on remaining 8 works.",
   "human_verified_pages": [
     3,
     40,
@@ -132,5 +132,5 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30.",
-  "production_sync": "PENDING_REDEPLOY_AFTER_P4_COMMIT"
+  "production_sync": "DEPLOYED"
 }

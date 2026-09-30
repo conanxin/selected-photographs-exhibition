@@ -1,84 +1,422 @@
 {
-  "version": "v0.3.1-OSS-HANDOFF",
-  "deploy_time_utc": "2026-09-30T04:09:43Z",
-  "deploy_time_local_gmt8": "2026-09-30 12:09:43 GMT+8",
-  "production_url": "https://selected-photographs-exhibition.vercel.app",
-  "production_url_verified": "https://selected-photographs-exhibition.vercel.app",
-  "deployment_id": "BvsuhNcZyhmcUBXudNKRGfrVYKAY",
-  "deployment_inspect_url": "https://vercel.com/conanxins-projects/selected-photographs-exhibition/BvsuhNcZyhmcUBXudNKRGfrVYKAY",
-  "deployment_temporary_url": "https://selected-photographs-exhibition-qsvbuiqxa-conanxins-projects.vercel.app",
-  "build_status": "READY",
-  "build_duration_seconds": 13,
-  "vercel_cli_version": "61.1.0",
-  "node_version": "24.20.0",
-  "vercel_scope": "conanxins-projects",
-  "vercel_team_id": "team_nBTjHjKklepGR7zRbJQUrtKs",
-  "vercel_project_id": "prj_2JjVAIosYIxuYloFeANfV6OsEEIy",
-  "vercel_project_name": "selected-photographs-exhibition",
-  "github_repo": "https://github.com/conanxin/selected-photographs-exhibition",
-  "github_visibility": "PUBLIC",
-  "github_license": "MIT",
-  "github_default_branch": "main",
-  "commit_sha": "e53552860230cd7beb603b938096b163a15ea233",
-  "commit_sha_short": "e535528",
-  "commit_message": "chore: open source Selected Photographs exhibition",
-  "commit_author": "Xin Conan <conanxin@users.noreply.github.com>",
-  "commit_timestamp_utc": "2026-09-30T04:03:48Z",
-  "asset_count_committed": 22,
-  "asset_count_work_leaves": 12,
-  "asset_count_evidence_leaves": 8,
-  "asset_count_shared_verso_pages": 2,
-  "asset_count_assets_js": 1,
-  "work_count": 12,
-  "work_count_batch1": 6,
-  "work_count_batch2": 6,
-  "work_count_human_verified": 0,
-  "work_count_agent_reviewed": 12,
-  "work_count_batch2_mappings_accepted": 5,
-  "work_count_batch2_mappings_unreliable": 1,
-  "work_pages_batch1": [3, 38, 39, 40, 52, 90],
-  "work_pages_batch2": [2, 6, 83, 87, 98, 100],
-  "ui_qa_desktop": "PASS",
-  "ui_qa_mobile": "PASS",
-  "ui_qa_viewport_desktop": "1440x1000",
-  "ui_qa_viewport_mobile": "390x844",
-  "ui_qa_console_messages": 0,
-  "ui_qa_page_errors": 0,
-  "ui_qa_asset_404s": 0,
-  "ui_qa_mobile_horizontal_overflow": false,
-  "ui_qa_artifact_count": 11,
-  "ui_qa_receipt_path": "/home/conanxin/spfc-qa/ui-qa-receipt.md",
-  "source_root": "/mnt/d/CodexData/spfc-exhibition",
-  "publish_dir": "/home/conanxin/spfc-public-release/selected-photographs-exhibition",
-  "pre_open_source_state": "v0.2 (placeholder, 6 batch-1 works deployed at 2026-09-27); v0.3 ingest was completed locally on 2026-09-28 but the v0.3 deploy was BLOCKED on Vercel login",
-  "post_open_source_state": "v0.3.1-OSS-HANDOFF (12 works deployed, MIT-licensed, public GitHub)",
-  "open_source_handoff_tasks_done": [
-    "A: identified canonical source as /mnt/d/CodexData/spfc-exhibition (production source + latest receipts + latest real images)",
-    "B: created public GitHub repo conanxin/selected-photographs-exhibition with MIT license, comprehensive 11-section README, push of baseline commit e535528",
-    "C: production UI QA via Playwright + Chromium on 1440x1000 and 390x844, found v0.2 vs v0.3 deployment/source mismatch (now closed by Phase E)",
-    "D: confirmed second batch (p.2, p.6, p.83, p.87, p.98, p.100) was already in canonical source via works.json + second-batch-visual-review.md (5/6 mappings accepted, p.100 leaf-106 mapping flagged UNRELIABLE)",
-    "E: deployed canonical source to existing Vercel project selected-photographs-exhibition under scope conanxins-projects, no new Vercel project created"
-  ],
-  "open_source_handoff_pending": [
-    "F: Notion sync to existing 07 page (https://app.notion.com/p/3eb34a28189a81499c80d553688c6a29) — pending Notion write capability confirmation; if no write access, NOTION-07-UPDATE.md will be generated as a local draft"
-  ],
-  "blocked_items": [],
-  "anomalies": [
-    "Originally deployed v0.2 still had '本地已读取 0/6 张候选书页' as the static HTML placeholder before JS hydration; after this Phase E deploy, the deployed bytes match the source (34836) and JS will render ${count}/${works.length} as 12/12 on hydration. The placeholder static text is intentional (no JS = honest framing of what is loaded without help) and is not a regression.",
-    "p.100 leaf-106 mapping remains UNRELIABLE per agent visual review (2026-09-28); the works.json entry is kept with page_mapping_confirmed: false. Not counted in the 5/6 accepted batch-2 mappings."
-  ],
-  "verification_receipt": {
+  "version": "1.3",
+  "task_id": "SPFC_P4_HUMAN_VERIFICATION_P1_CLOSEOUT",
+  "schema_migration": {
+    "date": "2026-09-30",
+    "migrated_from": "page_mapping_confirmed (single boolean)",
+    "migrated_to": [
+      "mapping_status",
+      "review_status",
+      "human_verified",
+      "credit_status",
+      "catalog_credit_variant",
+      "author"
+    ],
+    "page_mapping_confirmed_status": "REMOVED from works.json (deprecated); research layer split from ingest-receipt.json",
+    "validator_added": "scripts/validate_catalog.py (14 checks, 58 sub-checks, PASS 2026-09-30)"
+  },
+  "deployment": {
+    "vercel_cli_version": "59.16.0",
+    "node_version": "24.20.0",
+    "vercel_team_scope": "conanxins-projects",
+    "vercel_team_id": "team_nBTjHjKklepGR7zRbJQUrtKs",
+    "vercel_project_id": "prj_2JjVAIosYIxuYloFeANfV6OsEEIy",
+    "vercel_project_name": "selected-photographs-exhibition",
+    "new_vercel_project_created": false,
+    "deployment_id": "dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev",
+    "deployment_url": "https://selected-photographs-exhibition-gc3e2owyo-conanxins-projects.vercel.app",
+    "production_url": "https://selected-photographs-exhibition.vercel.app",
+    "aliased": true,
+    "ready_in_seconds": 16,
+    "build_status": "Ready",
+    "created_at": "Wed Sep 30 2026 13:57:21 GMT+0800",
+    "previous_deployment_ids": [
+      "dpl_5A874myYKWCFqyjwzSQEAcEXMqFd (v0.4 post-patch, 57a1f6c + 9792747, 12 works, retired)",
+      "N3tfMsy47CstPqP3duuxcLkehGqs (v0.4 schema migration initial, 57a1f6c, retired)",
+      "BvsuhNcZyhmcUBXudNKRGfrVYKAY (v0.3, 5bdc661, 12 works, retired)"
+    ],
+    "production_aliases": [
+      "https://selected-photographs-exhibition.vercel.app",
+      "https://selected-photographs-exhibition-conanxins-projects.vercel.app"
+    ]
+  },
+  "git": {
+    "repo": "https://github.com/conanxin/selected-photographs-exhibition",
+    "visibility": "PUBLIC",
+    "license": "MIT",
+    "default_branch": "main",
+    "open_source_commit": "e535528",
+    "v0_3_commit": "5bdc661",
+    "v0_4_commit": "57a1f6c",
+    "open_source_pushed_at": "2026-09-30T03:12:07+08:00",
+    "v0_4_pushed_at": "2026-09-30T13:01:25+08:00",
+    "local_head": "3d05721",
+    "origin_head": "3d05721",
+    "v0_4_diff": "12 files changed, 679 insertions(+), 354 deletions(-)",
+    "v0_4_post_patch_commit": "9792747",
+    "v0_5_commit": "3d05721",
+    "v0_5_pushed_at": "2026-09-30T13:55:00+08:00",
+    "v0_5_diff": "7 files changed, 392 insertions(+), 261 deletions(-)",
+    "commits_in_session": [
+      "518ca54 feat: apply Human Verification P1 to four works",
+      "ab7cbf4 fix: render human verification states in exhibition UI",
+      "063167e docs: update canonical status for Human Verification P1",
+      "724c5f2 docs: record user decisions in verification pack",
+      "3dded51 docs: update human verification completion",
+      "624d09c test: validate Human Verification P1 invariants",
+      "3d05721 docs: add Human Verification P1 result log"
+    ]
+  },
+  "production_verification": {
     "anonymous_http_status": 200,
-    "production_url_bytes": 34836,
-    "source_url_bytes": 34836,
-    "leaf_assets_http_sample": {
-      "leaf-0008.jpg": 200,
-      "leaf-0009.jpg": 200,
-      "leaf-0012.jpg": 200,
-      "leaf-0044.jpg": 200,
-      "leaf-0046.jpg": 200,
-      "leaf-0089.jpg": 200
+    "production_index_html_bytes": 42107,
+    "source_index_html_bytes": 42107,
+    "byte_for_byte_match": true,
+    "content_checks": [
+      "v0.5",
+      "12件真实作品",
+      "被选择的中国",
+      "4/12 Human verified",
+      "12/12 Agent reviewed",
+      "p.3 Human verified",
+      "p.40-41 Human verified",
+      "p.52 Human verified",
+      "p.90 Human verified",
+      "p.100 Agent confirmed (NOT promoted)",
+      "Chou Chun-yen",
+      "Jen Chen-pei",
+      "Chang Chen",
+      "Chou Chia-kuo",
+      "Liu Li-pin",
+      "Chang Ya-yi",
+      "Ma Hou-yi",
+      "Cheng Chen-sun",
+      "Tseng Lei",
+      "Cha Le",
+      "Shen Yen-tai",
+      "Chang Pao-an"
+    ],
+    "sha256": "290d4e4eb7159b43106f03006ff20189eb9780f915b0af511578e846391f7340"
+  },
+  "ui_qa": {
+    "status": "PASS",
+    "engine": "Chromium 1228 via Playwright 1.58.0",
+    "target_url": "https://selected-photographs-exhibition.vercel.app",
+    "viewports": [
+      {
+        "name": "desktop",
+        "size": [
+          1440,
+          1000
+        ]
+      },
+      {
+        "name": "mobile",
+        "size": [
+          390,
+          844
+        ]
+      }
+    ],
+    "desktop": {
+      "title": "Selected Photographs from China — 被选择的中国",
+      "wall_buttons_count": 12,
+      "record_buttons_count": 12,
+      "all_4_human_verified_pass": true,
+      "all_8_not_human_verified_pass": true,
+      "tabs_test_pass": true,
+      "dialog_close_test_pass": true,
+      "sort_toggle_test_pass": true,
+      "captions_toggle_test_pass": true,
+      "evidence_state_for_4_verified": {
+        "p.3": {
+          "review_status": "Human verified",
+          "page_mapping": "Human verified",
+          "human_verification": "Verified",
+          "printed_credit": "Chou Chun-yen",
+          "data_ev_all": "HUMAN"
+        },
+        "p.40-41": {
+          "review_status": "Human verified",
+          "page_mapping": "Human verified",
+          "human_verification": "Verified",
+          "printed_credit": "Jen Chen-pei",
+          "data_ev_all": "HUMAN"
+        },
+        "p.52": {
+          "review_status": "Human verified",
+          "page_mapping": "Human verified",
+          "human_verification": "Verified",
+          "printed_credit": "Chang Chen",
+          "data_ev_all": "HUMAN"
+        },
+        "p.90": {
+          "review_status": "Human verified",
+          "page_mapping": "Human verified",
+          "human_verification": "Verified",
+          "printed_credit": "Chou Chia-kuo",
+          "data_ev_all": "HUMAN"
+        }
+      },
+      "evidence_state_for_8_not_verified": {
+        "p.2": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Auto candidate",
+          "human_verification": "Pending",
+          "printed_credit": "Liu Li-pin",
+          "data_ev_hv": "PENDING"
+        },
+        "p.6": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Auto candidate",
+          "human_verification": "Pending",
+          "printed_credit": "Chang Ya-yi",
+          "data_ev_hv": "PENDING"
+        },
+        "p.38": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Agent confirmed",
+          "human_verification": "Pending",
+          "printed_credit": "Ma Hou-yi",
+          "data_ev_hv": "PENDING"
+        },
+        "p.39": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Agent confirmed",
+          "human_verification": "Pending",
+          "printed_credit": "Cheng Chen-sun",
+          "data_ev_hv": "PENDING"
+        },
+        "p.83": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Agent confirmed",
+          "human_verification": "Pending",
+          "printed_credit": "Tseng Lei",
+          "data_ev_hv": "PENDING"
+        },
+        "p.87": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Agent confirmed",
+          "human_verification": "Pending",
+          "printed_credit": "Cha Le",
+          "data_ev_hv": "PENDING"
+        },
+        "p.98": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Auto candidate",
+          "human_verification": "Pending",
+          "printed_credit": "Shen Yen-tai",
+          "data_ev_hv": "PENDING"
+        },
+        "p.100": {
+          "review_status": "Agent reviewed",
+          "page_mapping": "Agent confirmed",
+          "human_verification": "Pending",
+          "printed_credit": "Chang Pao-an",
+          "data_ev_hv": "PENDING"
+        }
+      }
     },
-    "vercel_alias_match": true
-  }
+    "mobile": {
+      "wall_buttons_count": 12,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "no_horizontal_overflow": true,
+      "p3_human_verified_pass": true,
+      "evidence_state_p3": {
+        "review_status": "Human verified",
+        "page_mapping": "Human verified",
+        "human_verification": "Verified",
+        "printed_credit": "Chou Chun-yen",
+        "data_ev_all": "HUMAN"
+      }
+    },
+    "errors": {
+      "console_errors": 0,
+      "page_errors": 0,
+      "asset_404s": 0
+    },
+    "qa_dir": "/home/conanxin/spfc-qa/v0.5/",
+    "qa_results_json": "qa-results.json",
+    "screenshots": [
+      "qa-desktop.png",
+      "qa-desktop-hero.png",
+      "qa-mobile.png",
+      "qa-mobile-hero.png"
+    ]
+  },
+  "print_credits_reconciled": [
+    {
+      "page": 3,
+      "leaf": 9,
+      "printed_credit": "Chou Chun-yen",
+      "catalog_credit_variant": "Chou Chun-jen",
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0009.jpg"
+    },
+    {
+      "page": 52,
+      "leaf": 58,
+      "printed_credit": "Chang Chen",
+      "catalog_credit_variant": "Chiang Chen",
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0058.jpg"
+    },
+    {
+      "page": 90,
+      "leaf": 96,
+      "printed_credit": "Chou Chia-kuo",
+      "catalog_credit_variant": "Chou Chia-kue",
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0096.jpg"
+    },
+    {
+      "page": 2,
+      "leaf": 8,
+      "printed_credit": "Liu Li-pin",
+      "catalog_credit_variant": null,
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0008.jpg"
+    },
+    {
+      "page": 6,
+      "leaf": 12,
+      "printed_credit": "Chang Ya-yi",
+      "catalog_credit_variant": null,
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0012.jpg"
+    },
+    {
+      "page": 83,
+      "leaf": 89,
+      "printed_credit": "Tseng Lei",
+      "catalog_credit_variant": null,
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0089.jpg"
+    },
+    {
+      "page": 87,
+      "leaf": 93,
+      "printed_credit": "Cha Le",
+      "catalog_credit_variant": null,
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0093.jpg"
+    },
+    {
+      "page": 98,
+      "leaf": 104,
+      "printed_credit": "Shen Yen-tai",
+      "catalog_credit_variant": null,
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0104.jpg"
+    },
+    {
+      "page": 100,
+      "leaf": 106,
+      "printed_credit": "Chang Pao-an",
+      "catalog_credit_variant": null,
+      "evidence_method": "tesseract OCR 2026-09-30 on assets/leaf-0106.jpg (supersedes old 'book-end mixed region' conclusion)"
+    }
+  ],
+  "human_verification_pack": {
+    "path": "verification/",
+    "files": [
+      {
+        "file": "HUMAN-VERIFY.md",
+        "bytes": 7150,
+        "purpose": "next-step evidence template for 4 priority works (p.3, p.40-41, p.52, p.90)"
+      },
+      {
+        "file": "p003-credit.jpg",
+        "bytes": 127635,
+        "purpose": "non-generative PIL crop of leaf-0009.jpg caption strip (1495x396)",
+        "sha256": "8ea63da5067e6f6d3ca373cb3fae36b6237402aa5ffe0a678107572c38473637"
+      },
+      {
+        "file": "p040-spread.jpg",
+        "bytes": 105240,
+        "purpose": "non-generative PIL stitch of leaf-0046+0047 + bottom 22% crop (1800x238)",
+        "sha256": "d9ef94549e82a70453e61f957bfaf931b57ca6483903d7c9ac445963d90f64f3"
+      },
+      {
+        "file": "p052-credit.jpg",
+        "bytes": 266159,
+        "purpose": "non-generative PIL crop of leaf-0058.jpg caption strip (1495x396)",
+        "sha256": "02743f33faa3cb65594a2c9214ade4079aa040309f365ac53ffc63a1b8c62089"
+      },
+      {
+        "file": "p090-credit.jpg",
+        "bytes": 132578,
+        "purpose": "non-generative PIL crop of leaf-0096.jpg caption strip (1477x396)",
+        "sha256": "30ab7b5a38bb6a27c6d54165bcd4fc05ec3ca78fc373fbbfe2f73b934cf986dc"
+      }
+    ]
+  },
+  "validator": {
+    "path": "scripts/validate_catalog.py",
+    "checks_total": 14,
+    "sub_checks_total": 64,
+    "sub_checks_passed": 64,
+    "sub_checks_failed": 0,
+    "warnings": 0,
+    "exit_code": 0,
+    "last_run_at": "2026-09-30T13:55:00+08:00",
+    "note": "v0.5 adds 6 sub-checks for the new p.3/p.40/p.52/p.90 human_verified invariants (3 status fields + human_verified=true per work × 4 works = 12 sub-checks total within the v0.5 expansion)"
+  },
+  "notion_sync": "LOCAL_DRAFT_ONLY (no API key in this session)",
+  "notion_draft_path": "NOTION-09-UPDATE.md (will be generated by next phase)",
+  "blocker": "NONE",
+  "next_action": "Generate NOTION-09-UPDATE.md, post GitHub Issue #2 acceptance comment, close Issue #2, emit final receipt.",
+  "human_verification_p1": {
+    "phase": "P1 closeout",
+    "date": "2026-09-30",
+    "human_verified_pages": [
+      3,
+      40,
+      52,
+      90
+    ],
+    "human_verified_count": 4,
+    "remaining_pages": [
+      2,
+      6,
+      38,
+      39,
+      83,
+      87,
+      98,
+      100
+    ],
+    "human_verification_pack_path": "verification/",
+    "files": [
+      {
+        "file": "HUMAN-VERIFY.md",
+        "bytes": 7571,
+        "purpose": "next-step evidence template; user fills USER_DECISION per work"
+      },
+      {
+        "file": "HUMAN-VERIFICATION-RESULTS.md",
+        "bytes": 1313,
+        "purpose": "log of user decisions made 2026-09-30"
+      },
+      {
+        "file": "p003-credit.jpg",
+        "bytes": 127635,
+        "purpose": "non-generative PIL crop of leaf-0009.jpg caption strip (1495x396)",
+        "sha256": "8ea63da5067e6f6d3ca373cb3fae36b6237402aa5ffe0a678107572c38473637"
+      },
+      {
+        "file": "p040-spread.jpg",
+        "bytes": 105240,
+        "purpose": "non-generative PIL stitch of leaf-0046+0047 + bottom 22% crop (1800x238)",
+        "sha256": "d9ef94549e82a70453e61f957bfaf931b57ca6483903d7c9ac445963d90f64f3"
+      },
+      {
+        "file": "p052-credit.jpg",
+        "bytes": 266159,
+        "purpose": "non-generative PIL crop of leaf-0058.jpg caption strip (1495x396)",
+        "sha256": "02743f33faa3cb65594a2c9214ade4079aa040309f365ac53ffc63a1b8c62089"
+      },
+      {
+        "file": "p090-credit.jpg",
+        "bytes": 132578,
+        "purpose": "non-generative PIL crop of leaf-0096.jpg caption strip (1477x396)",
+        "sha256": "30ab7b5a38bb6a27c6d54165bcd4fc05ec3ca78fc373fbbfe2f73b934cf986dc"
+      }
+    ],
+    "user_decisions_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30. All four works upgraded to HUMAN_VERIFIED on mapping_status, review_status, credit_status, and human_verified flag."
+  },
+  "notion_p4_page": "https://app.notion.com/p/3eb34a28189a811f9087e8aabd158370"
 }

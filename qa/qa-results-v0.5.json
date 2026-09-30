@@ -1,0 +1,562 @@
+{
+  "summary": {
+    "desktop": {
+      "title": "Selected Photographs from China — 被选择的中国",
+      "wall_count_text": "十二件作品 · 点击展墙，阅读展签与来源",
+      "status_text": "v0.5 · 12件真实作品 · 12/12 Agent reviewed · 4/12 Human verified · 12/12 张已读取",
+      "wall_buttons_count": 12,
+      "record_buttons_count": 12,
+      "footer_text": "Conan Xin Archive · 展览工作样机\nv0.5 / 2026.09.30",
+      "all_4_human_verified_pass": true,
+      "all_8_not_human_verified_pass": true,
+      "tabs_test": {
+        "expected": 3,
+        "found_tabs": [
+          "label",
+          "reading",
+          "evidence"
+        ],
+        "all_clickable": true,
+        "panel_swap_observed": true
+      },
+      "dialog_close_test": true,
+      "dialog_visible_after_close": false,
+      "sort_toggle_test": {
+        "clicked_twice": true,
+        "text_after_first_click": "展厅优先 ↓",
+        "text_after_second_click": "原书顺序 ↓",
+        "toggle_works": true
+      },
+      "captions_toggle_test": {
+        "clicked_twice": true,
+        "text_after_first_click": "显示展签",
+        "text_after_second_click": "隐藏展签",
+        "toggle_works": true
+      }
+    },
+    "mobile": {
+      "wall_count_text": "十二件作品 · 点击展墙，阅读展签与来源",
+      "wall_buttons_count": 12,
+      "no_horizontal_overflow": true,
+      "scrollWidth": 390,
+      "viewport_width": 390,
+      "p3_human_verified_pass": true
+    },
+    "errors": {
+      "console_errors": 0,
+      "page_errors": 0,
+      "asset_404s": 0,
+      "zero_errors_pass": true
+    },
+    "OVERALL_PASS": true
+  },
+  "results": {
+    "url": "https://selected-photographs-exhibition.vercel.app",
+    "viewports": {
+      "desktop": {
+        "viewport": "1440x1000",
+        "url": "https://selected-photographs-exhibition.vercel.app/",
+        "title": "Selected Photographs from China — 被选择的中国",
+        "wall_count_text": "十二件作品 · 点击展墙，阅读展签与来源",
+        "status_text": "v0.5 · 12件真实作品 · 12/12 Agent reviewed · 4/12 Human verified · 12/12 张已读取",
+        "footer_text": "Conan Xin Archive · 展览工作样机\nv0.5 / 2026.09.30",
+        "wall_buttons_count": 12,
+        "record_buttons_count": 12,
+        "human_verified_checks": {
+          "desktop_p3_human_verified": true,
+          "desktop_p40_human_verified": true,
+          "desktop_p52_human_verified": true,
+          "desktop_p90_human_verified": true
+        },
+        "not_human_verified_checks": {
+          "desktop_p2_not_verified": true,
+          "desktop_p6_not_verified": true,
+          "desktop_p38_not_verified": true,
+          "desktop_p39_not_verified": true,
+          "desktop_p83_not_verified": true,
+          "desktop_p87_not_verified": true,
+          "desktop_p98_not_verified": true,
+          "desktop_p100_not_verified": true
+        },
+        "tabs_test": {
+          "expected": 3,
+          "found_tabs": [
+            "label",
+            "reading",
+            "evidence"
+          ],
+          "all_clickable": true,
+          "panel_swap_observed": true
+        },
+        "dialog_close_test": true,
+        "sort_toggle_test": {
+          "clicked_twice": true,
+          "text_after_first_click": "展厅优先 ↓",
+          "text_after_second_click": "原书顺序 ↓",
+          "toggle_works": true
+        },
+        "captions_toggle_test": {
+          "clicked_twice": true,
+          "text_after_first_click": "显示展签",
+          "text_after_second_click": "隐藏展签",
+          "toggle_works": true
+        },
+        "dialog_visible_after_close": false
+      },
+      "mobile": {
+        "viewport": "390x844",
+        "url": "https://selected-photographs-exhibition.vercel.app/",
+        "title": "Selected Photographs from China — 被选择的中国",
+        "wall_count_text": "十二件作品 · 点击展墙，阅读展签与来源",
+        "wall_buttons_count": 12,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "horizontal_overflow": false,
+        "first_work_dialog_test": true
+      }
+    },
+    "console_errors": [],
+    "page_errors": [],
+    "asset_404s": [],
+    "checks": {
+      "desktop_p3_human_verified": {
+        "page": 3,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Chou Chun-yen",
+              "ev": "HUMAN"
+            }
+          ],
+          "full": "REVIEW STATUS\nHuman verified\nPAGE MAPPING\nHuman verified\nHUMAN VERIFICATION\nVerified\nPRINTED CREDIT\nChou Chun-yen"
+        },
+        "human_verification_dd_data_ev": true,
+        "pass": true
+      },
+      "desktop_p40_human_verified": {
+        "page": 40,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Jen Chen-pei",
+              "ev": "HUMAN"
+            }
+          ],
+          "full": "REVIEW STATUS\nHuman verified\nPAGE MAPPING\nHuman verified\nHUMAN VERIFICATION\nVerified\nPRINTED CREDIT\nJen Chen-pei"
+        },
+        "human_verification_dd_data_ev": true,
+        "pass": true
+      },
+      "desktop_p52_human_verified": {
+        "page": 52,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Chang Chen",
+              "ev": "HUMAN"
+            }
+          ],
+          "full": "REVIEW STATUS\nHuman verified\nPAGE MAPPING\nHuman verified\nHUMAN VERIFICATION\nVerified\nPRINTED CREDIT\nChang Chen"
+        },
+        "human_verification_dd_data_ev": true,
+        "pass": true
+      },
+      "desktop_p90_human_verified": {
+        "page": 90,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Chou Chia-kuo",
+              "ev": "HUMAN"
+            }
+          ],
+          "full": "REVIEW STATUS\nHuman verified\nPAGE MAPPING\nHuman verified\nHUMAN VERIFICATION\nVerified\nPRINTED CREDIT\nChou Chia-kuo"
+        },
+        "human_verification_dd_data_ev": true,
+        "pass": true
+      },
+      "desktop_p2_not_verified": {
+        "page": 2,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Auto candidate",
+              "ev": "AUTO"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Liu Li-pin",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAuto candidate\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nLiu Li-pin"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p6_not_verified": {
+        "page": 6,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Auto candidate",
+              "ev": "AUTO"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Chang Ya-yi",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAuto candidate\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nChang Ya-yi"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p38_not_verified": {
+        "page": 38,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Agent confirmed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Ma Hou-yi",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAgent confirmed\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nMa Hou-yi"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p39_not_verified": {
+        "page": 39,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Agent confirmed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Cheng Chen-sun",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAgent confirmed\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nCheng Chen-sun"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p83_not_verified": {
+        "page": 83,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Agent confirmed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Tseng Lei",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAgent confirmed\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nTseng Lei"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p87_not_verified": {
+        "page": 87,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Agent confirmed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Cha Le",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAgent confirmed\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nCha Le"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p98_not_verified": {
+        "page": 98,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Auto candidate",
+              "ev": "AUTO"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Shen Yen-tai",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAuto candidate\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nShen Yen-tai"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "desktop_p100_not_verified": {
+        "page": 100,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Agent reviewed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Agent confirmed",
+              "ev": "AGENT"
+            },
+            {
+              "text": "Pending",
+              "ev": "PENDING"
+            },
+            {
+              "text": "Chang Pao-an",
+              "ev": "AGENT"
+            }
+          ],
+          "full": "REVIEW STATUS\nAgent reviewed\nPAGE MAPPING\nAgent confirmed\nHUMAN VERIFICATION\nPending\nPRINTED CREDIT\nChang Pao-an"
+        },
+        "human_verification_is_human": false,
+        "must_not_show_human_verified": true,
+        "pass": true
+      },
+      "mobile_p3_human_verified": {
+        "page": 3,
+        "opened": true,
+        "evidence_state": {
+          "dts": [
+            "REVIEW STATUS",
+            "PAGE MAPPING",
+            "HUMAN VERIFICATION",
+            "PRINTED CREDIT"
+          ],
+          "dds": [
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Human verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Verified",
+              "ev": "HUMAN"
+            },
+            {
+              "text": "Chou Chun-yen",
+              "ev": "HUMAN"
+            }
+          ],
+          "full": "REVIEW STATUS\nHuman verified\nPAGE MAPPING\nHuman verified\nHUMAN VERIFICATION\nVerified\nPRINTED CREDIT\nChou Chun-yen"
+        },
+        "human_verification_dd_data_ev": true,
+        "pass": true
+      }
+    }
+  }
+}
