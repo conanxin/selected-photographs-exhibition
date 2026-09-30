@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Deploy current main after syncing assets/assets.js from canonical 18-work ingest-receipt and adding the favicon fix; then rerun full production QA. Human Verification P2 remains paused.",
+  "next_action": "P8 v0.8-rc1 is deployed and closed. Human Verification P2 remains paused. Fourteen Agent-level works remain pending human confirmation: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100. OG-image rights decision is a separate future task.",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "PENDING_P8_ASSET_MANIFEST_REDEPLOY",
+  "production_sync": "DEPLOYED",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -434,17 +434,17 @@
     ],
     "issue": 7,
     "issue_url": "https://github.com/conanxin/selected-photographs-exhibition/issues/7",
-    "issue_status": "OPEN",
+    "issue_status": "CLOSED",
     "source_head": "44946c2544c1b24a6da8d25e450abfe5e4a3b3ef",
     "release_notes_path": "RELEASE-NOTES-v0.8-rc1.md",
     "no_og_image": true,
     "og_image_status": "intentionally_absent_until_rights_decided",
     "source_status": "COMPLETE",
-    "production_status": "PENDING_ASSET_MANIFEST_REDEPLOY",
-    "production_observed_version": "v0.7",
+    "production_status": "DEPLOYED",
+    "production_observed_version": "v0.8-rc1",
     "production_observation": "Remote Windows device DESKTOP-3A8N7VN fetched https://selected-photographs-exhibition.vercel.app/ and received the pre-P8 v0.7 HTML, confirming GitHub push had not updated production.",
-    "vercel_cli_status": "BLOCKED_NOT_AUTHORIZED",
-    "vercel_connector_status": "BLOCKED_PROJECT_PERMISSION",
+    "vercel_cli_status": "NOT_REQUIRED_AFTER_GIT_INTEGRATION",
+    "vercel_connector_status": "DPL_ID_NOT_EXPOSED_BUT_LIVE_DEPLOYMENT_VERIFIED",
     "asset_manifest_fix": {
       "reason": "Git deployment exposed stale 12-work assets/assets.js while six Batch-3 JPEGs were already tracked.",
       "canonical_source": "ingest-receipt.json v0.4",
@@ -471,6 +471,38 @@
         100
       ],
       "favicon_404_fix": true
-    }
+    },
+    "production_verified_commit": "b570461d57abdfab119c833244f5bc7c5070038d",
+    "production_url": "https://selected-photographs-exhibition.vercel.app",
+    "production_git_check_ref": "H8YaFKmAsFvbFtcnMCXckFrgLvB5",
+    "production_git_check_target_url": "https://vercel.com/conanxins-projects/selected-photographs-exhibition/H8YaFKmAsFvbFtcnMCXckFrgLvB5",
+    "validator": {
+      "checks_total": 152,
+      "checks_passed": 152,
+      "errors": 0,
+      "warnings": 0
+    },
+    "production_qa": {
+      "checks_total": 42,
+      "checks_passed": 42,
+      "checks_failed": 0,
+      "desktop": "PASS",
+      "mobile": "PASS",
+      "console_errors": 0,
+      "page_errors": 0,
+      "asset_404s": 0,
+      "image_count": 18,
+      "archive_filter_counts": {
+        "all": 96,
+        "selected": 18,
+        "scanned": 18,
+        "colour": 68
+      },
+      "desktop_horizontal_overflow": false,
+      "mobile_horizontal_overflow": false
+    },
+    "issue_closed_at": "2026-09-30T13:26:07Z",
+    "acceptance_comment_id": 5912241199,
+    "qa_artifact": "qa/p8-production-qa.json"
   }
 }
