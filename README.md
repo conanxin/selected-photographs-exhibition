@@ -1,6 +1,6 @@
 # Selected Photographs from China — Web Exhibition & Research Archive
 
-A web exhibition and research archive built around *Selected Photographs from China* (Foreign Languages Press, 1977). The site presents twelve real scan pages from the book in a "white-walled gallery + reading room" interface, and keeps the provenance and review state of every page auditable from the source tree.
+A web exhibition and research archive built around *Selected Photographs from China* (Foreign Languages Press, 1977). The site presents **eighteen real scan pages** from the book in a "white-walled gallery + reading room" interface, and keeps the provenance and review state of every page auditable from the source tree.
 
 **Live demo:** <https://selected-photographs-exhibition.vercel.app>
 
@@ -162,7 +162,7 @@ Field meaning:
 }
 ```
 
-## 7. Run it locally
+## 8. Run it locally
 
 You need Python ≥ 3.10. In the repository root:
 
@@ -182,7 +182,7 @@ python3 start.py
 
 Open <http://127.0.0.1:8080> in a browser. The site serves the single `index.html` and `assets/` directly — no build step.
 
-## 8. How a scan becomes an exhibition entry
+## 9. How a scan becomes an exhibition entry
 
 ```
 Internet Archive item
@@ -210,7 +210,7 @@ Three rules:
 2. No crop, no color manipulation, no AI upscale. Only a long-edge resize.
 3. The print caption strip lives next to the image, not painted over it.
 
-## 9. Research & evidence principles
+## 10. Research & evidence principles
 
 - **Print text beats metadata.** When the book caption says "Chang Chen" and the platform metadata says "Chiang Chen", the print caption wins, and the metadata is recorded as `variant` in `works.json` so future readers can see both.
 - **Decoded is not verified.** `DECODED` means a JPEG was produced from the scan. It does **not** mean a human confirmed the page mapping, the photographer credit, the date, or the location. Auto-OCR or platform metadata is **not** treated as evidence.
@@ -218,7 +218,7 @@ Three rules:
 - **Spreads are shown as spreads.** p. 40–41 is one image, not two halves. p. 38's caption lives on the verso of p. 39's photo leaf and is shown next to the photo, not hidden inside a different page.
 - **Provenance is auditable.** Every asset in `assets/` carries its Internet Archive member path, source-page SHA-256, display SHA-256, and source pixel size in `ingest-receipt.json`.
 
-## 10. Current completion
+## 11. Current completion
 
 | Item | State |
 |---|---|
@@ -233,13 +233,46 @@ Three rules:
 | p. 100 true location | ⏳ not confirmed (leaf 106 inspected; not the photo page) |
 | Vercel production deployment | ✅ anonymous HTTP 200 at <https://selected-photographs-exhibition.vercel.app> |
 
-## 11. Roadmap
+## 12. Roadmap
 
 - **Continue Human Verification.** P1 confirmed p.3, p.40–41, p.52 and p.90. The next verification round should prioritize works that still have `AUTO_CANDIDATE` mapping (p.2, p.6, p.98) and then the remaining agent-confirmed works.
 - **Third batch (six more works).** Not started. The same agent-review → human-confirm discipline applies.
 - **Photographer Chinese-character names.** Higher-resolution scans or human access to a physical copy of the 1977 printing are required. Will be added to a new `author_zh` field in `works.json`, leaving `author` (the printed romanization) unchanged.
 - **p.100.** Agent evidence resolves p.100 to leaf106 / `Sunrise Lights the East` / Chang Pao-an, but it is not yet human-verified. A future human-verification round may upgrade it.
 - **Notion sync.** A companion Notion tree at <https://app.notion.com/p/3e834a28189a812d9763d3e2855ac8b8> holds the research log; an "OpenClaw takeover" sub-page at <https://app.notion.com/p/3eb34a28189a81499c80d553688c6a29> tracks each release. Notion write happens by hand, not from this repo.
+
+
+
+## 7. Whole-book archive index
+
+In v0.7 the project ships a canonical **96-item catalog** alongside the 18 exhibited works.
+
+| | |
+|---|---|
+| Catalog entries | 96 (`catalog-96.json`, 47,693 bytes) |
+| Selected for exhibition | 18 (text + image entries with real scan assets) |
+| Text-only archive records | 78 (no scan asset, no thumbnail, no AI-generated substitute) |
+| Colour-marked in contents | 68 (`colour_marked_in_contents=true`) |
+| Unmarked | 28 (NOT equivalent to `black_and_white=true`; just absent from catalog colour annotation) |
+| Human verified | 4 (pages 3, 40-41, 52, 90; P1-confirmed) |
+
+| Catalog field | Source |
+|---|---|
+| `printed_title_en` / `printed_credit` / `colour_marked_in_contents` | Internet Archive `metadata.description` (canonical TOC) |
+| `printed_credit` for selected_for_exhibition works | `works.json` author (P1-confirmed) |
+| `catalog_credit_variant` for p.3 / p.52 / p.90 | `works.json` `catalog_credit_variant` |
+| `selected_for_exhibition` | existence in `works.json` |
+| `scan_asset_available` | real JPEG in `assets/leaf-NNNN.jpg` |
+
+**Discipline:**
+- 18 works = current exhibition (text + image); 78 records = text-only archive, no fake image placeholders.
+- `colour_marked_in_contents=false` does not mean black-and-white; it means the catalog did not annotate.
+- Catalog credit vs works credit text reconciliation (3 pages): p.3 / p.52 / p.90 keep both spellings.
+- The Archive Index UI is rendered client-side from the embedded `<script id="catalog-data">` block in `index.html`. It exposes filters: 全部 / 已展出 / 已有扫描 / 目录标彩色.
+
+For provenance, see [`archive-index-notes.md`](./archive-index-notes.md). The Archive Index UI is at `#archive-index` on the production site, accessible via the top nav link "全书目录".
+
+The earlier chapter **"作品目录"** at `#catalogue` continues to show only the **18 exhibited works** (with Human verified markers). It is intentionally not a full-catalog view — the full catalog is at `#archive-index`.
 
 ## License and provenance
 

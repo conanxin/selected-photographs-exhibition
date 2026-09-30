@@ -246,8 +246,8 @@ def main():
                 else:
                     fail("index.html embedded work-data differs from works.json — re-run with updated embedded JSON")
 
-    # 14. STATUS.json must be v0.6 form
-    print("[14] Checking STATUS.json is v0.6 form ...")
+    # 14. STATUS.json must be v0.7 form (P6 §11 — was v0.6 in P5)
+    print("[14] Checking STATUS.json is v0.7 form ...")
     if not STATUS_FILE.exists():
         fail(f"STATUS.json not found at {STATUS_FILE}")
     else:
@@ -256,10 +256,10 @@ def main():
         except json.JSONDecodeError as e:
             fail(f"STATUS.json is not valid JSON: {e}")
             status = {}
-        if status.get("version") == "0.6":
-            ok("STATUS.json version = 0.6")
+        if status.get("version") == "0.7":
+            ok("STATUS.json version = 0.7")
         else:
-            fail(f"STATUS.json version = {status.get('version')!r} (expected '0.6')")
+            fail(f"STATUS.json version = {status.get('version')!r} (expected '0.7')")
         if status.get("work_count") == 18:
             ok("STATUS.json work_count = 18")
         else:
@@ -276,15 +276,170 @@ def main():
             ok("STATUS.json chapter_count = 6")
         else:
             fail(f"STATUS.json chapter_count = {status.get('chapter_count')!r} (expected 6)")
-        if status.get("scope") == "BATCH3_AGENT_EXPANSION":
-            ok("STATUS.json scope = BATCH3_AGENT_EXPANSION")
+        if status.get("scope") == "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX":
+            ok("STATUS.json scope = P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX")
         else:
-            fail(f"STATUS.json scope = {status.get('scope')!r} (expected 'BATCH3_AGENT_EXPANSION')")
+            fail(f"STATUS.json scope = {status.get('scope')!r} (expected 'P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX')")
         hv_pages = status.get("human_verified_pages", [])
         if sorted(hv_pages) == [3, 40, 52, 90]:
             ok("STATUS.json human_verified_pages = [3, 40, 52, 90]")
         else:
             fail(f"STATUS.json human_verified_pages = {sorted(hv_pages)} (expected [3, 40, 52, 90])")
+
+    # === P6 catalog-96 checks (§11 of SPFC_P6 spec) ===
+    print("[16-24] Loading catalog-96.json ...")
+    catalog_path = ROOT / "catalog-96.json"
+    if not catalog_path.exists():
+        fail(f"catalog-96.json not found at {catalog_path}")
+    else:
+        try:
+            cat = json.loads(catalog_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            fail(f"catalog-96.json is not valid JSON: {e}")
+            cat = []
+
+        # 16. 96 unique entries
+        ids = [c.get("catalog_id") for c in cat]
+        if len(cat) == 96 and len(set(ids)) == 96:
+            ok(f"catalog-96.json has exactly 96 unique entries")
+        else:
+            fail(f"catalog-96.json has {len(cat)} entries; {len(set(ids))} unique ids (expected 96)")
+
+        # 17. 18 selected / 78 text-only
+        sel = sum(1 for c in cat if c.get("selected_for_exhibition"))
+        unsel = sum(1 for c in cat if not c.get("selected_for_exhibition"))
+        if sel == 18 and unsel == 78:
+            ok(f"selected_for_exhibition: {sel} selected, {unsel} text-only")
+        else:
+            fail(f"selected_for_exhibition: {sel} selected, {unsel} text-only (expected 18/78)")
+
+        # 18. 68 colour-marked, 28 unmarked
+        col = sum(1 for c in cat if c.get("colour_marked_in_contents"))
+        unm = sum(1 for c in cat if not c.get("colour_marked_in_contents"))
+        if col == 68 and unm == 28:
+            ok(f"colour: {col} marked, {unm} unmarked (sum = {col+unm})")
+        else:
+            fail(f"colour: {col} marked, {unm} unmarked (expected 68/28)")
+
+        # 19. human_verified exactly [3, 40, 52, 90]
+        cat_hv = sorted(c.get("book_page") for c in cat if c.get("human_verified"))
+        if cat_hv == [3, 40, 52, 90]:
+            ok(f"catalog-96.json human_verified = {cat_hv}")
+        else:
+            fail(f"catalog-96.json human_verified = {cat_hv} (expected [3, 40, 52, 90])")
+
+        # 21. selected pages match works.json
+        cat_sel_pages = set(c.get("book_page") for c in cat if c.get("selected_for_exhibition"))
+        works_pages = set(w.get("page") for w in works)
+        if cat_sel_pages == works_pages:
+            ok(f"catalog-96.json selected_for_exhibition matches works.json exactly")
+        else:
+            missing = works_pages - cat_sel_pages
+            extra = cat_sel_pages - works_pages
+            fail(f"selected mismatch. In works not catalog: {sorted(missing)}; in catalog not works: {sorted(extra)}")
+
+        # 22. scan_asset_available consistency
+        sa_ok = True
+        for c in cat:
+            if c.get("selected_for_exhibition") and not c.get("scan_asset_available"):
+                fail(f"  p.{c.get('book_page')} selected but scan_asset_available=false")
+                sa_ok = False
+            if not c.get("selected_for_exhibition") and c.get("scan_asset_available"):
+                fail(f"  p.{c.get('book_page')} text-only but scan_asset_available=true")
+                sa_ok = False
+        if sa_ok:
+            ok("scan_asset_available consistent with selected_for_exhibition for all 96 entries")
+
+        # 23. §7 credit variants on p.3/p.52/p.90
+        var_specs = {
+            3:  ('Chou Chun-yen', 'Chou Chun-jen'),
+            52: ('Chang Chen',    'Chiang Chen'),
+            90: ('Chou Chia-kue', 'Chou Chia-kuo'),
+        }
+        var_ok = True
+        var_pages = sorted([c.get("book_page") for c in cat if c.get("catalog_credit_variant")])
+        if var_pages != [3, 52, 90]:
+            fail(f"§7 variant pages: got {var_pages}, expected [3, 52, 90]")
+            var_ok = False
+        for c in cat:
+            p = c.get("book_page")
+            if p in var_specs:
+                main_name, cat_name = var_specs[p]
+                if c.get("printed_credit") != main_name:
+                    fail(f"  p.{p} printed_credit={c.get('printed_credit')!r} (expected {main_name!r})")
+                    var_ok = False
+                if c.get("catalog_credit_variant") != cat_name:
+                    fail(f"  p.{p} catalog_credit_variant={c.get('catalog_credit_variant')!r} (expected {cat_name!r})")
+                    var_ok = False
+        if var_ok:
+            ok("§7 credit variants preserved on p.3/p.52/p.90")
+
+    # 24. STATUS.json v0.7 catalog fields
+    print("[24] Checking STATUS.json v0.7 catalog fields ...")
+    if STATUS_FILE.exists():
+        try:
+            status = json.loads(STATUS_FILE.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            status = {}
+        v = status.get("version")
+        if v == "0.7":
+            ok("STATUS.json version = 0.7")
+        else:
+            fail(f"STATUS.json version = {v!r} (expected '0.7')")
+        if status.get("catalog_count") == 96:
+            ok("STATUS.json catalog_count = 96")
+        else:
+            fail(f"STATUS.json catalog_count = {status.get('catalog_count')!r} (expected 96)")
+        if status.get("catalog_selected") == 18:
+            ok("STATUS.json catalog_selected = 18")
+        else:
+            fail(f"STATUS.json catalog_selected = {status.get('catalog_selected')!r} (expected 18)")
+        if status.get("catalog_text_only") == 78:
+            ok("STATUS.json catalog_text_only = 78")
+        else:
+            fail(f"STATUS.json catalog_text_only = {status.get('catalog_text_only')!r} (expected 78)")
+
+    # 25. index.html stale copy check (P6 §2) — scoped to user-visible status text
+    print("[25] Checking index.html user-visible status text for stale patterns ...")
+    if INDEX_FILE.exists():
+        html = INDEX_FILE.read_text(encoding="utf-8")
+        # Scope: only check the runtime-visible #asset-state element, .hero, .chapter notes,
+        # .about copy, and footer. JS fallback strings (placeholder, status interpolation)
+        # are operational and exempt — the user spec §2 targets stale *visible* status.
+        asset_state_m = re.search(r'<p class="status" id="asset-state"[^>]*>([^<]*)</p>', html)
+        asset_state_text = asset_state_m.group(1) if asset_state_m else ''
+        # Pull the hero, chapter notes, about copy, footer as a single block
+        hero_m = re.search(r'<section class="hero"[^>]*>(.*?)</section>', html, re.DOTALL)
+        chapter_m = re.findall(r'<p class="note">([^<]*)</p>', html)
+        about_m = re.search(r'<section id="about"[^>]*>(.*?)</section>', html, re.DOTALL)
+        footer_m = re.search(r'<footer[^>]*>(.*?)</footer>', html, re.DOTALL)
+        visible_text = ' '.join([
+            asset_state_text,
+            hero_m.group(1) if hero_m else '',
+            ' '.join(chapter_m),
+            about_m.group(1) if about_m else '',
+            footer_m.group(1) if footer_m else '',
+        ])
+        for pat in ['样机', '完整候选书页', '12件', '4章节']:
+            if pat in visible_text:
+                fail(f"  index.html user-visible copy still contains stale pattern: {pat!r}")
+            else:
+                ok(f"  index.html user-visible copy free of stale pattern: {pat!r}")
+        # Check #asset-state specifically for v0.5 / '18件真实作品' / '张已读取'
+        for pat in ['v0.5', '张已读取']:
+            if pat in asset_state_text:
+                fail(f"  #asset-state still contains stale: {pat!r}")
+            else:
+                ok(f"  #asset-state free of stale: {pat!r}")
+
+    # 26. index.html Archive Index section check (P6 §8)
+    print("[26] Checking index.html for Archive Index section ...")
+    if INDEX_FILE.exists():
+        html = INDEX_FILE.read_text(encoding="utf-8")
+        if 'id="archive-index"' in html:
+            ok("index.html contains #archive-index section")
+        else:
+            fail("index.html missing #archive-index section (P6 §8)")
 
     print()
     print("=" * 60)

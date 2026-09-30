@@ -1,7 +1,7 @@
 {
-  "version": "0.6",
+  "version": "0.7",
   "date": "2026-09-30",
-  "scope": "BATCH3_AGENT_EXPANSION",
+  "scope": "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX",
   "task_id": "SPFC_P5_BATCH3_AGENT_EXPANSION",
   "work_count": 18,
   "real_scan_works": 18,
@@ -242,5 +242,43 @@
         79
       ]
     }
+  },
+  "catalog_count": 96,
+  "catalog_selected": 18,
+  "catalog_text_only": 78,
+  "colour_marked": 68,
+  "colour_unmarked": 28,
+  "status_text_template": "v0.7 · 18件展览作品 · 96项全书目录 · 4/18 Human verified",
+  "v0_6_compatibility": {
+    "work_count_18": true,
+    "human_verified_4": true,
+    "agent_reviewed_18": true,
+    "chapter_count_6": true,
+    "BATCH3_AGENT_EXPANSION_scope_preserved": true
+  },
+  "p6_metadata": {
+    "catalog_source": "Internet Archive metadata.description (canonical TOC)",
+    "cross_validated_with": "OCR text djvu.txt (column-shuffle noise filtered)",
+    "human_verified_invariant": [
+      3,
+      40,
+      52,
+      90
+    ],
+    "credit_variants_preserved": {
+      "p.3": {
+        "main": "Chou Chun-yen",
+        "catalog": "Chou Chun-jen"
+      },
+      "p.52": {
+        "main": "Chang Chen",
+        "catalog": "Chiang Chen"
+      },
+      "p.90": {
+        "main": "Chou Chia-kue",
+        "catalog": "Chou Chia-kuo"
+      }
+    },
+    "note": "18 件有展览图像，78 件是文本档案记录（不显示替代图片）"
   }
 }
