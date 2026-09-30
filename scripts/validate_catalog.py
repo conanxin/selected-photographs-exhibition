@@ -43,6 +43,7 @@ WORKS_FILE = ROOT / "works.json"
 INDEX_FILE = ROOT / "index.html"
 STATUS_FILE = ROOT / "STATUS.json"
 ASSETS_DIR = ROOT / "assets"
+ASSETS_MANIFEST = ASSETS_DIR / "assets.js"
 
 LEGAL_MAPPING = {"AUTO_CANDIDATE", "AGENT_CONFIRMED", "AGENT_REJECTED", "HUMAN_VERIFIED"}
 LEGAL_REVIEW = {"DECODED", "AGENT_VISUALLY_REVIEWED", "HUMAN_VERIFIED"}
@@ -117,6 +118,47 @@ def main():
             ok(f"  leaf-{leaf:04d}.jpg exists for p.{w.get('page')}")
         else:
             fail(f"  leaf-{leaf:04d}.jpg MISSING for p.{w.get('page')}")
+
+    # 2a. Canonical browser asset manifest must expose all 18 works
+    print("[2a] Checking assets/assets.js canonical 18-work manifest ...")
+    if not ASSETS_MANIFEST.exists():
+        fail("assets/assets.js missing")
+    else:
+        manifest_text = ASSETS_MANIFEST.read_text(encoding="utf-8")
+        mm = re.search(r"window\\.SPFC_ASSETS\\s*=\\s*(\\{.*\\});\\s*$", manifest_text, re.DOTALL)
+        if not mm:
+            fail("assets/assets.js does not contain parseable window.SPFC_ASSETS JSON")
+        else:
+            try:
+                asset_manifest = json.loads(mm.group(1))
+            except json.JSONDecodeError as e:
+                fail(f"assets/assets.js JSON invalid: {e}")
+                asset_manifest = {}
+            manifest_works = asset_manifest.get("works", [])
+            manifest_pages = {row.get("page") for row in manifest_works}
+            if asset_manifest.get("requested_work_count") == 18 and asset_manifest.get("loaded_count") == 18:
+                ok("assets manifest requested_work_count=18 and loaded_count=18")
+            else:
+                fail(f"assets manifest counts stale: requested={asset_manifest.get('requested_work_count')}, loaded={asset_manifest.get('loaded_count')}")
+            if manifest_pages == EXPECTED_PAGES and len(manifest_works) == 18:
+                ok("assets manifest page set exactly matches 18 exhibited works")
+            else:
+                fail(f"assets manifest pages mismatch: {sorted(manifest_pages)}")
+            works_leaf = {w.get("page"): w.get("leaf") for w in works}
+            bad_leaf = [(r.get("page"), r.get("leaf"), works_leaf.get(r.get("page"))) for r in manifest_works if works_leaf.get(r.get("page")) != r.get("leaf")]
+            if not bad_leaf:
+                ok("assets manifest page→leaf mapping matches works.json")
+            else:
+                fail(f"assets manifest page→leaf mismatch: {bad_leaf}")
+            missing_display = [r.get("display_file") for r in manifest_works if not r.get("display_file") or not (ROOT / r.get("display_file", "")).exists()]
+            if not missing_display:
+                ok("all 18 assets manifest display files exist")
+            else:
+                fail(f"assets manifest display files missing: {missing_display}")
+            if asset_manifest.get("source_kind") == "INTERNET_ARCHIVE_VERIFIED" and asset_manifest.get("source_sha256") == "ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87":
+                ok("assets manifest preserves verified Internet Archive source provenance")
+            else:
+                fail("assets manifest source provenance is stale or unverified")
 
     # 3-6. enum validation
     print("[3-6] Checking enum values ...")
@@ -414,6 +456,10 @@ def main():
             fail(f"publication metadata missing: {missing_meta}")
         else:
             ok("publication metadata includes description/canonical/OpenGraph/Twitter summary")
+        if 'rel="icon" href="data:,"' in html_text:
+            ok("data-URI favicon present (no /favicon.ico request)")
+        else:
+            fail("data-URI favicon missing; browser may emit /favicon.ico 404")
         if 'class="skip-link" href="#top"' in html_text and '<main id="top" tabindex="-1">' in html_text:
             ok("skip link + focusable main target present")
         else:
