@@ -72,7 +72,7 @@
 3 个已知冲突保留：
 - **p.3**: works.json main = `Chou Chun-yen`；catalog variant = `Chou Chun-jen`
 - **p.52**: works.json main = `Chang Chen`；catalog variant = `Chiang Chen`
-- **p.90**: works.json main = `Chou Chia-kue`；catalog variant = `Chou Chia-kuo`
+- **p.90**: works.json main = `Chou Chia-kuo`；catalog variant = `Chou Chia-kue`
 
 `catalog-96.json` 中：
 - `printed_credit` ← works.json author（P1-confirmed print spelling）
