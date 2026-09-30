@@ -89,7 +89,7 @@ function showWork(n,trigger){
  const w=works.find(x=>x.page===n);if(!w)return;current=w;lastTrigger=trigger;
  $('detail-title').textContent=w.title;$('detail-en').textContent=w.en;$('detail-author').textContent=(w.author||'署名未详')+' · 条目转录署名';$('detail-location').textContent='SELECTED PHOTOGRAPHS / P. '+w.page;
  $('detail-media').innerHTML=media(w);$('media-status').textContent=mediaStatus(w);
- $('panel-label').innerHTML=`<dl><dt>中文题名性质</dt><dd>本项目工作译名</dd><dt>收入版本</dt><dd>Foreign Languages Press, Peking, 1977</dd><dt>书内页码 / 拍摄时间</dt><dd>第${w.page}页 / 未详</dd><dt>色彩记录</dt><dd>${esc(w.colour)}；非图像本体鉴定</dd></dl>`;
+ $('panel-label').innerHTML=`<dl><dt>中文题名性质</dt><dd>本项目工作译名</dd><dt>收入版本</dt><dd>Foreign Languages Press, Peking, 1977</dd><dt>书内页码 / 拍摄时间</dt><dd>第${w.page}页 / 未详</dd><dt>色彩记录</dt><dd>${esc(w.colour)}；非图像本体鉴定</dd></dl>${evidenceState(w)}`;
  $('panel-reading').innerHTML=`<p>${esc(w.reading)}</p><p><small>当代策展草稿；没有描述未经查看的照片细节。</small></p>`;
  $('panel-evidence').innerHTML=`<dl><dt>扫描定位</dt><dd>leafNum ${w.leaf}（从0开始）</dd><dt>证据等级</dt><dd>${esc(w.map)}。自动定位不是原页核验。</dd>${provenance(w)}${w.variant?`<dt>署名冲突</dt><dd>条目：${esc(w.author)}<br>OCR：${esc(w.variant)}<br>保留两者，尚未裁定。</dd>`:''}<dt>待完成</dt><dd>${esc(w.task)}</dd></dl><p><a href="https://archive.org/details/selectedphotographsfromchina/page/n${w.leaf}/mode/1up" target="_blank" rel="noopener">打开原书候选定位 ↗</a></p><p><a href="https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json" target="_blank" rel="noopener">查看自动页码映射 ↗</a></p>`;
  const adjacent={40:47,52:59}[w.page],extra=(assetReport.evidence_pages||[]).find(r=>r.leaf===adjacent);
