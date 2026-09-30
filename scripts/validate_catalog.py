@@ -276,10 +276,13 @@ def main():
             ok("STATUS.json chapter_count = 6")
         else:
             fail(f"STATUS.json chapter_count = {status.get('chapter_count')!r} (expected 6)")
-        if status.get("scope") == "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX":
-            ok("STATUS.json scope = P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX")
+        # P7 spec §18: scope must reflect current task (P7_INTERACTION_INTEGRITY_ARCHIVE_UX);
+        # legacy P6 scope is also accepted for backwards compatibility with already-merged P6 history.
+        accepted_scopes = {"P7_INTERACTION_INTEGRITY_ARCHIVE_UX", "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX"}
+        if status.get("scope") in accepted_scopes:
+            ok(f"STATUS.json scope = {status.get('scope')!r}")
         else:
-            fail(f"STATUS.json scope = {status.get('scope')!r} (expected 'P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX')")
+            fail(f"STATUS.json scope = {status.get('scope')!r} (expected one of {sorted(accepted_scopes)})")
         hv_pages = status.get("human_verified_pages", [])
         if sorted(hv_pages) == [3, 40, 52, 90]:
             ok("STATUS.json human_verified_pages = [3, 40, 52, 90]")
