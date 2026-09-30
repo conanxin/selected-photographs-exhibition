@@ -125,7 +125,7 @@ def main():
         fail("assets/assets.js missing")
     else:
         manifest_text = ASSETS_MANIFEST.read_text(encoding="utf-8")
-        mm = re.search(r"window\\.SPFC_ASSETS\\s*=\\s*(\\{.*\\});\\s*$", manifest_text, re.DOTALL)
+        mm = re.search(r"window\.SPFC_ASSETS\s*=\s*(\{.*\});\s*$", manifest_text, re.DOTALL)
         if not mm:
             fail("assets/assets.js does not contain parseable window.SPFC_ASSETS JSON")
         else:
