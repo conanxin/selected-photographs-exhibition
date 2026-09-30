@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "User pastes NOTION-11-P6.1-UPDATE.md into Notion canonical P6 page when Notion write API is wired in. Human Verification P2 (separate task) — 14 Agent-level works pending human confirmation against a physical 1977 printing: p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100 (p.52 already Human verified from P1).",
+  "next_action": "Human Verification P2 remains paused. When explicitly started, 14 Agent-level works remain pending human confirmation: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100. P6.1 p.90 correction is deployed and Issue #5 is closed.",
   "human_verified_pages": [
     3,
     40,
@@ -314,6 +314,8 @@
       "production_qa_desktop": "PASS (22/22)",
       "production_qa_mobile": "PASS (10/10)",
       "production_qa_total": "PASS (32/32)"
-    }
+    },
+    "issue_5_status": "CLOSED",
+    "latest_closeout_commit": "735b827953e0aabec2dcf6a730c30af161a4e5d8"
   }
 }
