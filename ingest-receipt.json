@@ -1,0 +1,466 @@
+{
+  "version": "0.2",
+  "created_at": "2026-09-28T13:44:09.512067+00:00",
+  "status": "ACQUIRED_PENDING_REVIEW",
+  "source_identifier": "selectedphotographsfromchina",
+  "source_url": null,
+  "source_kind": "LOCAL_ZIP_UNVERIFIED_ORIGIN",
+  "source_file": "spfc_jp2.zip",
+  "source_bytes": 96919838,
+  "source_sha256": "ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87",
+  "metadata_md5_matched": false,
+  "archive_leaf_count": 109,
+  "requested_work_count": 12,
+  "loaded_count": 12,
+  "human_verified_count": 0,
+  "works": [
+    {
+      "page": 3,
+      "leaf": 9,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0009.jp2",
+      "source_page_sha256": "7236c038a2944b8b7c25d84f74cf8a7e98aca217ac03662b024b7f76647d0582",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0009.jpg",
+      "display_sha256": "b8ab0ada8592d643d9907da3595bd3456697126523a43d4cb95be37b9e3019ed",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 38,
+      "leaf": 44,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0044.jp2",
+      "source_page_sha256": "a27de60d7fea8432f63058e3dfbdfe7ed8a11e1f689e896723ab934d353ef94e",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0044.jpg",
+      "display_sha256": "e96a29d17a96a3ac9fd39e5c977387887b0c539685e2ad6df5785bd9ee9756a1",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 39,
+      "leaf": 45,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0045.jp2",
+      "source_page_sha256": "6498f8e87259ba6f15f955f1962ebed1bcb5c445a58aa709ce46e6d884b7c061",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0045.jpg",
+      "display_sha256": "b6bb48f581adc6abaaae132514724f1f83306dface41c84f0fdf87c600b5ade9",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 40,
+      "leaf": 46,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0046.jp2",
+      "source_page_sha256": "55f2c595e015bcfcb55456c16da9b72bcd1c39330e7fe01112f4da0a8186e164",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0046.jpg",
+      "display_sha256": "cd520992dc3673c72b1fbfc8c1abd06332a041a0ab680de52ef59d474ea14953",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 52,
+      "leaf": 58,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0058.jp2",
+      "source_page_sha256": "aadedbffa92c39dc35970b6ed6a19931e81bfec5572fb5d579c02c5f291290f0",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0058.jpg",
+      "display_sha256": "34d567d4028e6390c0b4f726b17cfae04aefc292e3cea83d60be5d2dbe0c7941",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 90,
+      "leaf": 96,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0096.jp2",
+      "source_page_sha256": "9726d46df558145ff0cf46b8c17dd0fc8f75fe382ab02fb7495e264e5d3d0260",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0096.jpg",
+      "display_sha256": "4181be1f68ad33da77d64f38fc8f3914c960c8ba635ea7d98f96260985671a39",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 2,
+      "leaf": 8,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0008.jp2",
+      "source_page_sha256": "53288e1771358f9e5f1ad68cf4fd73002d1eca0620049ccf3d7ad848ca292f40",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0008.jpg",
+      "display_sha256": "085f2e193b0735dc5a052da3a684f5516e6887f9e9ff9591f66dff347277b0b6",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 6,
+      "leaf": 12,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0012.jp2",
+      "source_page_sha256": "30523bc274e154c3d07dd60d62f608288d8b369c23679d12cea4001ac5b1bcd1",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0012.jpg",
+      "display_sha256": "ed4d3848f09749a87f97058ccc967fcd0c1d661c9be8bc52f9e8688fed269e90",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 83,
+      "leaf": 89,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0089.jp2",
+      "source_page_sha256": "f3f7cc724cb1cfc2381d88a35104289f59620588f65b93d21e9720a45ea8e751",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0089.jpg",
+      "display_sha256": "b769de4c7f4e27fbcf4ce8b4a283a87a83e4f8e7cb95a4c19858fd07ba3a6364",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 87,
+      "leaf": 93,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0093.jp2",
+      "source_page_sha256": "b50f6e95c7caa43f23643006b882a29aeef2c9a853469a3f276944d39b7d92c2",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0093.jpg",
+      "display_sha256": "bebf7513c4338aad2fd75b9f824911df9350c2c9812b6715f470b9dd68a35caa",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 98,
+      "leaf": 104,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0104.jp2",
+      "source_page_sha256": "d1b3f58a8281d0095df350e3113ec64ff21f07a4bc9f7f10cd65ca0900d504b7",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0104.jpg",
+      "display_sha256": "288a81a83df03c14f818e0e16ab576f1dd77123711f000ec6e152a1e85312e05",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 100,
+      "leaf": 106,
+      "mapping_source": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_page_numbers.json",
+      "mapping_status": "PLATFORM_AUTOMATIC_UNVERIFIED",
+      "review_status": "PENDING_VISUAL_REVIEW",
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0106.jp2",
+      "source_page_sha256": "1cd80b1b55c1030e3fea8d1f6241704a50c3eec8ca32bd66a1c46de4b5932b5d",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0106.jpg",
+      "display_sha256": "d87d4f1e19f5626b81bd3dd9959dcaaf92b5b3b18418be159a5a0a1496378cae",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    }
+  ],
+  "evidence_pages": [
+    {
+      "leaf": 0,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0000.jp2",
+      "source_page_sha256": "a7100c5b27a8a46ebc3917d49672faae1fc77f9c09743d18dbe5e5faff5edf36",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0000.jpg",
+      "display_sha256": "c4faab69b74a4a8c098e20a9219de7cf08d2a3e26510518f9977d1e6ea2cd1ce",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 1,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0001.jp2",
+      "source_page_sha256": "faf06c1282d364f0271923e0ced70d65db6c48e9b8a29f9a3ccb19827c68457d",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0001.jpg",
+      "display_sha256": "e8f0140431a755a66c1f7d98f23b30edc456bae16859441eeb3cde064293edec",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 2,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0002.jp2",
+      "source_page_sha256": "1ff9f12241b75b237aed86b1617d13a4ea123db7f79a15d3bb8759b2d9948e99",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0002.jpg",
+      "display_sha256": "ec0c060ef934319d417c82054b08b861703df66854ada2d6b04c06f14bf9cd2a",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 3,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0003.jp2",
+      "source_page_sha256": "2bccdee697c9d3c242f841b4fd8bbe8e86fbb16f74d028f0f1b23c248f539049",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0003.jpg",
+      "display_sha256": "d1e76242dfd49db7c320ac2ad9a422ba46994e389f99dab6907987ae3aae1a3c",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 4,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0004.jp2",
+      "source_page_sha256": "80026fe4bf3aa024dcfaad84b98271fe20359f6a268cfbebe55301cd1521bc4a",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0004.jpg",
+      "display_sha256": "842dee62d4ad1cbae10dac209cbb08dce938a28ae9ad57434c1925ff77df67e3",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 5,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0005.jp2",
+      "source_page_sha256": "33a0c10dd439953597a8dd8ae00cbee130dc61e8d4a76879b7f1c41e81139098",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0005.jpg",
+      "display_sha256": "13805903d0ee7829a67a5fb8cf7bb4f8a9eec7ea0535537bc938fcb277aa9861",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 6,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0006.jp2",
+      "source_page_sha256": "890e2279531c6891919fba12aad1d0071ffe99c97d46237ece8b509752d8938e",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0006.jpg",
+      "display_sha256": "38fa1d4328ea4f11586304a1409cd4193a0d9cc0743d4d45a750e614ccd6759c",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 47,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0047.jp2",
+      "source_page_sha256": "ae98c3945591edb9040d7ca4214eef25afe34585bae01cc0c7b7f53a3191bf3e",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0047.jpg",
+      "display_sha256": "bcd62285f5382830c1b97fd6e496d6455574de8bf6de83c340f7036971639c5d",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 59,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0059.jp2",
+      "source_page_sha256": "e8a973c9561625428be07af1f983ee769817b78a1a6aaf3785f2ee31a0e06a03",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0059.jpg",
+      "display_sha256": "ae2f60a5779800230a48a8e82267bd7ad651440a6a8f4d84e0855bda0ed92658",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    },
+    {
+      "leaf": 106,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0106.jp2",
+      "source_page_sha256": "1cd80b1b55c1030e3fea8d1f6241704a50c3eec8ca32bd66a1c46de4b5932b5d",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0106.jpg",
+      "display_sha256": "d87d4f1e19f5626b81bd3dd9959dcaaf92b5b3b18418be159a5a0a1496378cae",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "review_status": "PENDING_VISUAL_REVIEW"
+    }
+  ],
+  "missing_scan_leaves": [],
+  "note": "下载及解码不是人工核验。完整书页不是已裁出的摄影作品。第106叶仅为书末候选，不标作已确认第100页。"
+}

@@ -1,0 +1,34 @@
+{
+  "version": "0.2",
+  "date": "2026-09-27",
+  "scope": "LOCAL_ASSET_INGESTION_EXTENSION",
+  "real_book_images_in_release": 0,
+  "visually_verified_works": 0,
+  "canonical_download_test": "FAILED_IN_CURRENT_ENVIRONMENT",
+  "unit_tests": {
+    "passed": 9,
+    "fixture": "SYNTHETIC_JP2_TEMPORARY_ONLY"
+  },
+  "browser_test": {
+    "status": "PASS_OFFLINE_CONTENT_AND_IN_MEMORY_ASSETS",
+    "engine": "Chromium via Playwright",
+    "viewports": [
+      [
+        1440,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "live_network_tested": false,
+    "file_url_navigation": "BLOCKED_BY_ENVIRONMENT",
+    "relative_asset_loading_tested": false
+  },
+  "notion_sync": "NOT_WRITTEN_NO_WRITE_ACTION_EXPOSED",
+  "notion_draft": "NOTION-05.md",
+  "deployment": "NOT_DEPLOYED",
+  "next_action": "Run start.py locally, then inspect the six actual candidate scan pages.",
+  "local_http_serve_only_test": "PASS_HTML_AND_EMPTY_MANIFEST_200"
+}

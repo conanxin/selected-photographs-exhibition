@@ -1,0 +1,34 @@
+# --- Build / dependency caches ---
+.deps/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Vercel local config (do NOT commit login tokens) ---
+.vercel/
+
+# --- Raw archives / scans / originals (not committed; see ingest-receipt.json for provenance) ---
+*.zip
+*.jp2
+*.pdf
+
+# --- Working / scratch directories ---
+raw/
+downloads/
+tmp/
+cache/
+last-error.json
+
+# --- OS metadata ---
+.DS_Store
+Thumbs.db
+
+# --- Local environment / editor scratch ---
+.env
+.env.*
+.venv/
+.vscode/
+.idea/
+*.swp
+*~
