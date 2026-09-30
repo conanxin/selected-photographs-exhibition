@@ -168,12 +168,7 @@ function renderArchive(){
   });
 });
 renderArchive();
-document.getElementById('archive-records').addEventListener('click',e=>{
-  const row=e.target.closest('.archive-row[data-work]');
-  if(!row)return;
-  const page=Number(row.getAttribute('data-work'));
-  const w=works.find(x=>x.page===page);
-  if(w){openDetail(w,row);}
-});
+// Archive rows use the same delegated [data-work] handler as walls and the 18-work catalogue.
+// Keeping one interaction path avoids duplicate dialog opens and preserves the same focus-return logic.
 </script>
 </body></html>
