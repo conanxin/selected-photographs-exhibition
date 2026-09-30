@@ -75,18 +75,18 @@ The `human_verified` boolean is **never** `true` unless both `mapping_status == 
 
 - **12 / 12** real scan works live in the gallery (every `assets/leaf-XXXX.jpg` returns HTTP 200 in production).
 - **12 / 12** `AGENT_VISUALLY_REVIEWED` (every printed credit independently verified by tesseract OCR 2026-09-30 against `assets/leaf-XXXX.jpg`).
-- **0 / 12** `HUMAN_VERIFIED` (no human eye has confirmed against a physical 1977 printing yet — see `verification/HUMAN-VERIFY.md` for the next-step evidence pack).
+- **4 / 12** `HUMAN_VERIFIED` (p.3, p.40–41, p.52, p.90 were explicitly confirmed by the user against the P1 verification pack on 2026-09-30; the remaining 8 works retain their prior evidence states).
 
 ### Batch 1 — six works (agent-confirmed 2026-09-27 + re-verified by OCR 2026-09-30)
 
 | Book page | Leaf | Title (en) | Printed credit | catalog_credit_variant | Mapping | Review | Credit | Human |
 |---:|---:|---|---|---|---|---|---|---|
-| 3  | 9  | Pupils of a Rural Night School | **Chou Chun-yen** | Chou Chun-jen | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 3  | 9  | Pupils of a Rural Night School | **Chou Chun-yen** | Chou Chun-jen | HUMAN_VERIFIED | HUMAN_VERIFIED | HUMAN_VERIFIED | true |
 | 38 | 44 | Red Flag Canal in Linhsien County, Honan Province | Ma Hou-yi | — | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
 | 39 | 45 | Steel Pikes Have Pierced the Taihang Mountains | Cheng Chen-sun | — | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
-| 40 | 46+47 (spread) | Diverting Water North … Chiangtu, Kiangsu | Jen Chen-pei | — | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
-| 52 | 58 | Storing Grain Against War | **Chang Chen** | Chiang Chen | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
-| 90 | 96 | Mobile Medical Team | **Chou Chia-kuo** | Chou Chia-kue | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 40 | 46+47 (spread) | Diverting Water North … Chiangtu, Kiangsu | Jen Chen-pei | — | HUMAN_VERIFIED | HUMAN_VERIFIED | HUMAN_VERIFIED | true |
+| 52 | 58 | Storing Grain Against War | **Chang Chen** | Chiang Chen | HUMAN_VERIFIED | HUMAN_VERIFIED | HUMAN_VERIFIED | true |
+| 90 | 96 | Mobile Medical Team | **Chou Chia-kuo** | Chou Chia-kue | HUMAN_VERIFIED | HUMAN_VERIFIED | HUMAN_VERIFIED | true |
 
 ### Batch 2 — six more works (agent-confirmed 2026-09-28 + re-verified by OCR 2026-09-30)
 
@@ -227,7 +227,7 @@ Three rules:
 | `index.html` references the right leaves | ✅ (regenerated alongside `assets/assets.js`) |
 | Batch 1 agent visual review | ✅ 6/6 (`visual-review.md`) |
 | Batch 2 agent visual review | ✅ 6/6 (`second-batch-visual-review.md`; p.100 mapping flagged unreliable) |
-| Human-confirmed mapping | ⏳ 0/12 (open task — see work caption) |
+| Human-confirmed mapping | ✅ 4/12 (p.3, p.40–41, p.52, p.90; user-confirmed 2026-09-30) |
 | Photographer Chinese-character names | ⏳ not guessed; need higher-resolution scans or human eyes |
 | Shoot dates | ⏳ not present in book captions; recorded as unknown |
 | p. 100 true location | ⏳ not confirmed (leaf 106 inspected; not the photo page) |
@@ -235,10 +235,10 @@ Three rules:
 
 ## 11. Roadmap
 
-- **Next page confirmed by human eye.** Replace one of the `page_mapping_confirmed: false` (or `true` but unconfirmed-by-human) entries with a human-verified mapping. The `task` field lists what each entry still needs.
+- **Continue Human Verification.** P1 confirmed p.3, p.40–41, p.52 and p.90. The next verification round should prioritize works that still have `AUTO_CANDIDATE` mapping (p.2, p.6, p.98) and then the remaining agent-confirmed works.
 - **Third batch (six more works).** Not started. The same agent-review → human-confirm discipline applies.
 - **Photographer Chinese-character names.** Higher-resolution scans or human access to a physical copy of the 1977 printing are required. Will be added to a new `author_zh` field in `works.json`, leaving `author` (the printed romanization) unchanged.
-- **p. 100 resolution.** Look at scan leaves adjacent to 106 (105 and 107) and at the printed table of contents in the original 1977 book. Until then, the p. 100 entry stays `page_mapping_confirmed: false`.
+- **p.100.** Agent evidence resolves p.100 to leaf106 / `Sunrise Lights the East` / Chang Pao-an, but it is not yet human-verified. A future human-verification round may upgrade it.
 - **Notion sync.** A companion Notion tree at <https://app.notion.com/p/3e834a28189a812d9763d3e2855ac8b8> holds the research log; an "OpenClaw takeover" sub-page at <https://app.notion.com/p/3eb34a28189a81499c80d553688c6a29> tracks each release. Notion write happens by hand, not from this repo.
 
 ## License and provenance
