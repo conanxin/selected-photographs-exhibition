@@ -10,7 +10,7 @@ The code in this repository is released under the **MIT License**. The scanned p
 
 ## 1. What this project is
 
-*Selected Photographs from China* (外文出版社 / Foreign Languages Press, 1977) is one of the early post-Cultural-Revolution photographic surveys published for English-language audiences. This project treats the book as a primary artifact and presents twelve of its pages inside a minimal gallery-and-reading-room web layout. The point is not "pretty pictures":
+*Selected Photographs from China* (外文出版社 / Foreign Languages Press, 1977) is one of the early post-Cultural-Revolution photographic surveys published for English-language audiences. This project treats the book as a primary artifact and and presents eighteen of its pages inside a minimal gallery-and-reading-room web layout. The point is not "pretty pictures":
 
 - Every page keeps its full scan-page representation (no crops, no color correction, no AI up-scaling). Only the long edge is downsized to ≤ 1800 px.
 - The page number, the photographer credit, and the caption live next to the image rather than being merged into it.
@@ -73,9 +73,9 @@ The `human_verified` boolean is **never** `true` unless both `mapping_status == 
 
 ### Current completion (2026-09-30)
 
-- **12 / 12** real scan works live in the gallery (every `assets/leaf-XXXX.jpg` returns HTTP 200 in production).
-- **12 / 12** `AGENT_VISUALLY_REVIEWED` (every printed credit independently verified by tesseract OCR 2026-09-30 against `assets/leaf-XXXX.jpg`).
-- **4 / 12** `HUMAN_VERIFIED` (p.3, p.40–41, p.52, p.90 were explicitly confirmed by the user against the P1 verification pack on 2026-09-30; the remaining 8 works retain their prior evidence states).
+- **18 / 18** real scan works live in the gallery (every `assets/leaf-XXXX.jpg` returns HTTP 200 in production).
+- **18 / 18** `AGENT_VISUALLY_REVIEWED` (every printed credit independently verified by tesseract OCR 2026-09-30 against `assets/leaf-XXXX.jpg` or by glymur + OpenJPEG 2.5.0 vision review 2026-09-30 against `assets/leaf-XXXX.jpg`).
+- **4 / 18** `HUMAN_VERIFIED` (p.3, p.40–41, p.52, p.90 were explicitly confirmed by the user against the P1 verification pack on 2026-09-30; the remaining 14 works retain their prior evidence states).
 
 ### Batch 1 — six works (agent-confirmed 2026-09-27 + re-verified by OCR 2026-09-30)
 
@@ -248,3 +248,19 @@ The code in this repository — `index.html`, `prepare_assets.py`, `start.py`, `
 The images under `assets/` are downsized renderings of scan pages from the Internet Archive's *Selected Photographs from China* item. They are reproduced here under the Internet Archive's lending terms (the item is publicly accessible at <https://archive.org/details/selectedphotographsfromchina/>) and are **not** claimed to fall under the MIT License. Each asset records its source archive member, source-page SHA-256, and display SHA-256 in `ingest-receipt.json`. If you reuse the scans, please credit the original photographers and Foreign Languages Press (1977).
 
 See [`LICENSE`](./LICENSE) for the full MIT text.
+
+### Batch 3 — six works (agent-reviewed 2026-09-30; new for v0.6)
+
+Six third-batch works added via glymur + openjpeg 2.5.0 JP2 → JPEG decode of the canonical `source/spfc_jp2.zip` (96,919,838 bytes, SHA-256 `ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87`) downloaded from `https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_jp2.zip`. Full review record is in [`third-batch-visual-review.md`](./third-batch-visual-review.md).
+
+| Page | Leaf | Title (printed) | Photographer (printed) | Page-number visibility | Mapping status | Review status | Credit status | Batch |
+|---:|---:|---|---|---|---|---|---|:---:|
+| p.10 | 16 | "Welder" | Ying Fu-tang | visible (10) | `AGENT_CONFIRMED` | `AGENT_VISUALLY_REVIEWED` | `PRINT_VISIBLE_AGENT_READ` | 3 |
+| p.18 | 24 | "Laying Track in High Mountains" | Chen Wei-chun | visible (18) | `AGENT_CONFIRMED` | `AGENT_VISUALLY_REVIEWED` | `PRINT_VISIBLE_AGENT_READ` | 3 |
+| p.23 | 29 | "Line Maintenance" | Wang Feng | not visible | `AUTO_CANDIDATE` | `AGENT_VISUALLY_REVIEWED` | `PRINT_VISIBLE_AGENT_READ` | 3 |
+| p.54 | 60 | "Educated Youth with Poor-Peasant 'Granny'" | Wang Yang-chun | partial (4; 5 cut off by scan margin) | `AGENT_CONFIRMED` | `AGENT_VISUALLY_REVIEWED` | `PRINT_VISIBLE_AGENT_READ` | 3 |
+| p.59 | 65 | "A Yurt Home in the Grasslands for Educated Youth" | not visible | not visible | `AUTO_CANDIDATE` | `AGENT_VISUALLY_REVIEWED` | `UNRESOLVED` | 3 |
+| p.79 | 85 | "Border Guards Hold a Ping-Pong Match" | Li Chen-sen | not visible | `AUTO_CANDIDATE` | `AGENT_VISUALLY_REVIEWED` | `PRINT_VISIBLE_AGENT_READ` | 3 |
+
+All six third-batch works have `human_verified: false` and **no** `*_status = HUMAN_VERIFIED` per the spec rule "不进入 Human Verification P2". Per-page review fields are recorded in [`works.json`](./works.json); the validator enforces this at pre-commit time.
+

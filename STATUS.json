@@ -1,11 +1,11 @@
 {
-  "version": "0.5",
+  "version": "0.6",
   "date": "2026-09-30",
-  "scope": "HUMAN_VERIFICATION_P1",
-  "task_id": "SPFC_P4_HUMAN_VERIFICATION_P1",
-  "work_count": 12,
-  "real_scan_works": 12,
-  "agent_reviewed": 12,
+  "scope": "BATCH3_AGENT_EXPANSION",
+  "task_id": "SPFC_P5_BATCH3_AGENT_EXPANSION",
+  "work_count": 18,
+  "real_scan_works": 18,
+  "agent_reviewed": 18,
   "human_verified": 4,
   "print_credits_reconciled": [
     {
@@ -79,6 +79,62 @@
       "leaf": 106,
       "printed_credit": "Chang Pao-an",
       "catalog_credit_variant": null
+    },
+    {
+      "page": 10,
+      "leaf": 16,
+      "printed_credit": "Ying Fu-tang",
+      "catalog_credit_variant": null,
+      "printed_title": "Welder",
+      "mapping_status": "AGENT_CONFIRMED",
+      "batch": 3
+    },
+    {
+      "page": 18,
+      "leaf": 24,
+      "printed_credit": "Chen Wei-chun",
+      "catalog_credit_variant": null,
+      "printed_title": "Laying Track in High Mountains",
+      "mapping_status": "AGENT_CONFIRMED",
+      "batch": 3
+    },
+    {
+      "page": 23,
+      "leaf": 29,
+      "printed_credit": "Wang Feng",
+      "catalog_credit_variant": null,
+      "printed_title": "Line Maintenance",
+      "mapping_status": "AUTO_CANDIDATE",
+      "batch": 3
+    },
+    {
+      "page": 54,
+      "leaf": 60,
+      "printed_credit": "Wang Yang-chun",
+      "catalog_credit_variant": null,
+      "printed_title": "Educated Youth with Poor-Peasant 'Granny'",
+      "mapping_status": "AGENT_CONFIRMED",
+      "batch": 3
+    },
+    {
+      "page": 59,
+      "leaf": 65,
+      "printed_credit": null,
+      "catalog_credit_variant": null,
+      "printed_title": "A Yurt Home in the Grasslands for Educated Youth",
+      "mapping_status": "AUTO_CANDIDATE",
+      "batch": 3,
+      "location_stamp_in_caption": "Bayinmengho",
+      "credit_status": "UNRESOLVED"
+    },
+    {
+      "page": 79,
+      "leaf": 85,
+      "printed_credit": "Li Chen-sen",
+      "catalog_credit_variant": null,
+      "printed_title": "Border Guards Hold a Ping-Pong Match",
+      "mapping_status": "AUTO_CANDIDATE",
+      "batch": 3
     }
   ],
   "p100_page": 100,
@@ -122,15 +178,69 @@
       "date": "2026-09-27",
       "task_id": "SPFC_AGENT_v0_2",
       "note": "Initial ingest; 0 real scan images in release; placeholder UI; ingest-receipt mixed technical+research. SUPERSEDED by v0.3/v0.4."
+    },
+    "version_0_5": {
+      "date": "2026-09-30",
+      "commit": "c5bc7ad",
+      "task_id": "SPFC_P4_HUMAN_VERIFICATION_P1_CLOSEOUT",
+      "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Open https://github.com/conanxin/selected-photographs-exhibition/issues/2 for acceptance comment + close. Paste NOTION-09-UPDATE.md into Notion P4 page when API access available. Human Verification Pack is ready in verification/; awaiting your eye on remaining 8 works.",
+  "next_action": "Open https://github.com/conanxin/selected-photographs-exhibition/issues/3 for acceptance comment + close. Paste NOTION-10-UPDATE.md into Notion P5 page when API access available. Third batch (6 new works) Agent-level review complete. Human Verification Pack is ready in verification/ for remaining 8 works when you have more time.",
   "human_verified_pages": [
     3,
     40,
     52,
     90
   ],
-  "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30.",
-  "production_sync": "DEPLOYED"
+  "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
+  "production_sync": "DEPLOYED",
+  "chapter_count": 6,
+  "batch3": {
+    "scope": "Third Batch Agent-level Expansion",
+    "task_id": "SPFC_P5_BATCH3_AGENT_EXPANSION",
+    "target_pages": [
+      10,
+      18,
+      23,
+      54,
+      59,
+      79
+    ],
+    "real_pages": [
+      10,
+      18,
+      23,
+      54,
+      59,
+      79
+    ],
+    "agent_reviewed": 6,
+    "human_verified_added": 0,
+    "source_zip": {
+      "file": "source/spfc_jp2.zip",
+      "bytes": 96919838,
+      "sha256": "ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87",
+      "url": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_jp2.zip",
+      "archive_leaf_count": 109
+    },
+    "third_batch_visual_review": "third-batch-visual-review.md",
+    "jp2_decoder": {
+      "glymur_version": "0.14.8",
+      "openjpeg_version": "2.5.0",
+      "install_method": "pip install --break-system-packages --user glymur"
+    },
+    "mapping_status_summary": {
+      "AGENT_CONFIRMED": [
+        10,
+        18,
+        54
+      ],
+      "AUTO_CANDIDATE": [
+        23,
+        59,
+        79
+      ]
+    }
+  }
 }

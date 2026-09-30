@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SPFC Catalog Validator — SPFC_P4_HUMAN_VERIFICATION_P1
+SPFC Catalog Validator — SPFC_P5_BATCH3_AGENT_EXPANSION
 ==========================================================
 
 Mandatory pre-commit validator. Run from project root:
@@ -10,7 +10,7 @@ Mandatory pre-commit validator. Run from project root:
 Exit code 0 = PASS, non-zero = FAIL.
 
 Checks performed:
-  1. works.json: 12 unique page numbers (no duplicates)
+  1. works.json: 18 unique page numbers (no duplicates)
   2. works.json: every work's leaf asset file exists in assets/
   3. works.json: mapping_status values are legal (AUTO_CANDIDATE / AGENT_CONFIRMED / AGENT_REJECTED / HUMAN_VERIFIED)
   4. works.json: review_status values are legal (DECODED / AGENT_VISUALLY_REVIEWED / HUMAN_VERIFIED)
@@ -21,10 +21,15 @@ Checks performed:
   9. works.json: p.90 author = "Chou Chia-kuo"
  10. works.json: p.100 author = "Chang Pao-an"
  11. works.json: p.100 mapping_status = "AGENT_CONFIRMED"
+ 11a. works.json: work pages exactly {2, 3, 6, 10, 18, 23, 38, 39, 40, 52, 54, 59, 79, 83, 87, 90, 98, 100}
  11b. works.json: human-verified pages are exactly {3,40,52,90}, with mapping/review/credit all HUMAN_VERIFIED
+ 11c. works.json: third-batch (Batch-3) pages are exactly {10, 18, 23, 54, 59, 79}
+ 11d. works.json: all third-batch works have human_verified=false AND not in any *_status=HUMAN_VERIFIED
  12. works.json must NOT contain the deprecated "page_mapping_confirmed" field anywhere
  13. index.html embedded <script id="work-data" type="application/json"> block matches works.json byte-for-byte
- 14. STATUS.json is NOT the stale v0.2 form (must not contain "0.2" + "0" + "NOT_DEPLOYED" simultaneously)
+ 14. STATUS.json must include v0.6 fields: version=0.6, work_count=18, agent_reviewed=18, human_verified=4, chapter_count=6, scope=BATCH3_AGENT_EXPANSION
+ 14a. STATUS.json human_verified_pages = [3, 40, 52, 90]
+ 15. STATUS.json human_verified NOT stale (must equal 4, not 0 or 12)
 """
 
 import json
@@ -42,6 +47,10 @@ ASSETS_DIR = ROOT / "assets"
 LEGAL_MAPPING = {"AUTO_CANDIDATE", "AGENT_CONFIRMED", "AGENT_REJECTED", "HUMAN_VERIFIED"}
 LEGAL_REVIEW = {"DECODED", "AGENT_VISUALLY_REVIEWED", "HUMAN_VERIFIED"}
 LEGAL_CREDIT = {"PRINT_VISIBLE_AGENT_READ", "UNRESOLVED", "HUMAN_VERIFIED"}
+
+EXPECTED_PAGES = {2, 3, 6, 10, 18, 23, 38, 39, 40, 52, 54, 59, 79, 83, 87, 90, 98, 100}
+EXPECTED_BATCH3 = {10, 18, 23, 54, 59, 79}
+EXPECTED_HUMAN = {3, 40, 52, 90}
 
 errors = []
 warnings = []
@@ -65,12 +74,12 @@ def warn(msg):
 
 
 def main():
-    print("=== SPFC Catalog Validator ===")
+    print("=== SPFC Catalog Validator (SPFC_P5_BATCH3_AGENT_EXPANSION) ===")
     print(f"Project root: {ROOT}")
     print()
 
     # Load works.json
-    print("[1-12] Loading works.json ...")
+    print("[1-11d] Loading works.json ...")
     if not WORKS_FILE.exists():
         fail(f"works.json not found at {WORKS_FILE}")
         sys.exit(1)
@@ -81,22 +90,28 @@ def main():
         sys.exit(1)
     ok(f"works.json loaded ({len(works)} works)")
 
-    # 1. 12 unique page numbers
-    print("[1] Checking 12 unique page numbers ...")
+    # 1a. 18 unique page numbers
+    print("[1a] Checking 18 unique page numbers ...")
     pages = [w.get("page") for w in works]
-    if sorted(pages) == list(range(2, 114)):  # not strictly 1..N, just check uniqueness
-        pass
     unique_pages = set(pages)
-    if len(unique_pages) == 12 and len(pages) == 12:
-        ok(f"12 unique page numbers: {sorted(pages)}")
+    if len(unique_pages) == 18 and len(pages) == 18:
+        ok(f"18 unique page numbers: {sorted(pages)}")
     else:
-        fail(f"Expected 12 unique page numbers; got {len(pages)} entries, {len(unique_pages)} unique ({sorted(pages)})")
+        fail(f"Expected 18 unique page numbers; got {len(pages)} entries, {len(unique_pages)} unique ({sorted(pages)})")
+
+    # 1b. exact page set
+    print("[1b] Checking page set exactly matches expected {2,3,6,10,18,23,38,39,40,52,54,59,79,83,87,90,98,100} ...")
+    if unique_pages == EXPECTED_PAGES:
+        ok(f"Page set exactly matches expected 18 pages")
+    else:
+        missing = EXPECTED_PAGES - unique_pages
+        extra = unique_pages - EXPECTED_PAGES
+        fail(f"Page set mismatch. Missing: {sorted(missing)}; Extra: {sorted(extra)}")
 
     # 2. Every leaf asset file exists
     print("[2] Checking every work's leaf asset exists in assets/ ...")
     for w in works:
         leaf = w.get("leaf")
-        # Some works (p.40) have a secondary_leaf; we check primary only here
         asset = ASSETS_DIR / f"leaf-{leaf:04d}.jpg"
         if asset.exists():
             ok(f"  leaf-{leaf:04d}.jpg exists for p.{w.get('page')}")
@@ -154,7 +169,7 @@ def main():
         fail(f"p.100 mapping_status = {by_page.get(100, {}).get('mapping_status')!r} (expected 'AGENT_CONFIRMED')")
 
     # 11b. Human Verification P1 exact set and state invariants
-    expected_human = {3, 40, 52, 90}
+    expected_human = EXPECTED_HUMAN
     actual_human = {w.get("page") for w in works if w.get("human_verified") is True}
     if actual_human == expected_human:
         ok("human_verified pages exactly {3,40,52,90}")
@@ -166,6 +181,41 @@ def main():
             ok(f"p.{page} mapping/review/credit = HUMAN_VERIFIED")
         else:
             fail(f"p.{page} HUMAN_VERIFIED state incomplete: mapping={w.get('mapping_status')}, review={w.get('review_status')}, credit={w.get('credit_status')}")
+
+    # 11c. Third-batch (Batch-3) exact set
+    print("[11c] Checking third-batch pages exactly {10, 18, 23, 54, 59, 79} ...")
+    actual_batch3 = {w.get("page") for w in works if w.get("batch") == 3}
+    if actual_batch3 == EXPECTED_BATCH3:
+        ok(f"third-batch pages exactly {sorted(actual_batch3)}")
+    else:
+        missing = EXPECTED_BATCH3 - actual_batch3
+        extra = actual_batch3 - EXPECTED_BATCH3
+        fail(f"third-batch mismatch. Missing: {sorted(missing)}; Extra: {sorted(extra)}")
+
+    # 11d. All third-batch works: human_verified=false AND no *_status=HUMAN_VERIFIED
+    print("[11d] Checking all third-batch works are NOT promoted (no Human Verification P2) ...")
+    for page in sorted(EXPECTED_BATCH3):
+        w = by_page.get(page, {})
+        hv = w.get("human_verified", False)
+        ms = w.get("mapping_status")
+        rs = w.get("review_status")
+        cs = w.get("credit_status")
+        if hv is True:
+            fail(f"  p.{page} human_verified=true (forbidden in Batch-3)")
+        else:
+            ok(f"  p.{page} human_verified=false")
+        if ms == "HUMAN_VERIFIED":
+            fail(f"  p.{page} mapping_status=HUMAN_VERIFIED (forbidden in Batch-3)")
+        else:
+            ok(f"  p.{page} mapping_status={ms} (not HUMAN_VERIFIED)")
+        if rs == "HUMAN_VERIFIED":
+            fail(f"  p.{page} review_status=HUMAN_VERIFIED (forbidden in Batch-3)")
+        else:
+            ok(f"  p.{page} review_status={rs} (not HUMAN_VERIFIED)")
+        if cs == "HUMAN_VERIFIED":
+            fail(f"  p.{page} credit_status=HUMAN_VERIFIED (forbidden in Batch-3)")
+        else:
+            ok(f"  p.{page} credit_status={cs} (not HUMAN_VERIFIED)")
 
     # 12. No legacy page_mapping_confirmed
     print("[12] Checking legacy page_mapping_confirmed is REMOVED ...")
@@ -196,8 +246,8 @@ def main():
                 else:
                     fail("index.html embedded work-data differs from works.json — re-run with updated embedded JSON")
 
-    # 14. STATUS.json must not be stale v0.2
-    print("[14] Checking STATUS.json is not stale v0.2 ...")
+    # 14. STATUS.json must be v0.6 form
+    print("[14] Checking STATUS.json is v0.6 form ...")
     if not STATUS_FILE.exists():
         fail(f"STATUS.json not found at {STATUS_FILE}")
     else:
@@ -206,17 +256,35 @@ def main():
         except json.JSONDecodeError as e:
             fail(f"STATUS.json is not valid JSON: {e}")
             status = {}
-        version = status.get("version", "")
-        deployment = status.get("deployment", "")
-        real_scan_works = status.get("real_scan_works", 0)
-        if version == "0.2" and real_scan_works == 0 and deployment == "NOT_DEPLOYED":
-            fail(f"STATUS.json is stale v0.2 form (version=0.2, real_scan_works=0, deployment=NOT_DEPLOYED)")
+        if status.get("version") == "0.6":
+            ok("STATUS.json version = 0.6")
         else:
-            ok(f"STATUS.json is current (version={version}, real_scan_works={real_scan_works}, deployment={deployment})")
-            if status.get("human_verified") == 4:
-                ok("STATUS.json human_verified = 4")
-            else:
-                fail(f"STATUS.json human_verified = {status.get('human_verified')!r} (expected 4)")
+            fail(f"STATUS.json version = {status.get('version')!r} (expected '0.6')")
+        if status.get("work_count") == 18:
+            ok("STATUS.json work_count = 18")
+        else:
+            fail(f"STATUS.json work_count = {status.get('work_count')!r} (expected 18)")
+        if status.get("agent_reviewed") == 18:
+            ok("STATUS.json agent_reviewed = 18")
+        else:
+            fail(f"STATUS.json agent_reviewed = {status.get('agent_reviewed')!r} (expected 18)")
+        if status.get("human_verified") == 4:
+            ok("STATUS.json human_verified = 4")
+        else:
+            fail(f"STATUS.json human_verified = {status.get('human_verified')!r} (expected 4)")
+        if status.get("chapter_count") == 6:
+            ok("STATUS.json chapter_count = 6")
+        else:
+            fail(f"STATUS.json chapter_count = {status.get('chapter_count')!r} (expected 6)")
+        if status.get("scope") == "BATCH3_AGENT_EXPANSION":
+            ok("STATUS.json scope = BATCH3_AGENT_EXPANSION")
+        else:
+            fail(f"STATUS.json scope = {status.get('scope')!r} (expected 'BATCH3_AGENT_EXPANSION')")
+        hv_pages = status.get("human_verified_pages", [])
+        if sorted(hv_pages) == [3, 40, 52, 90]:
+            ok("STATUS.json human_verified_pages = [3, 40, 52, 90]")
+        else:
+            fail(f"STATUS.json human_verified_pages = {sorted(hv_pages)} (expected [3, 40, 52, 90])")
 
     print()
     print("=" * 60)

@@ -1,34 +1,141 @@
 {
-  "version": "0.3",
-  "created_at": "2026-09-28T13:44:09.512067+00:00",
+  "version": "0.4",
+  "created_at": "2026-09-30T14:55:00.000000+08:00",
   "schema_migration": {
     "date": "2026-09-30",
     "migrated_from": "v0.2 (research + technical fields mixed)",
     "migrated_to": "v0.3 (technical-only ingest; research layer moved to works.json and review docs)",
-    "removed_fields": ["mapping_status (per-work)", "review_status (per-work)", "mapping_source (per-work)", "human_verified_count (top-level)"],
-    "rationale": "Download/decode is technical provenance. Mapping & review status are research-layer states that belong with the catalog/works.json, not with the byte-level ingest receipt."
+    "removed_fields": [
+      "mapping_status (per-work)",
+      "review_status (per-work)",
+      "mapping_source (per-work)",
+      "human_verified_count (top-level)"
+    ],
+    "rationale": "Download/decode is technical provenance. Mapping & review status are research-layer states that belong with the catalog/works.json, not with the byte-level ingest receipt.",
+    "v0_4_note": "v0.4 (2026-09-30): batch3 acquired 6 new works (p.10, p.18, p.23, p.54, p.59, p.79); loaded_count 12 → 18; source_kind upgraded from LOCAL_ZIP_UNVERIFIED_ORIGIN to INTERNET_ARCHIVE_VERIFIED; source_url added; acquired SHA256 verified against expected ff1acb5ae5..."
   },
   "status": "ACQUIRED_AND_DECODED",
   "source_identifier": "selectedphotographsfromchina",
-  "source_url": null,
-  "source_kind": "LOCAL_ZIP_UNVERIFIED_ORIGIN",
+  "source_url": "https://archive.org/download/selectedphotographsfromchina/selectedphotographsfromchina_jp2.zip",
+  "source_kind": "INTERNET_ARCHIVE_VERIFIED",
   "source_file": "spfc_jp2.zip",
   "source_bytes": 96919838,
   "source_sha256": "ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87",
   "metadata_md5_matched": false,
   "archive_leaf_count": 109,
-  "requested_work_count": 12,
-  "loaded_count": 12,
+  "requested_work_count": 18,
+  "loaded_count": 18,
   "works": [
+    {
+      "page": 2,
+      "leaf": 8,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0008.jp2",
+      "source_page_sha256": "53288e1771358f9e5f1ad68cf4fd73002d1eca0620049ccf3d7ad848ca292f40",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0008.jpg",
+      "display_sha256": "085f2e193b0735dc5a052da3a684f5516e6887f9e9ff9591f66dff347277b0b6",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
     {
       "page": 3,
       "leaf": 9,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0009.jp2",
       "source_page_sha256": "7236c038a2944b8b7c25d84f74cf8a7e98aca217ac03662b024b7f76647d0582",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0009.jpg",
       "display_sha256": "b8ab0ada8592d643d9907da3595bd3456697126523a43d4cb95be37b9e3019ed",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 6,
+      "leaf": 12,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0012.jp2",
+      "source_page_sha256": "30523bc274e154c3d07dd60d62f608288d8b369c23679d12cea4001ac5b1bcd1",
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
+      "display_file": "assets/leaf-0012.jpg",
+      "display_sha256": "ed4d3848f09749a87f97058ccc967fcd0c1d661c9be8bc52f9e8688fed269e90",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 10,
+      "leaf": 16,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0016.jp2",
+      "source_page_sha256": "15391297fecd08bb665052a7f7877069baf278b585e24a2899cf2fa8c836f20c",
+      "source_size": [
+        2987,
+        2481
+      ],
+      "display_size": [
+        1800,
+        1495
+      ],
+      "display_file": "assets/leaf-0016.jpg",
+      "display_sha256": "39329cacb645c3b4aef354fb0738e2240d89cae4e7a0dfdf2b52ac71302f6923",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 18,
+      "leaf": 24,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0024.jp2",
+      "source_page_sha256": "465e97a3f4a223b7752ab737e4afc0558e8ad2c08031fd177681c4902551187a",
+      "source_size": [
+        2987,
+        2481
+      ],
+      "display_size": [
+        1800,
+        1495
+      ],
+      "display_file": "assets/leaf-0024.jpg",
+      "display_sha256": "ba300898008a54832191bf1de07b009eccdcb02c7e5c4ea5794e9bbf13e17e8d",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 23,
+      "leaf": 29,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0029.jp2",
+      "source_page_sha256": "9977f6813d74620afbbaa438b5648c675d22accb39e91bb60f9111bfe4e8a80b",
+      "source_size": [
+        2987,
+        2481
+      ],
+      "display_size": [
+        1800,
+        1495
+      ],
+      "display_file": "assets/leaf-0029.jpg",
+      "display_sha256": "b2913c43bdf724dab49be031bc8325831339550544ec4aafa834ea57da8d2b82",
       "cropped": false,
       "representation": "FULL_SCAN_PAGE",
       "status": "DECODED"
@@ -38,8 +145,14 @@
       "leaf": 44,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0044.jp2",
       "source_page_sha256": "a27de60d7fea8432f63058e3dfbdfe7ed8a11e1f689e896723ab934d353ef94e",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0044.jpg",
       "display_sha256": "e96a29d17a96a3ac9fd39e5c977387887b0c539685e2ad6df5785bd9ee9756a1",
       "cropped": false,
@@ -51,8 +164,14 @@
       "leaf": 45,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0045.jp2",
       "source_page_sha256": "6498f8e87259ba6f15f955f1962ebed1bcb5c445a58aa709ce46e6d884b7c061",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0045.jpg",
       "display_sha256": "b6bb48f581adc6abaaae132514724f1f83306dface41c84f0fdf87c600b5ade9",
       "cropped": false,
@@ -65,8 +184,14 @@
       "secondary_leaf": 47,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0046.jp2",
       "source_page_sha256": "55f2c595e015bcfcb55456c16da9b72bcd1c39330e7fe01112f4da0a8186e164",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0046.jpg",
       "display_sha256": "cd520992dc3673c72b1fbfc8c1abd06332a041a0ab680de52ef59d474ea14953",
       "cropped": false,
@@ -78,8 +203,14 @@
       "leaf": 58,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0058.jp2",
       "source_page_sha256": "aadedbffa92c39dc35970b6ed6a19931e81bfec5572fb5d579c02c5f291290f0",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0058.jpg",
       "display_sha256": "34d567d4028e6390c0b4f726b17cfae04aefc292e3cea83d60be5d2dbe0c7941",
       "cropped": false,
@@ -87,40 +218,58 @@
       "status": "DECODED"
     },
     {
-      "page": 90,
-      "leaf": 96,
-      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0096.jp2",
-      "source_page_sha256": "9726d46df558145ff0cf46b8c17dd0fc8f75fe382ab02fb7495e264e5d3d0260",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
-      "display_file": "assets/leaf-0096.jpg",
-      "display_sha256": "4181be1f68ad33da77d64f38fc8f3914c960c8ba635ea7d98f96260985671a39",
+      "page": 54,
+      "leaf": 60,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0060.jp2",
+      "source_page_sha256": "6072c1baaec66c95dfe9f066f9fe01afa70f1f692967fbe298ba4274b08caf7a",
+      "source_size": [
+        2996,
+        2481
+      ],
+      "display_size": [
+        1800,
+        1490
+      ],
+      "display_file": "assets/leaf-0060.jpg",
+      "display_sha256": "4fbaaf5be0281c30fbfb3c42e5e42f27f3e7fb6b1270f338badd2833a2375d46",
       "cropped": false,
       "representation": "FULL_SCAN_PAGE",
       "status": "DECODED"
     },
     {
-      "page": 2,
-      "leaf": 8,
-      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0008.jp2",
-      "source_page_sha256": "53288e1771358f9e5f1ad68cf4fd73002d1eca0620049ccf3d7ad848ca292f40",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
-      "display_file": "assets/leaf-0008.jpg",
-      "display_sha256": "085f2e193b0735dc5a052da3a684f5516e6887f9e9ff9591f66dff347277b0b6",
+      "page": 59,
+      "leaf": 65,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0065.jp2",
+      "source_page_sha256": "f48418443fc14bcc82acafb5f6c0b527843c4e2ac8e099efec1419066a41bda8",
+      "source_size": [
+        3023,
+        2481
+      ],
+      "display_size": [
+        1800,
+        1477
+      ],
+      "display_file": "assets/leaf-0065.jpg",
+      "display_sha256": "ea30e48dae93d8f68b4fcdad4e25ffef3f9a634dd8ea0eb1e082667980445aa9",
       "cropped": false,
       "representation": "FULL_SCAN_PAGE",
       "status": "DECODED"
     },
     {
-      "page": 6,
-      "leaf": 12,
-      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0012.jp2",
-      "source_page_sha256": "30523bc274e154c3d07dd60d62f608288d8b369c23679d12cea4001ac5b1bcd1",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
-      "display_file": "assets/leaf-0012.jpg",
-      "display_sha256": "ed4d3848f09749a87f97058ccc967fcd0c1d661c9be8bc52f9e8688fed269e90",
+      "page": 79,
+      "leaf": 85,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0085.jp2",
+      "source_page_sha256": "0e657f34f7165222f6a87f917dc49ece9a3eb6c7ff00bf5ab223a1fd8c8deaf5",
+      "source_size": [
+        3023,
+        2481
+      ],
+      "display_size": [
+        1800,
+        1477
+      ],
+      "display_file": "assets/leaf-0085.jpg",
+      "display_sha256": "0f89651a8abdefe333632f3fd93116d2f1fb19b6059e7f563ae914d37903c18d",
       "cropped": false,
       "representation": "FULL_SCAN_PAGE",
       "status": "DECODED"
@@ -130,8 +279,14 @@
       "leaf": 89,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0089.jp2",
       "source_page_sha256": "f3f7cc724cb1cfc2381d88a35104289f59620588f65b93d21e9720a45ea8e751",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
       "display_file": "assets/leaf-0089.jpg",
       "display_sha256": "b769de4c7f4e27fbcf4ce8b4a283a87a83e4f8e7cb95a4c19858fd07ba3a6364",
       "cropped": false,
@@ -143,10 +298,35 @@
       "leaf": 93,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0093.jp2",
       "source_page_sha256": "b50f6e95c7caa43f23643006b882a29aeef2c9a853469a3f276944d39b7d92c2",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
       "display_file": "assets/leaf-0093.jpg",
       "display_sha256": "bebf7513c4338aad2fd75b9f824911df9350c2c9812b6715f470b9dd68a35caa",
+      "cropped": false,
+      "representation": "FULL_SCAN_PAGE",
+      "status": "DECODED"
+    },
+    {
+      "page": 90,
+      "leaf": 96,
+      "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0096.jp2",
+      "source_page_sha256": "9726d46df558145ff0cf46b8c17dd0fc8f75fe382ab02fb7495e264e5d3d0260",
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
+      "display_file": "assets/leaf-0096.jpg",
+      "display_sha256": "4181be1f68ad33da77d64f38fc8f3914c960c8ba635ea7d98f96260985671a39",
       "cropped": false,
       "representation": "FULL_SCAN_PAGE",
       "status": "DECODED"
@@ -156,8 +336,14 @@
       "leaf": 104,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0104.jp2",
       "source_page_sha256": "d1b3f58a8281d0095df350e3113ec64ff21f07a4bc9f7f10cd65ca0900d504b7",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
       "display_file": "assets/leaf-0104.jpg",
       "display_sha256": "288a81a83df03c14f818e0e16ab576f1dd77123711f000ec6e152a1e85312e05",
       "cropped": false,
@@ -169,8 +355,14 @@
       "leaf": 106,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0106.jp2",
       "source_page_sha256": "1cd80b1b55c1030e3fea8d1f6241704a50c3eec8ca32bd66a1c46de4b5932b5d",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
       "display_file": "assets/leaf-0106.jpg",
       "display_sha256": "d87d4f1e19f5626b81bd3dd9959dcaaf92b5b3b18418be159a5a0a1496378cae",
       "cropped": false,
@@ -183,8 +375,14 @@
       "leaf": 0,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0000.jp2",
       "source_page_sha256": "a7100c5b27a8a46ebc3917d49672faae1fc77f9c09743d18dbe5e5faff5edf36",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
       "display_file": "assets/leaf-0000.jpg",
       "display_sha256": "c4faab69b74a4a8c098e20a9219de7cf08d2a3e26510518f9977d1e6ea2cd1ce",
       "cropped": false,
@@ -195,8 +393,14 @@
       "leaf": 1,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0001.jp2",
       "source_page_sha256": "faf06c1282d364f0271923e0ced70d65db6c48e9b8a29f9a3ccb19827c68457d",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0001.jpg",
       "display_sha256": "e8f0140431a755a66c1f7d98f23b30edc456bae16859441eeb3cde064293edec",
       "cropped": false,
@@ -207,8 +411,14 @@
       "leaf": 2,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0002.jp2",
       "source_page_sha256": "1ff9f12241b75b237aed86b1617d13a4ea123db7f79a15d3bb8759b2d9948e99",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0002.jpg",
       "display_sha256": "ec0c060ef934319d417c82054b08b861703df66854ada2d6b04c06f14bf9cd2a",
       "cropped": false,
@@ -219,8 +429,14 @@
       "leaf": 3,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0003.jp2",
       "source_page_sha256": "2bccdee697c9d3c242f841b4fd8bbe8e86fbb16f74d028f0f1b23c248f539049",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0003.jpg",
       "display_sha256": "d1e76242dfd49db7c320ac2ad9a422ba46994e389f99dab6907987ae3aae1a3c",
       "cropped": false,
@@ -231,8 +447,14 @@
       "leaf": 4,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0004.jp2",
       "source_page_sha256": "80026fe4bf3aa024dcfaad84b98271fe20359f6a268cfbebe55301cd1521bc4a",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0004.jpg",
       "display_sha256": "842dee62d4ad1cbae10dac209cbb08cce938a28ae9ad57434c1925ff77df67e3",
       "cropped": false,
@@ -243,8 +465,14 @@
       "leaf": 5,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0005.jp2",
       "source_page_sha256": "33a0c10dd439953597a8dd8ae00cbee130dc61e8d4a76879b7f1c41e81139098",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0005.jpg",
       "display_sha256": "13805903d0ee7829a67a5fb8cf7bb4f8a9eec7ea0535537bc938fcb277aa9861",
       "cropped": false,
@@ -255,8 +483,14 @@
       "leaf": 6,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0006.jp2",
       "source_page_sha256": "890e2279531c6891919fba12aad1d0071ffe99c97d46237ece8b509752d8938e",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0006.jpg",
       "display_sha256": "38fa1d4328ea4f11586304a1409cd4193a0d9cc0743d4d45a750e614ccd6759c",
       "cropped": false,
@@ -267,8 +501,14 @@
       "leaf": 47,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0047.jp2",
       "source_page_sha256": "ae98c3945591edb9040d7ca4214eef25afe34585bae01cc0c7b7f53a3191bf3e",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0047.jpg",
       "display_sha256": "bcd62285f5382830c1b97fd6e496d6455574de8bf6de83c340f7036971639c5d",
       "cropped": false,
@@ -279,8 +519,14 @@
       "leaf": 59,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0059.jp2",
       "source_page_sha256": "e8a973c9561625428be07af1f983ee769817b78a1a6aaf3785f2ee31a0e06a03",
-      "source_size": [2481, 2987],
-      "display_size": [1495, 1800],
+      "source_size": [
+        2481,
+        2987
+      ],
+      "display_size": [
+        1495,
+        1800
+      ],
       "display_file": "assets/leaf-0059.jpg",
       "display_sha256": "ae2f60a5779800230a48a8e82267bd7ad651440a6a8f4d84e0855bda0ed92658",
       "cropped": false,
@@ -291,8 +537,14 @@
       "leaf": 106,
       "archive_member": "selectedphotographsfromchina_jp2/selectedphotographsfromchina_0106.jp2",
       "source_page_sha256": "1cd80b1b55c1030e3fea8d1f6241704a50c3eec8ca32bd66a1c46de4b5932b5d",
-      "source_size": [2481, 3023],
-      "display_size": [1477, 1800],
+      "source_size": [
+        2481,
+        3023
+      ],
+      "display_size": [
+        1477,
+        1800
+      ],
       "display_file": "assets/leaf-0106.jpg",
       "display_sha256": "d87d4f1e19f5626b81bd3dd9959dcaaf92b5b3b18418be159a5a0a1496378cae",
       "cropped": false,
@@ -301,5 +553,8 @@
     }
   ],
   "missing_scan_leaves": [],
-  "note": "v0.3 ingest-receipt 是技术层回执（下载、解码、哈希、像素尺寸、表示形态）；mapping/review 状态已迁移到 works.json 与 review docs。prepare_assets.py 重新生成素材时不再覆盖研究层字段。"
+  "note": "v0.4 ingest-receipt 是技术层回执（下载、解码、哈希、像素尺寸、表示形态）；mapping/review 状态已迁移到 works.json 与 review docs。prepare_assets.py 重新生成素材时不再覆盖研究层字段。 v0.4 新增 6 件 Batch-3 作品（p.10, p.18, p.23, p.54, p.59, p.79）。",
+  "acquired_at": "2026-09-30T14:44:30",
+  "acquired_bytes": 96919838,
+  "acquired_sha256": "ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87"
 }
