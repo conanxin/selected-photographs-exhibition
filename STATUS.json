@@ -1,25 +1,85 @@
 {
-  "version": "0.4",
+  "version": "0.5",
   "date": "2026-09-30",
-  "scope": "EVIDENCE_INTEGRITY_GATE",
-  "task_id": "SPFC_P3_EVIDENCE_INTEGRITY_GATE",
+  "scope": "HUMAN_VERIFICATION_P1",
+  "task_id": "SPFC_P4_HUMAN_VERIFICATION_P1",
   "work_count": 12,
   "real_scan_works": 12,
   "agent_reviewed": 12,
-  "human_verified": 0,
+  "human_verified": 4,
   "print_credits_reconciled": [
-    {"page": 3, "leaf": 9, "printed_credit": "Chou Chun-yen", "catalog_credit_variant": "Chou Chun-jen"},
-    {"page": 38, "leaf": 44, "printed_credit": "Ma Hou-yi", "catalog_credit_variant": null},
-    {"page": 39, "leaf": 45, "printed_credit": "Cheng Chen-sun", "catalog_credit_variant": null},
-    {"page": 40, "leaf": 46, "printed_credit": "Jen Chen-pei", "catalog_credit_variant": null},
-    {"page": 52, "leaf": 58, "printed_credit": "Chang Chen", "catalog_credit_variant": "Chiang Chen"},
-    {"page": 90, "leaf": 96, "printed_credit": "Chou Chia-kuo", "catalog_credit_variant": "Chou Chia-kue"},
-    {"page": 2, "leaf": 8, "printed_credit": "Liu Li-pin", "catalog_credit_variant": null},
-    {"page": 6, "leaf": 12, "printed_credit": "Chang Ya-yi", "catalog_credit_variant": null},
-    {"page": 83, "leaf": 89, "printed_credit": "Tseng Lei", "catalog_credit_variant": null},
-    {"page": 87, "leaf": 93, "printed_credit": "Cha Le", "catalog_credit_variant": null},
-    {"page": 98, "leaf": 104, "printed_credit": "Shen Yen-tai", "catalog_credit_variant": null},
-    {"page": 100, "leaf": 106, "printed_credit": "Chang Pao-an", "catalog_credit_variant": null}
+    {
+      "page": 3,
+      "leaf": 9,
+      "printed_credit": "Chou Chun-yen",
+      "catalog_credit_variant": "Chou Chun-jen"
+    },
+    {
+      "page": 38,
+      "leaf": 44,
+      "printed_credit": "Ma Hou-yi",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 39,
+      "leaf": 45,
+      "printed_credit": "Cheng Chen-sun",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 40,
+      "leaf": 46,
+      "printed_credit": "Jen Chen-pei",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 52,
+      "leaf": 58,
+      "printed_credit": "Chang Chen",
+      "catalog_credit_variant": "Chiang Chen"
+    },
+    {
+      "page": 90,
+      "leaf": 96,
+      "printed_credit": "Chou Chia-kuo",
+      "catalog_credit_variant": "Chou Chia-kue"
+    },
+    {
+      "page": 2,
+      "leaf": 8,
+      "printed_credit": "Liu Li-pin",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 6,
+      "leaf": 12,
+      "printed_credit": "Chang Ya-yi",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 83,
+      "leaf": 89,
+      "printed_credit": "Tseng Lei",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 87,
+      "leaf": 93,
+      "printed_credit": "Cha Le",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 98,
+      "leaf": 104,
+      "printed_credit": "Shen Yen-tai",
+      "catalog_credit_variant": null
+    },
+    {
+      "page": 100,
+      "leaf": 106,
+      "printed_credit": "Chang Pao-an",
+      "catalog_credit_variant": null
+    }
   ],
   "p100_page": 100,
   "p100_leaf": 106,
@@ -34,7 +94,13 @@
   },
   "schema_migration": {
     "migrated_from": "page_mapping_confirmed (single boolean)",
-    "migrated_to": ["mapping_status", "review_status", "human_verified", "credit_status", "catalog_credit_variant"],
+    "migrated_to": [
+      "mapping_status",
+      "review_status",
+      "human_verified",
+      "credit_status",
+      "catalog_credit_variant"
+    ],
     "page_mapping_confirmed_status": "REMOVED from works.json (legacy boolean no longer accepted); research layer split from ingest-receipt",
     "validator_path": "scripts/validate_catalog.py"
   },
@@ -58,5 +124,13 @@
       "note": "Initial ingest; 0 real scan images in release; placeholder UI; ingest-receipt mixed technical+research. SUPERSEDED by v0.3/v0.4."
     }
   },
-  "next_action": "Run scripts/validate_catalog.py (must PASS) → production UI QA → git commit + push → Vercel redeploy → GitHub Issue #1 close → NOTION-08-UPDATE.md. Human verification of 4 priority works (p.3, p.40-41, p.52, p.90) deferred to next session per user spec ('完成后停止，不要进入 Human Verification P1；等待我人工确认 verification pack')."
+  "next_action": "Deploy current main to existing Vercel project, re-run production QA, then sync Notion. Remaining 8 works stay non-human-verified; third batch not started.",
+  "human_verified_pages": [
+    3,
+    40,
+    52,
+    90
+  ],
+  "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30.",
+  "production_sync": "PENDING_REDEPLOY_AFTER_P4_COMMIT"
 }
