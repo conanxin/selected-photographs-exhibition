@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SPFC Catalog Validator — SPFC_P3_EVIDENCE_INTEGRITY_GATE
+SPFC Catalog Validator — SPFC_P4_HUMAN_VERIFICATION_P1
 ==========================================================
 
 Mandatory pre-commit validator. Run from project root:
@@ -21,6 +21,7 @@ Checks performed:
   9. works.json: p.90 author = "Chou Chia-kuo"
  10. works.json: p.100 author = "Chang Pao-an"
  11. works.json: p.100 mapping_status = "AGENT_CONFIRMED"
+ 11b. works.json: human-verified pages are exactly {3,40,52,90}, with mapping/review/credit all HUMAN_VERIFIED
  12. works.json must NOT contain the deprecated "page_mapping_confirmed" field anywhere
  13. index.html embedded <script id="work-data" type="application/json"> block matches works.json byte-for-byte
  14. STATUS.json is NOT the stale v0.2 form (must not contain "0.2" + "0" + "NOT_DEPLOYED" simultaneously)
@@ -152,6 +153,20 @@ def main():
     else:
         fail(f"p.100 mapping_status = {by_page.get(100, {}).get('mapping_status')!r} (expected 'AGENT_CONFIRMED')")
 
+    # 11b. Human Verification P1 exact set and state invariants
+    expected_human = {3, 40, 52, 90}
+    actual_human = {w.get("page") for w in works if w.get("human_verified") is True}
+    if actual_human == expected_human:
+        ok("human_verified pages exactly {3,40,52,90}")
+    else:
+        fail(f"human_verified pages = {sorted(actual_human)} (expected [3, 40, 52, 90])")
+    for page in sorted(expected_human):
+        w = by_page.get(page, {})
+        if w.get("mapping_status") == "HUMAN_VERIFIED" and w.get("review_status") == "HUMAN_VERIFIED" and w.get("credit_status") == "HUMAN_VERIFIED":
+            ok(f"p.{page} mapping/review/credit = HUMAN_VERIFIED")
+        else:
+            fail(f"p.{page} HUMAN_VERIFIED state incomplete: mapping={w.get('mapping_status')}, review={w.get('review_status')}, credit={w.get('credit_status')}")
+
     # 12. No legacy page_mapping_confirmed
     print("[12] Checking legacy page_mapping_confirmed is REMOVED ...")
     raw = WORKS_FILE.read_text(encoding="utf-8")
@@ -198,6 +213,10 @@ def main():
             fail(f"STATUS.json is stale v0.2 form (version=0.2, real_scan_works=0, deployment=NOT_DEPLOYED)")
         else:
             ok(f"STATUS.json is current (version={version}, real_scan_works={real_scan_works}, deployment={deployment})")
+            if status.get("human_verified") == 4:
+                ok("STATUS.json human_verified = 4")
+            else:
+                fail(f"STATUS.json human_verified = {status.get('human_verified')!r} (expected 4)")
 
     print()
     print("=" * 60)
