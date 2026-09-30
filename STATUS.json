@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "P8 source is complete at commit 44946c2544c1b24a6da8d25e450abfe5e4a3b3ef, but production was independently observed still serving v0.7 from the remote Windows device. Restore Vercel project authorization or trigger a production deployment from the existing selected-photographs-exhibition project, then re-run live browser QA before closing Issue #7. Human Verification P2 remains paused.",
+  "next_action": "Deploy current main after syncing assets/assets.js from canonical 18-work ingest-receipt and adding the favicon fix; then rerun full production QA. Human Verification P2 remains paused.",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "PENDING_P8_DEPLOY",
+  "production_sync": "PENDING_P8_ASSET_MANIFEST_REDEPLOY",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -440,10 +440,37 @@
     "no_og_image": true,
     "og_image_status": "intentionally_absent_until_rights_decided",
     "source_status": "COMPLETE",
-    "production_status": "NOT_UPDATED",
+    "production_status": "PENDING_ASSET_MANIFEST_REDEPLOY",
     "production_observed_version": "v0.7",
     "production_observation": "Remote Windows device DESKTOP-3A8N7VN fetched https://selected-photographs-exhibition.vercel.app/ and received the pre-P8 v0.7 HTML, confirming GitHub push had not updated production.",
     "vercel_cli_status": "BLOCKED_NOT_AUTHORIZED",
-    "vercel_connector_status": "BLOCKED_PROJECT_PERMISSION"
+    "vercel_connector_status": "BLOCKED_PROJECT_PERMISSION",
+    "asset_manifest_fix": {
+      "reason": "Git deployment exposed stale 12-work assets/assets.js while six Batch-3 JPEGs were already tracked.",
+      "canonical_source": "ingest-receipt.json v0.4",
+      "requested_work_count": 18,
+      "loaded_count": 18,
+      "page_set": [
+        2,
+        3,
+        6,
+        10,
+        18,
+        23,
+        38,
+        39,
+        40,
+        52,
+        54,
+        59,
+        79,
+        83,
+        87,
+        90,
+        98,
+        100
+      ],
+      "favicon_404_fix": true
+    }
   }
 }
