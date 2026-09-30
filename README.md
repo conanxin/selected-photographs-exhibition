@@ -57,39 +57,57 @@ Layout intent is documented inside `index.html`. The gallery follows two princip
 1. **White-walled gallery + archive reading room.** Each work sits in a clean white frame with a separate evidence tab showing the actual scanned page (caption strip, page number, photographer credit) on the verso.
 2. **Show the artifact, not a re-design.** What you see is the scan as it appears in the book — no crop, no color manipulation, no AI generation.
 
-## 5. Review status
+## 5. Review status — three-tier evidence model
 
-The catalog distinguishes three states, set in `ingest-receipt.json` and reflected in `works.json`:
+The catalog uses a **three-tier evidence model** with six explicit per-work fields. The legacy `page_mapping_confirmed: true` boolean (which conflated agent visual review with human verification) has been **removed** from the schema — see `SPFC_P3_EVIDENCE_INTEGRITY_GATE` (2026-09-30) commit history.
 
-| State | Meaning |
-|---|---|
-| `DECODED` | The scan was decoded from the source archive and a downsized full-page JPEG exists in `assets/`. |
-| `AGENT_VISUALLY_REVIEWED` | An automated pass read the print page for caption text, photographer credit, page number, and image subject. Recorded in `visual-review.md` / `second-batch-visual-review.md`. |
-| `HUMAN_VERIFIED` | A human has confirmed the mapping against the printed book. **0 / 12** as of this commit. |
+### The three tiers
 
-### Batch 1 — six works (2026-09-27 agent review)
+| Tier | Field | Values |
+|---|---|---|
+| **Decoded** | `review_status` | `DECODED` (just downloaded) → `AGENT_VISUALLY_REVIEWED` (OCR + visual pass) → `HUMAN_VERIFIED` (human confirmed against printed book) |
+| **Page mapping** | `mapping_status` | `AUTO_CANDIDATE` (platform auto-page-number map) → `AGENT_CONFIRMED` (OCR/visual confirmed printed page number on scan) → `HUMAN_VERIFIED` (human confirmed) |
+| **Printed credit** | `credit_status` | `UNRESOLVED` (credit not legible at this resolution) → `PRINT_VISIBLE_AGENT_READ` (OCR/visual extracted printed credit) → `HUMAN_VERIFIED` (human confirmed) |
 
-| Book page | Leaf | Title (en) | Author (print) | Mapping | Status |
-|---:|---:|---|---|---|---|
-| 3  | 9  | Pupils of a Rural Night School | Chou Chun-yen | photo+caption on leaf 9 | AGENT_REVIEWED |
-| 38 | 44 | Red Flag Canal in Linhsien County, Honan Province | Ma Hou-yi | photo on 44, caption on 45 (verso) | AGENT_REVIEWED |
-| 39 | 45 | Steel Pikes Have Pierced the Taihang Mountains | Cheng Chen-sun | photo+caption on leaf 45 | AGENT_REVIEWED |
-| 40 | 46+47 (spread) | Diverting Water North … Chiangtu, Kiangsu | Jen Chen-pei | spread across leaves 46–47 | AGENT_REVIEWED |
-| 52 | 58 | Storing Grain Against War | Chang Chen | photo+caption on leaf 58 | AGENT_REVIEWED |
-| 90 | 96 | Mobile Medical Team | Chou Chia-kuo | photo+caption on leaf 96 | AGENT_REVIEWED |
+The `human_verified` boolean is **never** `true` unless both `mapping_status == HUMAN_VERIFIED` AND `review_status == HUMAN_VERIFIED` — this is enforced by [`scripts/validate_catalog.py`](./scripts/validate_catalog.py) at pre-commit time. Agent-level review (OCR + visual) **never** upgrades `human_verified` to `true`.
 
-### Batch 2 — six more works (2026-09-28 agent review)
+### Current completion (2026-09-30)
 
-| Book page | Leaf | Title (en) | Mapping | Status |
-|---:|---:|---|---|---|
-| 2  | 8  | On a Home-Bound Bus After Political Theory Class | p+6 mapping holds, subject match | AGENT_REVIEWED |
-| 6  | 12 | Neighbours' Study Group | p+6 mapping holds, subject match | AGENT_REVIEWED |
-| 83 | 89 | Workers, Peasants and Soldiers Attend College | p+6 mapping holds, subject match | AGENT_REVIEWED |
-| 87 | 93 | Taking Theatre to the Mountains | p+6 mapping holds, subject match | AGENT_REVIEWED |
-| 98 | 104 | Mount Omei (landscape orientation) | p+6 mapping holds, subject match | AGENT_REVIEWED |
-| 100 | 106 | Sunrise Lights the East | **MAPPING UNRELIABLE** — leaf 106 inspected as book-end mixed region (photo top half + colophon text bottom); not presented as p.100 without further confirmation | UNCONFIRMED |
+- **12 / 12** real scan works live in the gallery (every `assets/leaf-XXXX.jpg` returns HTTP 200 in production).
+- **12 / 12** `AGENT_VISUALLY_REVIEWED` (every printed credit independently verified by tesseract OCR 2026-09-30 against `assets/leaf-XXXX.jpg`).
+- **0 / 12** `HUMAN_VERIFIED` (no human eye has confirmed against a physical 1977 printing yet — see `verification/HUMAN-VERIFY.md` for the next-step evidence pack).
+
+### Batch 1 — six works (agent-confirmed 2026-09-27 + re-verified by OCR 2026-09-30)
+
+| Book page | Leaf | Title (en) | Printed credit | catalog_credit_variant | Mapping | Review | Credit | Human |
+|---:|---:|---|---|---|---|---|---|---|
+| 3  | 9  | Pupils of a Rural Night School | **Chou Chun-yen** | Chou Chun-jen | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 38 | 44 | Red Flag Canal in Linhsien County, Honan Province | Ma Hou-yi | — | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 39 | 45 | Steel Pikes Have Pierced the Taihang Mountains | Cheng Chen-sun | — | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 40 | 46+47 (spread) | Diverting Water North … Chiangtu, Kiangsu | Jen Chen-pei | — | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 52 | 58 | Storing Grain Against War | **Chang Chen** | Chiang Chen | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 90 | 96 | Mobile Medical Team | **Chou Chia-kuo** | Chou Chia-kue | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+
+### Batch 2 — six more works (agent-confirmed 2026-09-28 + re-verified by OCR 2026-09-30)
+
+| Book page | Leaf | Title (en) | Printed credit | Mapping | Review | Credit | Human |
+|---:|---:|---|---|---|---|---|---|
+| 2  | 8  | On a Home-Bound Bus After Political Theory Class | Liu Li-pin | AUTO_CANDIDATE | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 6  | 12 | Neighbours' Study Group | Chang Ya-yi | AUTO_CANDIDATE | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 83 | 89 | Workers, Peasants and Soldiers Attend College | Tseng Lei | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 87 | 93 | Taking Theatre to the Mountains | Cha Le | AGENT_CONFIRMED | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 98 | 104 | Mount Omei (landscape orientation) | Shen Yen-tai | AUTO_CANDIDATE | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | false |
+| 100 | 106 | Sunrise Lights the East | Chang Pao-an | **AGENT_CONFIRMED** | AGENT_VISUALLY_REVIEWED | PRINT_VISIBLE_AGENT_READ | **Pending** |
+
+#### p.100 — supersede history
+
+The original 2026-09-28 batch-2 visual review classified leaf 106 as a "book-end mixed region" (photo top + colophon text bottom) and rejected the mapping. Direct programmatic OCR on `assets/leaf-0106.jpg` on 2026-09-30 extracted `Sunrise Lights / the East / Chang Pao-an` cleanly — confirming this is a clean photo page with a standard caption block, not a book-end region. The old conclusion text is preserved verbatim in [`second-batch-visual-review.md`](./second-batch-visual-review.md) under the **Correction / superseded conclusion — 2026-09-30** section. p.100 is now in the gallery (chapter 04, "风景与结尾") but `human_verified` remains `false` until you confirm against a physical 1977 printing.
 
 Detailed per-page observations are in [`visual-review.md`](./visual-review.md) (batch 1) and [`second-batch-visual-review.md`](./second-batch-visual-review.md) (batch 2).
+
+### What an Agent visual review is NOT
+
+It is **not** the same as a human verification. A human with a physical 1977 printing of *Selected Photographs from China* can confirm, for any leaf: the exact printed page number, the printed photographer credit, the printed caption text, the photo extent, and any spread/verso/recto relationships. The four priority works for human verification are prepared in [`verification/HUMAN-VERIFY.md`](./verification/HUMAN-VERIFY.md) — p.3, p.40–41, p.52, p.90 — with non-generative crop+stitch evidence images ready for your eye.
 
 ## 6. Data structure
 

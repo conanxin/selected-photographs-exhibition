@@ -1,34 +1,62 @@
 {
-  "version": "0.2",
-  "date": "2026-09-27",
-  "scope": "LOCAL_ASSET_INGESTION_EXTENSION",
-  "real_book_images_in_release": 0,
-  "visually_verified_works": 0,
-  "canonical_download_test": "FAILED_IN_CURRENT_ENVIRONMENT",
-  "unit_tests": {
-    "passed": 9,
-    "fixture": "SYNTHETIC_JP2_TEMPORARY_ONLY"
+  "version": "0.4",
+  "date": "2026-09-30",
+  "scope": "EVIDENCE_INTEGRITY_GATE",
+  "task_id": "SPFC_P3_EVIDENCE_INTEGRITY_GATE",
+  "work_count": 12,
+  "real_scan_works": 12,
+  "agent_reviewed": 12,
+  "human_verified": 0,
+  "print_credits_reconciled": [
+    {"page": 3, "leaf": 9, "printed_credit": "Chou Chun-yen", "catalog_credit_variant": "Chou Chun-jen"},
+    {"page": 38, "leaf": 44, "printed_credit": "Ma Hou-yi", "catalog_credit_variant": null},
+    {"page": 39, "leaf": 45, "printed_credit": "Cheng Chen-sun", "catalog_credit_variant": null},
+    {"page": 40, "leaf": 46, "printed_credit": "Jen Chen-pei", "catalog_credit_variant": null},
+    {"page": 52, "leaf": 58, "printed_credit": "Chang Chen", "catalog_credit_variant": "Chiang Chen"},
+    {"page": 90, "leaf": 96, "printed_credit": "Chou Chia-kuo", "catalog_credit_variant": "Chou Chia-kue"},
+    {"page": 2, "leaf": 8, "printed_credit": "Liu Li-pin", "catalog_credit_variant": null},
+    {"page": 6, "leaf": 12, "printed_credit": "Chang Ya-yi", "catalog_credit_variant": null},
+    {"page": 83, "leaf": 89, "printed_credit": "Tseng Lei", "catalog_credit_variant": null},
+    {"page": 87, "leaf": 93, "printed_credit": "Cha Le", "catalog_credit_variant": null},
+    {"page": 98, "leaf": 104, "printed_credit": "Shen Yen-tai", "catalog_credit_variant": null},
+    {"page": 100, "leaf": 106, "printed_credit": "Chang Pao-an", "catalog_credit_variant": null}
+  ],
+  "p100_page": 100,
+  "p100_leaf": 106,
+  "p100_printed_credit": "Chang Pao-an",
+  "p100_mapping_status": "AGENT_CONFIRMED",
+  "p100_correction": {
+    "old_status": "UNRELIABLE",
+    "old_conclusion_source": "second-batch-visual-review.md 2026-09-28 — 'leaf 106 实检为书末混合区（上部照片+下部后记类文字），不能确证为 p.100；映射拒绝'",
+    "new_status": "AGENT_CONFIRMED",
+    "new_evidence": "tesseract OCR 2026-09-30 (/tmp/ocr_results/leaf-0106.txt) extracted 'Sunrise Lights / the East / Chang Pao-an' from clean caption block; no colophon text on leaf; visual cross-check on assets/leaf-0106.jpg confirms photo top + caption bottom (no mixed book-end region)",
+    "supersede_note": "Old conclusion kept verbatim in second-batch-visual-review.md (Correction / superseded conclusion section); no rewriting of original text."
   },
-  "browser_test": {
-    "status": "PASS_OFFLINE_CONTENT_AND_IN_MEMORY_ASSETS",
-    "engine": "Chromium via Playwright",
-    "viewports": [
-      [
-        1440,
-        1000
-      ],
-      [
-        390,
-        844
-      ]
-    ],
-    "live_network_tested": false,
-    "file_url_navigation": "BLOCKED_BY_ENVIRONMENT",
-    "relative_asset_loading_tested": false
+  "schema_migration": {
+    "migrated_from": "page_mapping_confirmed (single boolean)",
+    "migrated_to": ["mapping_status", "review_status", "human_verified", "credit_status", "catalog_credit_variant"],
+    "page_mapping_confirmed_status": "REMOVED from works.json (legacy boolean no longer accepted); research layer split from ingest-receipt",
+    "validator_path": "scripts/validate_catalog.py"
   },
-  "notion_sync": "NOT_WRITTEN_NO_WRITE_ACTION_EXPOSED",
-  "notion_draft": "NOTION-05.md",
-  "deployment": "NOT_DEPLOYED",
-  "next_action": "Run start.py locally, then inspect the six actual candidate scan pages.",
-  "local_http_serve_only_test": "PASS_HTML_AND_EMPTY_MANIFEST_200"
+  "github_visibility": "PUBLIC",
+  "github_repo": "https://github.com/conanxin/selected-photographs-exhibition",
+  "github_license": "MIT",
+  "deployment": "DEPLOYED",
+  "vercel_project": "selected-photographs-exhibition",
+  "vercel_scope": "conanxins-projects",
+  "production_url": "https://selected-photographs-exhibition.vercel.app",
+  "previous_state": {
+    "version_0_3": {
+      "date": "2026-09-30",
+      "commit": "d710781",
+      "task_id": "SPFC_OPENCLAW_HANDOFF_OSS_P1",
+      "note": "12 works live; v0.3 deployment closed; production UI QA; NOTION-07 draft. p.100 still UNRELIABLE per old second-batch-visual-review 2026-09-28. SUPERSEDED by v0.4."
+    },
+    "version_0_2": {
+      "date": "2026-09-27",
+      "task_id": "SPFC_AGENT_v0_2",
+      "note": "Initial ingest; 0 real scan images in release; placeholder UI; ingest-receipt mixed technical+research. SUPERSEDED by v0.3/v0.4."
+    }
+  },
+  "next_action": "Run scripts/validate_catalog.py (must PASS) → production UI QA → git commit + push → Vercel redeploy → GitHub Issue #1 close → NOTION-08-UPDATE.md. Human verification of 4 priority works (p.3, p.40-41, p.52, p.90) deferred to next session per user spec ('完成后停止，不要进入 Human Verification P1；等待我人工确认 verification pack')."
 }
