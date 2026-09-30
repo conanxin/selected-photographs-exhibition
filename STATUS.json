@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Pull the P6.1 p.90 catalog-credit correction, run scripts/validate_catalog.py, redeploy the existing Vercel project, QA the p.90 whole-book index row, then finalize Notion P6 sync. Human Verification P2 remains paused.",
+  "next_action": "User pastes NOTION-11-P6.1-UPDATE.md into Notion canonical P6 page when Notion write API is wired in. Human Verification P2 (separate task) — 14 Agent-level works pending human confirmation against a physical 1977 printing: p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100 (p.52 already Human verified from P1).",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "PENDING_CORRECTIVE_REDEPLOY",
+  "production_sync": "DEPLOYED",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -281,5 +281,39 @@
     },
     "note": "18 件有展览图像，78 件是文本档案记录（不显示替代图片）",
     "p90_correction": "P6.1 correction: catalog-96 and archive-index metadata had the p.90 printed/catalog spellings reversed. Canonical Human-verified works.json remains Chou Chia-kuo / variant Chou Chia-kue."
+  },
+  "p6_1_closeout": {
+    "task_id": "SPFC_P6_1_P90_ARCHIVE_CREDIT_CLOSEOUT",
+    "production_sync": "DEPLOYED",
+    "production_deployment_id": "dpl_58fzeC3gJHwiA8AyRpHoh2PZGEbA",
+    "production_build_hash": "mm4n699lf",
+    "production_url": "https://selected-photographs-exhibition.vercel.app",
+    "closed_at": "2026-09-30T08:30:40Z",
+    "p90_credit_direction": {
+      "main": "Chou Chia-kuo",
+      "catalog_variant": "Chou Chia-kue",
+      "human_verified": true
+    },
+    "credit_variants_preserved": {
+      "p.3": {
+        "main": "Chou Chun-yen",
+        "catalog": "Chou Chun-jen"
+      },
+      "p.52": {
+        "main": "Chang Chen",
+        "catalog": "Chiang Chen"
+      },
+      "p.90": {
+        "main": "Chou Chia-kuo",
+        "catalog": "Chou Chia-kue"
+      }
+    },
+    "qa_results": {
+      "validator_checks_total": 137,
+      "validator_checks_passed": 137,
+      "production_qa_desktop": "PASS (22/22)",
+      "production_qa_mobile": "PASS (10/10)",
+      "production_qa_total": "PASS (32/32)"
+    }
   }
 }

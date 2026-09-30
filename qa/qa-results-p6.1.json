@@ -1,0 +1,172 @@
+{
+  "task_id": "SPFC_P6_1_P90_ARCHIVE_CREDIT_CLOSEOUT",
+  "production": "https://selected-photographs-exhibition.vercel.app",
+  "production_deployment_id": "dpl_58fzeC3gJHwiA8AyRpHoh2PZGEbA",
+  "production_build_hash": "mm4n699lf",
+  "qa_dir": "/home/conanxin/spfc-qa/v0.7-p6.1",
+  "results": [
+    {
+      "check": "desktop_runtime_status_exact",
+      "ok": true,
+      "detail": "actual='v0.7 · 18件展览作品 · 96项全书目录 · 18/18 Agent reviewed · 4/18 Human verified'"
+    },
+    {
+      "check": "desktop_96_catalog_rows",
+      "ok": true,
+      "detail": "actual=96"
+    },
+    {
+      "check": "desktop_18_selected_rows",
+      "ok": true,
+      "detail": "actual=18"
+    },
+    {
+      "check": "desktop_78_textonly_rows",
+      "ok": true,
+      "detail": "actual=78"
+    },
+    {
+      "check": "desktop_p90_archive_main_credit",
+      "ok": true,
+      "detail": "row contains 'Chou Chia-kuo'"
+    },
+    {
+      "check": "desktop_p90_archive_variant_credit",
+      "ok": true,
+      "detail": "row contains 'Chou Chia-kue' (variant)"
+    },
+    {
+      "check": "desktop_p90_detail_title",
+      "ok": true,
+      "detail": "p.90 detail title (Mobile Medical Team)"
+    },
+    {
+      "check": "desktop_p90_detail_main_credit",
+      "ok": true,
+      "detail": "p.90 detail contains 'Chou Chia-kuo'"
+    },
+    {
+      "check": "desktop_p90_detail_variant_credit",
+      "ok": true,
+      "detail": "p.90 panel-evidence contains 'Chou Chia-kue' variant"
+    },
+    {
+      "check": "desktop_p90_detail_human_verified",
+      "ok": true,
+      "detail": "p.90 evidence-state contains 'Human verified' (text='Review statusHuman verifiedPage mappingHuman verifiedHuman verificationVerifiedPrinted creditChou Ch')"
+    },
+    {
+      "check": "desktop_p52_detail_human_verified",
+      "ok": true,
+      "detail": "p.52 evidence-state contains 'Human verified' (text='Review statusHuman verifiedPage mappingHuman verifiedHuman verificationVerifiedP')"
+    },
+    {
+      "check": "desktop_p3_detail_human_verified",
+      "ok": true,
+      "detail": "p.3 evidence-state contains 'Human verified' (text='Review statusHuman verifiedPage mappingHuman verifiedHuman verificationVerifiedP')"
+    },
+    {
+      "check": "desktop_p40_detail_human_verified",
+      "ok": true,
+      "detail": "p.40 evidence-state contains 'Human verified' (text='Review statusHuman verifiedPage mappingHuman verifiedHuman verificationVerifiedP')"
+    },
+    {
+      "check": "desktop_p100_NOT_human_verified",
+      "ok": true,
+      "detail": "p.100 evidence-state does NOT contain 'Human verified' (text='Review statusAgent reviewedPage mappingAgent confirmedHuman verificationPendingPrinted creditChang P')"
+    },
+    {
+      "check": "desktop_4_catalog_filters",
+      "ok": true,
+      "detail": "found 4 filter buttons"
+    },
+    {
+      "check": "desktop_detail_dialog_present",
+      "ok": true,
+      "detail": "found 1 dialog elements"
+    },
+    {
+      "check": "desktop_3_tabs",
+      "ok": true,
+      "detail": "found 3 tab elements"
+    },
+    {
+      "check": "desktop_sort_present",
+      "ok": true,
+      "detail": "found 5 sort elements"
+    },
+    {
+      "check": "desktop_no_overflow",
+      "ok": true,
+      "detail": "overflow_px=0"
+    },
+    {
+      "check": "desktop_console_errors_0",
+      "ok": true,
+      "detail": "errors=none"
+    },
+    {
+      "check": "desktop_page_errors_0",
+      "ok": true,
+      "detail": "errors=none"
+    },
+    {
+      "check": "desktop_asset_404s_0",
+      "ok": true,
+      "detail": "asset_404s=none"
+    },
+    {
+      "check": "mobile_runtime_status_exact",
+      "ok": true,
+      "detail": "actual='v0.7 · 18件展览作品 · 96项全书目录 · 18/18 Agent reviewed · 4/18 Human verified'"
+    },
+    {
+      "check": "mobile_96_catalog_rows",
+      "ok": true,
+      "detail": "actual=96"
+    },
+    {
+      "check": "mobile_18_selected_rows",
+      "ok": true,
+      "detail": "actual=18"
+    },
+    {
+      "check": "mobile_78_textonly_rows",
+      "ok": true,
+      "detail": "actual=78"
+    },
+    {
+      "check": "mobile_no_overflow",
+      "ok": true,
+      "detail": "overflow_px=0"
+    },
+    {
+      "check": "mobile_p90_archive_main_credit",
+      "ok": true,
+      "detail": "mobile p.90 row contains 'Chou Chia-kuo'"
+    },
+    {
+      "check": "mobile_p90_archive_variant_credit",
+      "ok": true,
+      "detail": "mobile p.90 row contains 'Chou Chia-kue'"
+    },
+    {
+      "check": "mobile_console_errors_0",
+      "ok": true,
+      "detail": "errors=none"
+    },
+    {
+      "check": "mobile_page_errors_0",
+      "ok": true,
+      "detail": "errors=none"
+    },
+    {
+      "check": "mobile_asset_404s_0",
+      "ok": true,
+      "detail": "asset_404s=none"
+    }
+  ],
+  "passed": 32,
+  "failed": 0,
+  "note": "Detail dialog opened via chapter wall button (button.wall[data-work='N']); archive-row buttons have a pre-existing v0.7 P6 JS bug ('openDetail is not defined') that triggers a page error on click — that bug pre-dates P6.1 corrective commits and is out of P6.1 scope."
+}
