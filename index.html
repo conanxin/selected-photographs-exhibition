@@ -55,7 +55,7 @@ function updateStatus(){
  const count=[...sourceRows.keys()].filter(n=>images.has(n)&&!temporaryPages.has(n)).length;
  const humanCount=works.filter(w=>w.human_verified).length;
  const agentCount=works.filter(w=>w.review_status==='AGENT_VISUALLY_REVIEWED'||w.review_status==='HUMAN_VERIFIED').length;
- $('asset-state').textContent=`v0.6 · ${works.length}件真实作品 · ${agentCount}/${works.length} Agent reviewed · ${humanCount}/${works.length} Human verified`+(temporaryPages.size?` · 另有${temporaryPages.size}张临时预览`:'');
+ $('asset-state').textContent=`v0.7 · ${works.length}件展览作品 · 96项全书目录 · ${agentCount}/${works.length} Agent reviewed · ${humanCount}/${works.length} Human verified`+(temporaryPages.size?` · 另有${temporaryPages.size}张临时预览`:'');
 }
 function esc0(s){return s==null?'':esc(s)}
 function wall(w,large=false){return `<figure class="${large?'work-primary':''}"><button class="wall" data-work="${w.page}" aria-label="阅读${esc(w.title)}的展签与来源">${media(w)}<div class="work-label"><div>${esc(w.title)}<span class="en" lang="en">${esc(w.en)}</span></div><div class="meta">${esc0(w.author)||'署名未详'}<br>书内第${w.page}页 · 拍摄时间未详</div></div></button></figure>`;}
