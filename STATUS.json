@@ -319,7 +319,7 @@
     "latest_closeout_commit": "735b827953e0aabec2dcf6a730c30af161a4e5d8"
   },
   "p7": {
-    "issue": "PENDING",
+    "issue": 6,
     "interaction_fix": "Removed redundant archive-record click listener that called undefined openDetail(); archive rows now rely on the existing delegated [data-work] -> showWork(page, trigger) path.",
     "human_verification_p2_started": false,
     "fourth_image_batch_started": false,
@@ -328,6 +328,8 @@
       "Removed redundant archive click handler calling undefined openDetail(); shared delegated [data-work] -> showWork path is canonical.",
       "Fixed archive selected filter typo p.p.selected_for_exhibition -> p.selected_for_exhibition.",
       "Added type=button + aria-label to selected archive rows."
-    ]
+    ],
+    "issue_status": "OPEN",
+    "source_head": "b1a399950cfd933474cd114f3718311117b3837b"
   }
 }
