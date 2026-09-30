@@ -91,7 +91,7 @@ Lightweight performance QA only — no Lighthouse score is the gate for `v0.8-rc
 
 ## Known limitations
 
-- **14 works still Agent-level**: p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100 (plus p.52 was already Human verified from P1; in total 14 remain Agent-confirmed or AUTO_CANDIDATE). Human Verification P2 has not started; it is a separate task.
+- **14 works still Agent-level**: p.2, p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100. Human Verification P2 has not started; it is a separate task.
 - **Capture dates mostly unknown** for Agent-level works. OCR-confirmed prints do not consistently include shoot dates; we do not guess.
 - **Chinese-character photographer names are not guessed**; `author` is left as the English / pinyin form confirmed in OCR.
 - **No OG image** yet, by deliberate decision. The right to use historical scan derivatives as social-card art is an open question for the project.
@@ -104,12 +104,14 @@ Lightweight performance QA only — no Lighthouse score is the gate for `v0.8-rc
 
 | Stage | Build / Deployment ID | Notes |
 |---|---|---|
-| Validator gate | 146/146 PASS | local `scripts/validate_catalog.py` |
+| Validator gate | 152/152 PASS | local `scripts/validate_catalog.py` |
 | Static metadata check | grep PASS | meta description, canonical, OG, Twitter, title all present |
 | Push to `main` | (latest commit at close) | non-force-push |
-| Vercel deployment | (recorded in `STATUS.json.p8`) | aliased to `selected-photographs-exhibition.vercel.app` |
-| Production smoke | HTTP/2 200, age:0, cors `*` | public URL live |
-| Production metadata scrape | og / twitter / canonical exact | curl + grep, no JS |
+| Vercel deployment | Git integration check PASS · `H8YaFKmAsFvbFtcnMCXckFrgLvB5` | aliased to `selected-photographs-exhibition.vercel.app` |
+| Production browser QA | 42/42 PASS | Remote Windows Chromium/Puppeteer; desktop 1440×1000 + mobile 390×844 |
+| Production assets | 18/18 scan images | canonical `assets.js` synced from `ingest-receipt.json`; 0 asset 404s |
+| Production errors | 0 console / 0 page / 0 asset 404 | favicon request suppressed with data-URI icon |
+| Production metadata | description / canonical / OG / Twitter exact | live DOM verified |
 
 ---
 
