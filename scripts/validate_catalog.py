@@ -246,8 +246,9 @@ def main():
                 else:
                     fail("index.html embedded work-data differs from works.json — re-run with updated embedded JSON")
 
-    # 14. STATUS.json must be v0.7 form (P6 §11 — was v0.6 in P5)
-    print("[14] Checking STATUS.json is v0.7 form ...")
+    # 14. STATUS.json version form check (P6 §11 hardcoded '0.7' when v0.7 was current;
+    #     P8 publication RC now publishes '0.8-rc1'; v0.7 still accepted for legacy P6/P7).
+    print("[14] Checking STATUS.json version form ...")
     if not STATUS_FILE.exists():
         fail(f"STATUS.json not found at {STATUS_FILE}")
     else:
@@ -256,10 +257,11 @@ def main():
         except json.JSONDecodeError as e:
             fail(f"STATUS.json is not valid JSON: {e}")
             status = {}
-        if status.get("version") == "0.7":
-            ok("STATUS.json version = 0.7")
+        accepted_versions = {"0.8-rc1", "0.7"}
+        if status.get("version") in accepted_versions:
+            ok(f"STATUS.json version = {status.get('version')!r}")
         else:
-            fail(f"STATUS.json version = {status.get('version')!r} (expected '0.7')")
+            fail(f"STATUS.json version = {status.get('version')!r} (expected one of {sorted(accepted_versions)})")
         if status.get("work_count") == 18:
             ok("STATUS.json work_count = 18")
         else:

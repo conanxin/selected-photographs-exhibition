@@ -4,6 +4,15 @@ A web exhibition and research archive built around *Selected Photographs from Ch
 
 **Live demo:** <https://selected-photographs-exhibition.vercel.app>
 
+> **Current public version: `v0.8-rc1`** (Publication Release Candidate, 2026-09-30)
+>
+> - 18 exhibition works · 6 chapters · 96 whole-book archive records · 4 Human verified
+> - Accessibility: skip-link to `#top`, focusable `<main>`, project-controlled alt text on all 18 scan images (`loading="lazy"` + `decoding="async"`)
+> - Publication metadata: `<meta name="description">`, `<link rel="canonical">`, Open Graph, Twitter Card (no OG image, by deliberate rights decision)
+> - Rights / provenance: scan derivatives only, MIT License applies to code and docs only
+>
+> See [`RELEASE-NOTES-v0.8-rc1.md`](./RELEASE-NOTES-v0.8-rc1.md) for the full release notes. Evidence model is unchanged from v0.7 (no Human Verification P2, no fourth batch).
+
 The code in this repository is released under the **MIT License**. The scanned page images reproduced in `assets/` are derived from the public Internet Archive item listed under [Source book](#source-book-1977); each image keeps its Internet Archive member path and SHA-256 in `ingest-receipt.json`. This repository does **not** claim that MIT extends to those scans — see [License and provenance](#license-and-provenance).
 
 ---

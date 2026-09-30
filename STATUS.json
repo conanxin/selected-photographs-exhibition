@@ -414,21 +414,30 @@
   },
   "p8": {
     "publication_rc": true,
+    "version": "0.8-rc1",
     "content_model_unchanged": true,
     "evidence_states_unchanged": true,
     "human_verification_p2_started": false,
     "fourth_image_batch_started": false,
     "planned_checks": [
-      "editorial copy",
-      "SEO/social metadata",
-      "skip link",
-      "scan image alt/loading",
-      "rights/provenance note",
-      "desktop/mobile production QA"
+      "description",
+      "canonical",
+      "open_graph",
+      "twitter_metadata",
+      "skip_link",
+      "focusable_main",
+      "image_lazy_loading",
+      "image_async_decoding",
+      "stale_public_copy",
+      "rights_provenance",
+      "v0.8-rc1"
     ],
     "issue": 7,
     "issue_url": "https://github.com/conanxin/selected-photographs-exhibition/issues/7",
     "issue_status": "OPEN",
-    "source_head": "efe6bf6f2d8b8dc437be27f4d6afffa1bce8a1b2"
+    "source_head": "606a8efd7bb6e1dcc9ac6a02e2ca93117a3fabb2",
+    "release_notes_path": "RELEASE-NOTES-v0.8-rc1.md",
+    "no_og_image": true,
+    "og_image_status": "intentionally_absent_until_rights_decided"
   }
 }
