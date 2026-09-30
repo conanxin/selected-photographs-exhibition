@@ -2,7 +2,7 @@
   "version": "0.7",
   "date": "2026-09-30",
   "scope": "P6_CURATORIAL_CONSOLIDATION_96_ARCHIVE_INDEX",
-  "task_id": "SPFC_P5_BATCH3_AGENT_EXPANSION",
+  "task_id": "SPFC_P6_CURATORIAL_ARCHIVE_INDEX",
   "work_count": 18,
   "real_scan_works": 18,
   "agent_reviewed": 18,
@@ -186,7 +186,7 @@
       "note": "12 works live; Human Verification P1 closed; 4/12 Human verified; production deployed (dpl_HMXKspNJ61Z3HNAJ4tXZDKaD5Lev). SUPERSEDED by v0.6."
     }
   },
-  "next_action": "Open https://github.com/conanxin/selected-photographs-exhibition/issues/3 for acceptance comment + close. Paste NOTION-10-UPDATE.md into Notion P5 page when API access available. Third batch (6 new works) Agent-level review complete. Human Verification Pack is ready in verification/ for remaining 8 works when you have more time.",
+  "next_action": "Pull the P6.1 p.90 catalog-credit correction, run scripts/validate_catalog.py, redeploy the existing Vercel project, QA the p.90 whole-book index row, then finalize Notion P6 sync. Human Verification P2 remains paused.",
   "human_verified_pages": [
     3,
     40,
@@ -194,7 +194,7 @@
     90
   ],
   "human_verification_basis": "User explicitly confirmed the four-item verification pack in ChatGPT on 2026-09-30 (P1). P2 NOT entered per spec rule.",
-  "production_sync": "DEPLOYED",
+  "production_sync": "PENDING_CORRECTIVE_REDEPLOY",
   "chapter_count": 6,
   "batch3": {
     "scope": "Third Batch Agent-level Expansion",
@@ -275,10 +275,11 @@
         "catalog": "Chiang Chen"
       },
       "p.90": {
-        "main": "Chou Chia-kue",
-        "catalog": "Chou Chia-kuo"
+        "main": "Chou Chia-kuo",
+        "catalog": "Chou Chia-kue"
       }
     },
-    "note": "18 件有展览图像，78 件是文本档案记录（不显示替代图片）"
+    "note": "18 件有展览图像，78 件是文本档案记录（不显示替代图片）",
+    "p90_correction": "P6.1 correction: catalog-96 and archive-index metadata had the p.90 printed/catalog spellings reversed. Canonical Human-verified works.json remains Chou Chia-kuo / variant Chou Chia-kue."
   }
 }
