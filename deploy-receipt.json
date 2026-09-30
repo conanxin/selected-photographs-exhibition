@@ -1,62 +1,115 @@
 {
-  "task_id": "SPFC_P6_1_P90_ARCHIVE_CREDIT_CLOSEOUT",
-  "version": "0.7",
+  "task_id": "SPFC_P8_PUBLICATION_RELEASE_CANDIDATE",
+  "version": "0.8-rc1",
+  "status": "PASS",
   "production_sync": "DEPLOYED",
   "production_url": "https://selected-photographs-exhibition.vercel.app",
-  "production_build_url": "https://selected-photographs-exhibition-mm4n699lf-conanxins-projects.vercel.app",
-  "vercel_deployment_id": "dpl_58fzeC3gJHwiA8AyRpHoh2PZGEbA",
-  "vercel_build_hash": "mm4n699lf",
-  "vercel_ready_seconds": 9,
-  "vercel_deployed_at": "2026-09-30T08:30:40Z",
-  "git": {
-    "commit": "462adac5cfbf6e3599f8c04fa9609ad68c68fd2d",
-    "branch": "main",
-    "remote_head": "462adac5cfbf6e3599f8c04fa9609ad68c68fd2d"
+  "production_verified_commit": "b570461d57abdfab119c833244f5bc7c5070038d",
+  "closeout_docs_head_before_receipt": "4ca2d4b7c9fd5ddc8d6256a0c62819b23c85c2a3",
+  "vercel": {
+    "project": "selected-photographs-exhibition",
+    "scope": "conanxins-projects",
+    "git_integration": true,
+    "production_branch": "main",
+    "github_status_context": "Vercel",
+    "github_status_state": "success",
+    "deployment_ref": "H8YaFKmAsFvbFtcnMCXckFrgLvB5",
+    "dashboard_target_url": "https://vercel.com/conanxins-projects/selected-photographs-exhibition/H8YaFKmAsFvbFtcnMCXckFrgLvB5",
+    "dpl_id": null,
+    "dpl_id_note": "The current ChatGPT/Vercel OAuth did not expose the dpl_* identifier; the GitHub Vercel status check and live production URL were used as deployment evidence."
   },
-  "sha256": {
-    "index.html":       { "src": "b1a96f52c72aaec4aba69f56cdde0122be5d15105e0ed1bd8a7a856f4d17b71b",  "pub": "b1a96f52c72aaec4aba69f56cdde0122be5d15105e0ed1bd8a7a856f4d17b71b"  },
-    "catalog-96.json":  { "src": "623b02da2e35b469ba82a9cbad5e0eb79c227ee85d38929d2ef719c276024e4e",    "pub": "623b02da2e35b469ba82a9cbad5e0eb79c227ee85d38929d2ef719c276024e4e"    },
-    "works.json":       { "src": "62087719e17607775d5cc2edad554e2db49716e7501f600306bf97db6d62403f",  "pub": "62087719e17607775d5cc2edad554e2db49716e7501f600306bf97db6d62403f"  },
-    "STATUS.json":      { "src": "c7926b5e5e824e8c0f2158c11ac2f227fdcff8a1d05391efe7f411544d5dcd5a", "pub": "47e079d1d9fe46af2ac14fd88489820d9688872695be857ab04e86beaa597b6a" }
-  },
-  "p6_metadata": {
-    "credit_variants_preserved": {
-      "p.3":  { "main": "Chou Chun-yen", "catalog": "Chou Chun-jen" },
-      "p.52": { "main": "Chang Chen",    "catalog": "Chiang Chen"   },
-      "p.90": { "main": "Chou Chia-kuo", "catalog": "Chou Chia-kue" }
-    },
-    "p90_direction_after_p6_1": {
-      "main":    "Chou Chia-kuo",
-      "variant": "Chou Chia-kue",
-      "human_verified": true
-    }
-  },
-  "catalog_validation": {
-    "checks_total": 137,
-    "checks_passed": 137,
+  "validator": {
+    "checks_total": 152,
+    "checks_passed": 152,
     "errors": 0,
-    "warnings": 0,
-    "exit_code": 0
+    "warnings": 0
   },
   "production_qa": {
-    "desktop_1440x1000": "PASS (22/22)",
-    "mobile_390x844":    "PASS (10/10)",
-    "total":             "PASS (32/32)",
-    "page_errors":       0,
-    "console_errors":    0,
-    "asset_404s":        0
+    "runner": "Remote Desktop Commander DESKTOP-3A8N7VN + headless Chromium/Puppeteer",
+    "checks_total": 42,
+    "checks_passed": 42,
+    "checks_failed": 0,
+    "desktop_viewport": "1440x1000",
+    "mobile_viewport": "390x844",
+    "runtime_status_exact": "v0.8-rc1 · 18件展览作品 · 96项全书目录 · 18/18 Agent reviewed · 4/18 Human verified",
+    "image_count": 18,
+    "image_alt": "PASS",
+    "image_lazy": "PASS",
+    "image_async_decoding": "PASS",
+    "archive_filters": {
+      "all": 96,
+      "selected": 18,
+      "scanned": 18,
+      "colour": 68
+    },
+    "focus_return": "PASS",
+    "keyboard_activation": "PASS",
+    "esc_close": "PASS",
+    "detail_tab_keyboard": "PASS",
+    "desktop_horizontal_overflow": false,
+    "mobile_horizontal_overflow": false,
+    "console_errors": 0,
+    "page_errors": 0,
+    "asset_404s": 0
   },
-  "scope_discipline": {
-    "human_verification_p2_entered": false,
-    "images_added": false,
-    "other_works_evidence_modified": false,
-    "human_verified_pages_modified": false,
-    "chinese_name_guessed": false,
-    "capture_date_guessed": false,
-    "ai_generation_used": false,
-    "ai_upscale_used": false,
-    "replacement_image_used": false
+  "release_surface": {
+    "editorial_copy": "PASS",
+    "meta_description": "PASS",
+    "canonical": "PASS",
+    "open_graph": "PASS",
+    "twitter_meta": "PASS",
+    "skip_link": "PASS",
+    "rights_provenance": "PASS",
+    "release_notes": "RELEASE-NOTES-v0.8-rc1.md"
   },
-  "next_action": "User pastes NOTION-11-P6.1-UPDATE.md into Notion canonical P6 page when Notion write API is wired in. Human Verification P2 (separate task) — 14 Agent-level works pending human confirmation against a physical 1977 printing: p.6, p.10, p.18, p.23, p.38, p.39, p.54, p.59, p.79, p.83, p.87, p.98, p.100.",
-  "notes": "P6.1 corrective redeploy of p.90 archive credit direction. Corrected data layer only (printed_credit=Chou Chia-kuo as main; catalog_credit_variant=Chou Chia-kue as variant). Validator 137/137 PASS. Production deployment mm4n699lf reflects data. Detail panel preserves both credit spellings per §7 rule. Catalog invariants unchanged: 18/6/96/18/78/68/28/4. HUMAN_VERIFIED set unchanged: [3, 40, 52, 90]."
+  "asset_manifest_fix": {
+    "old_state": "assets/assets.js exposed 12 works although six Batch-3 JPEGs were already tracked",
+    "canonical_source": "ingest-receipt.json v0.4",
+    "new_requested_work_count": 18,
+    "new_loaded_count": 18,
+    "page_set": [
+      2,
+      3,
+      6,
+      10,
+      18,
+      23,
+      38,
+      39,
+      40,
+      52,
+      54,
+      59,
+      79,
+      83,
+      87,
+      90,
+      98,
+      100
+    ],
+    "verified_source_sha256": "ff1acb5ae5e237215194b58d4810809410343de55fc4eb08b3400666d736de87",
+    "favicon_404_fixed": true
+  },
+  "evidence_invariants": {
+    "human_verified_pages": [
+      3,
+      40,
+      52,
+      90
+    ],
+    "human_verified_count": 4,
+    "human_verification_p2_started": false,
+    "fourth_image_batch_started": false,
+    "evidence_states_changed": false,
+    "p90_main": "Chou Chia-kuo",
+    "p90_catalog_variant": "Chou Chia-kue",
+    "p100_human_verified": false
+  },
+  "issue_7": {
+    "status": "CLOSED",
+    "closed_at": "2026-09-30T13:26:07Z",
+    "acceptance_comment_id": 5912241199
+  },
+  "qa_artifact": "qa/p8-production-qa.json",
+  "next_action": "P8 is closed. Human Verification P2 remains paused; 14 Agent-level works remain pending human confirmation. OG-image rights decision remains a separate future task."
 }
